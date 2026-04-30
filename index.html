@@ -471,59 +471,124 @@
                         </div>`
                     },
                     {
-                        title: "Preço e Estoque",
+                        title: "Taxas do Mercado Livre",
                         content: `<div class="space-y-6">
-                            <p class="text-gray-700 font-medium text-lg">Como definir o preço de venda:</p>
+                            <p class="text-gray-700 font-medium">As taxas do Mercado Livre para 2025/2026 dependem essencialmente de três fatores: o <strong>tipo de anúncio</strong>, a <strong>categoria do produto</strong> e o <strong>valor de venda</strong>.</p>
                             
-                            <div class="bg-gray-800 text-white p-6 rounded-xl text-center">
-                                <p class="text-2xl font-mono">PREÇO = (Custo + Frete + Taxas) × 2.0</p>
-                                <p class="text-gray-400 mt-2">Multiplicar por 2 garante 50% de margem líquida</p>
+                            <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                <h3 class="font-bold text-blue-800 text-lg mb-4"><i class="fas fa-tags mr-2"></i>1. Tarifas de Venda (Comissão)</h3>
+                                <p class="text-gray-700 mb-3">A comissão é cobrada apenas quando a venda é concretizada. A diferença entre os tipos de anúncio é a exposição e o parcelamento:</p>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm border-collapse">
+                                        <thead class="bg-gray-800 text-white">
+                                            <tr>
+                                                <th class="p-3 text-left">Tipo de Anúncio</th>
+                                                <th class="p-3 text-left">Exposição</th>
+                                                <th class="p-3 text-left">Comissão</th>
+                                                <th class="p-3 text-left">Parcelamento</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b bg-white">
+                                                <td class="p-3 font-bold">Grátis</td>
+                                                <td class="p-3">Baixa</td>
+                                                <td class="p-3">0%</td>
+                                                <td class="p-3">Com juros</td>
+                                            </tr>
+                                            <tr class="border-b bg-gray-50">
+                                                <td class="p-3 font-bold">Clássico</td>
+                                                <td class="p-3">Média</td>
+                                                <td class="p-3 font-bold text-green-600">10 a 14%</td>
+                                                <td class="p-3">Com juros</td>
+                                            </tr>
+                                            <tr class="border-b bg-white">
+                                                <td class="p-3 font-bold">Premium</td>
+                                                <td class="p-3">Máxima</td>
+                                                <td class="p-3 font-bold text-purple-600">15 a 19%</td>
+                                                <td class="p-3 font-bold text-green-600">Sem juros</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="bg-yellow-50 p-3 rounded-lg mt-3">
+                                    <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>Dica:</strong> O anúncio <strong>Premium</strong> é sempre exatamente <strong>5% mais caro</strong> que o Clássico na mesma categoria. Esse valor extra é o que custeia o parcelamento sem juros para o comprador.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h3 class="font-bold text-green-800 text-lg mb-4"><i class="fas fa-box mr-2"></i>2. Custo Fixo por Unidade</h3>
+                                <p class="text-gray-700 mb-3">Para produtos com valor de venda inferior a R$ 79, o Mercado Livre aplica uma <strong>taxa fixa adicional</strong> por unidade vendida para cobrir custos operacionais:</p>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between bg-white p-3 rounded-lg">
+                                        <span>Produtos até R$ 12,50</span>
+                                        <span class="font-bold text-red-600">Taxa reduzida</span>
+                                    </div>
+                                    <div class="flex justify-between bg-white p-3 rounded-lg">
+                                        <span>Produtos entre R$ 12,50 e R$ 29</span>
+                                        <span class="font-bold">R$ 6,25/unid.</span>
+                                    </div>
+                                    <div class="flex justify-between bg-white p-3 rounded-lg">
+                                        <span>Produtos entre R$ 29 e R$ 50</span>
+                                        <span class="font-bold">R$ 6,50/unid.</span>
+                                    </div>
+                                    <div class="flex justify-between bg-white p-3 rounded-lg">
+                                        <span>Produtos entre R$ 50 e R$ 78,99</span>
+                                        <span class="font-bold">R$ 6,75/unid.</span>
+                                    </div>
+                                    <div class="flex justify-between bg-green-100 p-3 rounded-lg border-2 border-green-400">
+                                        <span class="font-bold">Acima de R$ 79</span>
+                                        <span class="font-bold text-green-600">R$ 0,00 (sem taxa fixa)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-5 rounded-xl border-2 border-purple-300">
+                                <h3 class="font-bold text-purple-800 text-lg mb-4"><i class="fas fa-shipping-fast mr-2"></i>3. Frete e Logística</h3>
+                                <div class="space-y-3">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold">Obrigatoriedade:</p>
+                                        <p class="text-gray-700">O frete grátis é obrigatório para anúncios de produtos novos a partir de <strong>R$ 79</strong>.</p>
+                                    </div>
+                                    <div class="bg-yellow-50 p-4 rounded-lg">
+                                        <p class="font-bold">Novidade (Subsídio):</p>
+                                        <p class="text-gray-700">Em 2025, o Mercado Livre passou a oferecer <strong>frete grátis para o comprador a partir de R$ 19</strong>, com a plataforma subsidiando parte desse custo em certas categorias.</p>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <p class="font-bold">Desconto do Vendedor:</p>
+                                        <p class="text-gray-700">O custo do frete depende da sua <strong>reputação</strong>. Vendedores com medalha (Mercado Líder) têm descontos de até <strong>50% a 70%</strong> na tabela do Mercado Envios.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3"><i class="fas fa-calculator mr-2"></i>Resumo Estratégico:</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Venda acima de <strong>R$ 79</strong> para evitar taxa fixa e ativar Full</li>
+                                    <li>Use tipo Premium se puder cobrir os 5% extras para diferenciação</li>
+                                    <li>Considere o subsídio do ML ao precificar produtos de baixo valor</li>
+                                </ul>
                             </div>
 
                             <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
-                                <h4 class="font-bold text-yellow-800 text-lg mb-3">Exemplo de cálculo detalhado:</h4>
-                                <div class="bg-white p-4 rounded-lg font-mono text-sm space-y-2">
-                                    <p class="border-b pb-2">Produto (custo China): R$ 50,00</p>
-                                    <p class="border-b pb-2">Frete até Brasil: R$ 12,00</p>
-                                    <p class="border-b pb-2">Imposto importação (60%): R$ 37,20</p>
-                                    <p class="border-b pb-2">Taxa ML (12%): R$ 11,93</p>
-                                    <p class="border-b pb-2">Taxa MP (4%): R$ 3,98</p>
-                                    <p class="border-b pb-2 font-bold">CUSTO TOTAL: R$ 115,11</p>
-                                    <p class="text-green-400 font-bold text-xl">PREÇO MÍNIMO (2x): R$ 230,22</p>
-                                    <p class="text-green-400 font-bold">LUCRO: R$ 115,11 (50%)</p>
-                                </div>
-                            </div>
-
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
-                                    <h4 class="font-bold text-green-800 text-lg mb-3">Taxas ML 2025</h4>
-                                    <div class="space-y-2 text-sm">
-                                        <div class="flex justify-between"><span>Vendas (categoria):</span> <span class="font-bold">11% - 16%</span></div>
-                                        <div class="flex justify-between"><span>Mercado Envios:</span> <span class="font-bold">5% - 10%</span></div>
-                                        <div class="flex justify-between"><span>Mercado Pago:</span> <span class="font-bold">3.99%</span></div>
-                                        <div class="flex justify-between"><span>Mercado Full:</span> <span class="font-bold text-green-600">FRETE GRÁTIS</span></div>
+                                <h3 class="font-bold text-yellow-800 text-lg mb-4"><i class="fas fa-examples mr-2"></i>Exemplos Práticos</h3>
+                                <div class="space-y-4">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold text-green-700">1. Venda de R$ 50 (Clássico):</p>
+                                        <p class="text-gray-700">Você pagaria a comissão da categoria (ex: 12% = R$ 6,00) + Taxa fixa (R$ 6,50). <strong>Total de taxas: R$ 12,50</strong>.</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold text-purple-700">2. Venda de R$ 150 (Premium):</p>
+                                        <p class="text-gray-700">Você pagaria apenas a comissão (ex: 17% = R$ 25,50) + o custo do frete grátis (que varia conforme o peso e sua reputação).</p>
                                     </div>
                                 </div>
-                                <div class="bg-purple-50 p-5 rounded-xl border-2 border-purple-300">
-                                    <h4 class="font-bold text-purple-800 text-lg mb-3">Dica Ouro - Full</h4>
-                                    <p class="text-gray-700">Venda acima de <strong class="text-2xl text-purple-600">R$ 79</strong> para ativar Full!</p>
-                                    <p class="text-sm text-purple-600 mt-2">Isso reduz custo de envio de ~R$ 15 para ~R$ 0 e aumenta vendas 3-5x!</p>
-                                </div>
                             </div>
 
-                            <div class="space-y-3">
-                                <div class="bg-white p-4 rounded-lg border-2 border-green-200">
-                                    <h4 class="font-bold text-green-700">Preço Competitivo</h4>
-                                    <p class="text-sm">Pesquise concorrentes e fique 5-10% abaixo para ganhar buy box</p>
+                            <div class="bg-red-50 p-5 rounded-xl border-2 border-red-300">
+                                <h3 class="font-bold text-red-800 text-lg mb-3"><i class="fas fa-lightbulb mr-2"></i>Resumo para o seu negócio:</h3>
+                                <div class="space-y-2 text-gray-700">
+                                    <p>Se você trabalha com <strong>margens apertadas em produtos barato</strong>, a <strong>taxa fixa</strong> é o seu maior desafio.</p>
+                                    <p>Se vende <strong>produtos caros</strong>, o foco deve ser o <strong>anúncio Premium</strong>, pois o parcelamento sem juros é o que mais converte no Brasil.</p>
                                 </div>
-                                <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
-                                    <h4 class="font-bold text-blue-700">Estoque</h4>
-                                    <p class="text-sm">Mantenha estoque suficiente. ML prioriza vendedores com estoque.</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-300">
-                                <p class="text-blue-800"><i class="fas fa-lightbulb mr-2"></i><strong>Dica:</strong> Use a ferramenta "Preço Suggestions" do ML para ver preços competitivos e posicionamento ideal.</p>
                             </div>
                         </div>`
                     }
@@ -537,76 +602,110 @@
                     {
                         title: "Como Encontrar Produtos Lucrativos",
                         content: `<div class="space-y-6">
-                            <p class="text-gray-700 font-medium text-lg">Métodos testados para encontrar produtos winners (vendedores):</p>
+                            <p class="text-gray-700 font-medium">Para encontrar produtos lucrativos no Mercado Livre e construir um negócio sustentável, você deve sair do "achismo" e focar em dados de demanda, concorrência e margem.</p>
                             
-                            <div class="bg-green-50 p-6 rounded-xl border-2 border-green-300">
-                                <h4 class="font-bold text-green-800 text-xl mb-4"><i class="fas fa-fire mr-2"></i>MÉTODO 1: Tendências do Mercado Livre</h4>
-                                <div class="space-y-3 text-gray-700">
+                            <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                <h3 class="font-bold text-blue-800 text-lg mb-4"><i class="fas fa-chart-line mr-2"></i>1. Utilize a Ferramenta "Tendências" do Mercado Livre</h3>
+                                <div class="space-y-3">
                                     <div class="bg-white p-4 rounded-lg">
-                                        <p class="font-bold">Passo 1:</p>
-                                        <p>Acesse mercadolivre.com.br</p>
+                                        <p class="font-bold">Acesse:</p>
+                                        <p><a href="https://tendencias.mercadolivre.com.br" target="_blank" class="text-blue-600 underline">tendencias.mercadolivre.com.br</a></p>
                                     </div>
                                     <div class="bg-white p-4 rounded-lg">
-                                        <p class="font-bold">Passo 2:</p>
-                                        <p>Na barra de busca, clique em "Mais Vendidos"</p>
+                                        <p class="font-bold">O que buscar:</p>
+                                        <p class="text-gray-700">Navegue pelas categorias e veja as palavras-chave que estão subindo no ranking. Se um termo está no topo e tem poucos anúncios profissionais, ali existe uma oportunidade.</p>
                                     </div>
-                                    <div class="bg-white p-4 rounded-lg">
-                                        <p class="font-bold">Passo 3:</p>
-                                        <p>Navegue por categorias (Eletrônicos, Casa, Pet, etc)</p>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg">
-                                        <p class="font-bold">Passo 4:</p>
-                                        <p>Identifique produtos com <strong>50-200 vendas/mês</strong></p>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg">
-                                        <p class="font-bold">Passo 5:</p>
-                                        <p>Verifique nota do vendedor: <strong>4.0-4.5</strong> = oportunidade!</p>
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>Dica:</strong> Procure por termos específicos ("Nicho") em vez de termos genéricos. Exemplo: Em vez de "Fones", busque por "Fone de condução óssea para natação".</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-blue-50 p-6 rounded-xl border-2 border-blue-300">
-                                <h4 class="font-bold text-blue-800 text-xl mb-4"><i class="fas fa-tools mr-2"></i>MÉTODO 2: Ferramentas de Pesquisa</h4>
-                                <div class="grid md:grid-cols-3 gap-4">
-                                    <div class="bg-white p-4 rounded-lg text-center">
-                                        <i class="fas fa-rocket text-3xl text-purple-500 mb-2"></i>
-                                        <p class="font-bold">Helium 10</p>
-                                        <p class="text-xs text-gray-500">Pago • Dados precisos</p>
-                                        <p class="text-sm mt-2">Amazon e ML</p>
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h3 class="font-bold text-green-800 text-lg mb-4"><i class="fas fa-ticket-alt mr-2"></i>2. A Regra do "Ticket Médio" (R$ 79 a R$ 200)</h3>
+                                <p class="text-gray-700 mb-3">A faixa de preço ideal para quem está otimizando o lucro costuma estar entre R$ 79 e R$ 200.</p>
+                                <div class="space-y-3">
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-green-700">Por que R$ 79?</p>
+                                        <p class="text-gray-600 text-sm">É o valor onde ofrete grátis se torna obrigatório. Produtos levemente acima desse valor permitem que você embuta o custo do frete no preço final sem que ele "coma" toda a sua margem.</p>
                                     </div>
-                                    <div class="bg-white p-4 rounded-lg text-center">
-                                        <i class="fas fa-search text-3xl text-green-500 mb-2"></i>
-                                        <p class="font-bold">Jungle Scout</p>
-                                        <p class="text-xs text-gray-500">Pago • Muito completo</p>
-                                        <p class="text-sm mt-2">Amazon referência</p>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg text-center">
-                                        <i class="fas fa-hand-pointer text-3xl text-yellow-500 mb-2"></i>
-                                        <p class="font-bold">ML orgânico</p>
-                                        <p class="text-xs text-gray-500">Grátis • Manual</p>
-                                        <p class="text-sm mt-2">Sem custo</p>
+                                    <div class="bg-red-50 p-3 rounded-lg">
+                                        <p class="font-bold text-red-700">Baixo Valor:</p>
+                                        <p class="text-gray-600 text-sm">Evite produtos abaixo de R$ 30 se você não tiver escala industrial, pois a <strong>taxa fixa por unidade</strong> (cerca de R$ 6,50) come a margem.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-gray-900 text-green-400 p-6 rounded-xl">
-                                <h4 class="font-bold text-xl mb-4"># NICHOS QUENTES 2025 - LISTA ATUALIZADA:</h4>
-                                <div class="grid md:grid-cols-2 gap-3 text-sm">
-                                    <p>• Smartwatches e Relógios inteligentes</p>
-                                    <p>• Pets (brinquedos, comedouros, coleiras)</p>
-                                    <p>• Casa smart (Alexa, câmeras, tomadas)</p>
-                                    <p>• Beleza coreana (skincare, massageadores)</p>
-                                    <p>• Acessórios de cozinha (organizadores)</p>
-                                    <p>• Fones de ouvido Bluetooth</p>
-                                    <p>• Carregadores turbo e docks</p>
-                                    <p>• Organização doméstica (gavetas, prateleiras)</p>
-                                    <p>• Fitness (elásticos, halteres, tapetes)</p>
-                                    <p>• Brinquedos educativos</p>
+                            <div class="bg-purple-50 p-5 rounded-xl border-2 border-purple-300">
+                                <h3 class="font-bold text-purple-800 text-lg mb-4"><i class="fas fa-search-plus mr-2"></i>3. Analise o "Gap" de Qualidade da Concorrência</h3>
+                                <p class="text-gray-700 mb-3">Encontre produtos que têm muita venda, mas avaliações ruins (3 estrelas ou menos).</p>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="font-bold">Oportunidade:</p>
+                                    <p class="text-gray-600">Leia os comentários negativos dos anúncios dos concorrentes. O cliente reclama que o material é frágil? Que o manual é difícil? Que a bateria dura pouco?</p>
+                                    <p class="mt-3 text-green-700"><strong>Ação:</strong> Encontre um fornecedor que resolva esse problema específico. Oferecer um produto corrigido permite que você venda mais caro e tenha menos devoluções.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h3 class="font-bold text-yellow-800 text-lg mb-4"><i class="fas fa-filter mr-2"></i>4. Critérios de "Produto Winner"</h3>
+                                <p class="text-gray-700 mb-3">Ao analisar um item, ele deve passar por este filtro:</p>
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-green-600">✓ Não é sazonal</p>
+                                        <p class="text-sm text-gray-500">Vende o ano todo (evite depender só de Natal ou Verão no início)</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-green-600">✓ Baixa fragilidade</p>
+                                        <p class="text-sm text-gray-500">Produtos que não quebram fácil no transporte</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-green-600">✓ Recorrência ou Necessidade</p>
+                                        <p class="text-sm text-gray-500">Itens que resolvem uma dor imediata ou que precisam ser repostos</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-green-600">✓ Dimensões adequadas</p>
+                                        <p class="text-sm text-gray-500">Produtos pequenos e leves são mais baratos de estocar e enviar</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800 text-white p-5 rounded-xl">
+                                <h3 class="font-bold text-lg mb-3"><i class="fas fa-calculator mr-2"></i>5. Cálculo da Margem Real (Precificação)</h3>
+                                <p class="text-gray-300 mb-3">Um produto só é lucrativo se a conta fechar após todos os descontos:</p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between border-b border-gray-600 pb-1">
+                                        <span>Preço de Venda</span>
+                                        <span>R$ 100,00</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-gray-600 pb-1">
+                                        <span>(-) Custo de Aquisição</span>
+                                        <span class="text-red-400">- R$ 40,00</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-gray-600 pb-1">
+                                        <span>(-) Comissão do ML (12%)</span>
+                                        <span class="text-red-400">- R$ 12,00</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-gray-600 pb-1">
+                                        <span>(-) Frete Grátis</span>
+                                        <span class="text-red-400">- R$ 15,00</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-gray-600 pb-1">
+                                        <span>(-) Custos de Embalagem</span>
+                                        <span class="text-red-400">- R$ 3,00</span>
+                                    </div>
+                                    <div class="flex justify-between font-bold text-green-400">
+                                        <span>= Lucro Líquido</span>
+                                        <span>R$ 30,00 (30%)</span>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="bg-red-50 p-4 rounded-lg border border-red-300">
-                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>EVITE nichos saturados:</strong> Capas de celular genéricas, power banks básicos,relógios Xiaomi imitation - margemquase zero por excesso de concorrência.</p>
+                                <p class="text-red-700"><i class="fas fa-globe mr-2"></i><strong>6. Olhe para fora:</strong> Monitore sites como <strong>Amazon US (Best Sellers)</strong>, <strong>AliExpress</strong> e <strong>TikTok Creative Center</strong>. Produtos que estão viralizando nos EUA ou na Europa geralmente chegam ao Mercado Livre com força 3 a 6 meses depois.</p>
+                            </div>
+
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-300">
+                                <p class="text-blue-800"><i class="fas fa-gem mr-2"></i><strong>Dica de Ouro - Micro-Nichos:</strong> Em vez de tentar vender "Acessórios para Celular" (altíssima concorrência), foque em "Acessórios para Criadores de Conteúdo" ou "Suportes Ergonômicos para Home Office". Quanto mais específico o nicho, menor a guerra de preços e maior a sua autoridade.</p>
                             </div>
                         </div>`
                     },
@@ -692,126 +791,201 @@
                     {
                         title: "Fornecedores da China 2025",
                         content: `<div class="space-y-6">
-                            <p class="text-gray-700 font-medium text-lg">Melhores plataformas para importar em 2025:</p>
+                            <p class="text-gray-700 font-medium">Encontrar bons fornecedores é o que diferencia um vendedor amador de um profissional com margem de lucro real. Para o mercado brasileiro em 2026, as fontes se dividem entre conveniência, escala e exclusividade.</p>
                             
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between bg-white p-5 rounded-xl border-2 hover:border-blue-400 transition">
-                                    <div class="flex items-center gap-4">
-                                        <span class="w-14 h-14 bg-blue-600 text-white rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-building"></i></span>
-                                        <div>
-                                            <div class="font-bold text-lg">Alibaba.com</div>
-                                            <div class="text-sm text-gray-500">Para produção em grande escala</div>
-                                            <div class="text-xs text-blue-600 mt-1">Quantidade mínima: 100-1000 unidades</div>
-                                        </div>
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h3 class="font-bold text-green-800 text-lg mb-4"><i class="fas fa-store mr-2"></i>1. Polos Atacadistas Físicos (O "Caminho das Pedras")</h3>
+                                <p class="text-gray-700 mb-3">Se você quer ver o produto em mãos e negociar preço para grandes quantidades, os centros de distribuição em São Paulo ainda são imbatíveis:</p>
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold">Brás e Bom Retiro</p>
+                                        <p class="text-sm text-gray-600">Foco em moda, vestuário e acessórios. Ideal para quem busca tendências rápidas.</p>
                                     </div>
-                                    <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full font-bold">MAIS CONFIÁVEL</span>
-                                </div>
-                                
-                                <div class="flex items-center justify-between bg-white p-5 rounded-xl border-2 hover:border-orange-400 transition">
-                                    <div class="flex items-center gap-4">
-                                        <span class="w-14 h-14 bg-orange-500 text-white rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-globe"></i></span>
-                                        <div>
-                                            <div class="font-bold text-lg">1688.com</div>
-                                            <div class="text-sm text-gray-500">Preços menores, direto fábrica</div>
-                                            <div class="text-xs text-orange-600 mt-1">Quantidade mínima: 10-50 unidades</div>
-                                        </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold">Rua 25 de Março</p>
+                                        <p class="text-sm text-gray-600">O coração de eletrônicos, gadgets, utilidades domésticas e brinquedos.</p>
                                     </div>
-                                    <span class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full font-bold">MELHOR PREÇO</span>
-                                </div>
-                                
-                                <div class="flex items-center justify-between bg-white p-5 rounded-xl border-2 hover:border-purple-400 transition">
-                                    <div class="flex items-center gap-4">
-                                        <span class="w-14 h-14 bg-purple-600 text-white rounded-xl flex items-center justify-center text-2xl"><i class="fab fa-shopify"></i></span>
-                                        <div>
-                                            <div class="font-bold text-lg">Shopify / Dropshipping</div>
-                                            <div class="text-sm text-gray-500">Sem estoque, direto envio</div>
-                                            <div class="text-xs text-purple-600 mt-1">Quantidade mínima: 0 (um a um)</div>
-                                        </div>
-                                    </div>
-                                    <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold">SEM RISCO</span>
-                                </div>
-
-                                <div class="flex items-center justify-between bg-white p-5 rounded-xl border-2 hover:border-green-400 transition">
-                                    <div class="flex items-center gap-4">
-                                        <span class="w-14 h-14 bg-green-600 text-white rounded-xl flex items-center justify-center text-2xl"><i class="fas fa-shopping-bag"></i></span>
-                                        <div>
-                                            <div class="font-bold text-lg">Taobao / Tmall</div>
-                                            <div class="text-sm text-gray-500">Para revenda de marcas</div>
-                                            <div class="text-xs text-green-600 mt-1">Quantidade mínima: 5+ unidades</div>
-                                        </div>
-                                    </div>
-                                    <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full font-bold">QUALIDADE</span>
                                 </div>
                             </div>
 
                             <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
-                                <h4 class="font-bold text-blue-800 text-lg mb-3"><i class="fas fa-user-friends mr-2"></i>NOVO 2025 - AGENTES DE COMPRAS:</h4>
-                                <p class="text-gray-700 mb-3">Use <strong>Cnstorm</strong>, <strong>Pandascrow</strong> ou <strong>SuperBuy</strong> para:</p>
+                                <h3 class="font-bold text-blue-800 text-lg mb-4"><i class="fas fa-globe mr-2"></i>2. Marketplaces de Atacado (B2B Digital)</h3>
+                                <p class="text-gray-700 mb-3">Existem plataformas focadas exclusivamente em conectar lojistas a fábricas:</p>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between bg-white p-3 rounded-lg">
+                                        <div>
+                                            <p class="font-bold">Inventa</p>
+                                            <p class="text-sm text-gray-500">Uma das maiores plataformas B2B do Brasil</p>
+                                        </div>
+                                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-bold">COSMETICOS</span>
+                                    </div>
+                                    <div class="flex items-center justify-between bg-white p-3 rounded-lg">
+                                        <div>
+                                            <p class="font-bold">Faire</p>
+                                            <p class="text-sm text-gray-500">Conecta lojistas a marcas independentes</p>
+                                        </div>
+                                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-bold">ARTESANAL</span>
+                                    </div>
+                                    <div class="flex items-center justify-between bg-white p-3 rounded-lg">
+                                        <div>
+                                            <p class="font-bold">Grupos de Telegram/WhatsApp</p>
+                                            <p class="text-sm text-gray-500">Comunidades de vendedores de marketplace</p>
+                                        </div>
+                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">LOTES</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-purple-50 p-5 rounded-xl border-2 border-purple-300">
+                                <h3 class="font-bold text-purple-800 text-lg mb-4"><i class="fas fa-handshake mr-2"></i>3. Diretórios de Importadores e Distribuidores</h3>
+                                <p class="text-gray-700 mb-3">Em vez de comprar de quem também vende no varejo, busque os <strong>Distribuidores Oficiais</strong>:</p>
                                 <ul class="list-disc list-inside space-y-2 text-gray-700">
-                                    <li>✓ Inspecionar qualidade antes do envio (fotos/vídeos)</li>
-                                    <li>✓ Consolidar múltiplos pedidos num único pacote</li>
-                                    <li>✓ Negociar preços menores com fábrica</li>
-                                    <li>✓ Repassar fotos e vídeos do produto para seu anúncio</li>
-                                    <li>✓ Verificar embalagem adequada para envio</li>
+                                    <li><strong>Sites das Marcas:</strong> Vá ao site oficial e procure pela aba "Seja um Revendedor" ou "Atacado"</li>
+                                    <li><strong>Busca por NCM:</strong> Use a busca por código NCM para encontrar distribuidores de categorias específicas</li>
                                 </ul>
                             </div>
 
-                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
-                                <p class="text-yellow-800"><i class="fas fa-truck mr-2"></i><strong>Frete marítimo vs aéreo:</strong> Marítimo é mais barato (R$ 2-5/kg) mas leva 30-45 dias. Aéreo é mais caro (R$ 15-25/kg) mas chega em 7-10 dias.</p>
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h3 class="font-bold text-yellow-800 text-lg mb-4"><i class="fas fa-shipping-fast mr-2"></i>4. Dropshipping Nacional (Baixo Investimento)</h3>
+                                <p class="text-gray-700 mb-3">Se você não quer manter estoque físico, pode usar fornecedores que enviam direto para o cliente:</p>
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold">AliExpress Choice</p>
+                                        <p class="text-sm text-gray-500">Armazéns em Curitiba ou São Paulo, envios rápidos</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold">Wiio ou Droppi</p>
+                                        <p class="text-sm text-gray-500">Conectam seu anúncio a fornecedores com estoque local</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-red-50 p-5 rounded-xl border-2 border-red-300">
+                                <h3 class="font-bold text-red-800 text-lg mb-4"><i class="fas fa-industry mr-2"></i>5. Fabricantes Locais (A "Mina de Ouro")</h3>
+                                <p class="text-gray-700 mb-3">O maior lucro está em comprar direto da fonte:</p>
+                                <p class="text-gray-600">Procure por indústrias de móveis, confecções ou metalúrgicas na sua região. Muitas vezes eles têm ótimos produtos, mas não sabem vender na internet. Você pode ser o "braço digital" deles.</p>
+                            </div>
+
+                            <div class="bg-gray-800 text-white p-5 rounded-xl">
+                                <h3 class="font-bold text-lg mb-3"><i class="fas fa-check-circle mr-2"></i>Como validar um fornecedor antes de comprar:</h3>
+                                <div class="grid md:grid-cols-3 gap-3 text-sm">
+                                    <div class="bg-gray-700 p-3 rounded">
+                                        <p class="font-bold text-yellow-400">1. Peça Amostras</p>
+                                        <p class="text-gray-300">Nunca compre um lote grande sem testar a qualidade antes</p>
+                                    </div>
+                                    <div class="bg-gray-700 p-3 rounded">
+                                        <p class="font-bold text-yellow-400">2. CNPJ e Tempo</p>
+                                        <p class="text-gray-300">Verifique se a empresa é sólida para evitar golpes</p>
+                                    </div>
+                                    <div class="bg-gray-700 p-3 rounded">
+                                        <p class="font-bold text-yellow-400">3. Capacidade</p>
+                                        <p class="text-gray-300">Pergunte: "Consigue me atender continuamente?"</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>`
                     },
-                    {
+{
                         title: "Cálculo de Margem de Lucro",
                         content: `<div class="space-y-6">
-                            <p class="text-gray-700 font-medium text-lg">Fórmula completa para precificar e lucrar:</p>
+                            <p class="text-gray-700 font-medium">Para calcular a margem de lucro real no Mercado Livre, você não pode olhar apenas para a diferença entre o preço de compra e o de venda. O segredo está em descontar todos os custos invisíveis.</p>
                             
-                            <div class="bg-gray-800 text-white p-6 rounded-xl text-center">
-                                <p class="text-2xl font-mono">PREÇO = (Custo + Frete + Taxa ML + Taxa MP + Impostos) × 2.0</p>
-                                <p class="text-gray-400 mt-2">Multiplicar por 2 garante 50% de margem líquida</p>
+                            <div class="bg-gray-800 text-white p-5 rounded-xl">
+                                <h3 class="font-bold text-lg mb-3"><i class="fas fa-calculator mr-2"></i>A Fórmula da Margem Líquida</h3>
+                                <div class="space-y-2 text-gray-300 text-sm">
+                                    <p class="border-b border-gray-600 pb-2"><strong>Lucro Reais</strong> = Preço de Venda - (Custo do Produto + Impostos + Comissão ML + Taxa Fixa + Frete + Embalagem)</p>
+                                    <p><strong>Margem %</strong> = (Lucro Reais ÷ Preço de Venda) × 100</p>
+                                </div>
                             </div>
 
-                            <div class="grid md:grid-cols-2 gap-5">
-                                <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
-                                    <h4 class="font-bold text-green-800 text-lg mb-3">Taxas ML 2025 - DETALHADO</h4>
-                                    <div class="space-y-2 text-sm">
-                                        <div class="flex justify-between border-b pb-2"><span>Vendas categoria padrão:</span> <span class="font-bold">11%</span></div>
-                                        <div class="flex justify-between border-b pb-2"><span>Eletrônicos e Celulares:</span> <span class="font-bold">12%</span></div>
-                                        <div class="flex justify-between border-b pb-2"><span>Moda e Acessórios:</span> <span class="font-bold">16%</span></div>
-                                        <div class="flex justify-between border-b pb-2"><span>Mercado Envios:</span> <span class="font-bold">5% - 10%</span></div>
-                                        <div class="flex justify-between"><span>Mercado Pago:</span> <span class="font-bold">3.99%</span></div>
+                            <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                <h3 class="font-bold text-blue-800 text-lg mb-4"><i class="fas fa-list mr-2"></i>2. Detalhando cada Custo</h3>
+                                <div class="space-y-3">
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-green-700">A. Custo do Produto + Impostos de Entrada</p>
+                                        <p class="text-sm text-gray-600">Valor pago ao fornecedor somado ao frete de recebimento e impostos da nota fiscal.</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-blue-700">B. Comissão do Mercado Livre</p>
+                                        <p class="text-sm text-gray-600"><strong>Clássico:</strong> 10% - 14% | <strong>Premium:</strong> 15% - 19%</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-orange-700">C. Taxa Fixa (Produtos abaixo de R$ 79)</p>
+                                        <p class="text-sm text-gray-600">R$ 6,50 por unidade vendida (valor médio 2026).</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-purple-700">D. Frete</p>
+                                        <p class="text-sm text-gray-600">Depende do peso e reputação. Vendedores com reputação verde têm até <strong>50% de desconto</strong>.</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-red-700">E. Imposto de Saída</p>
+                                        <p class="text-sm text-gray-600">Simples Nacional: <strong>4% a 6%</strong> sobre o faturamento.</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-bold text-yellow-700">F. Custos Operacionais</p>
+                                        <p class="text-sm text-gray-600">Caixa de papelão, fita adesiva, etiqueta.</p>
                                     </div>
                                 </div>
-                                <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
-                                    <h4 class="font-bold text-yellow-800 text-lg mb-3">💰 Dica Ouro - FULL</h4>
-                                    <p class="text-3xl font-bold text-yellow-700">R$ 79</p>
-                                    <p class="text-gray-700 mt-2">Venda acima de <strong>R$ 79</strong> para ativar Full!</p>
-                                    <p class="text-sm text-yellow-600 mt-3">Isso reduz custo de envio de ~R$ 15 para ~R$ 0 e aumenta vendas em 3-5 vezes!</p>
+                            </div>
+
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h3 class="font-bold text-green-800 text-lg mb-4"><i class="fas fa-calculator mr-2"></i>3. Exemplo Prático: Produto de R$ 100,00 (Premium)</h3>
+                                <p class="text-gray-700 mb-3">Imagine que você compra um item por R$ 40,00 e vende por R$ 100,00:</p>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm border-collapse">
+                                        <thead class="bg-gray-800 text-white">
+                                            <tr>
+                                                <th class="p-3 text-left">Item</th>
+                                                <th class="p-3 text-right">Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b bg-white">
+                                                <td class="p-3">Preço de Venda</td>
+                                                <td class="p-3 text-right font-bold">R$ 100,00</td>
+                                            </tr>
+                                            <tr class="border-b bg-gray-50">
+                                                <td class="p-3">(-) Custo de Compra</td>
+                                                <td class="p-3 text-right text-red-500">- R$ 40,00</td>
+                                            </tr>
+                                            <tr class="border-b bg-white">
+                                                <td class="p-3">(-) Comissão Premium (17%)</td>
+                                                <td class="p-3 text-right text-red-500">- R$ 17,00</td>
+                                            </tr>
+                                            <tr class="border-b bg-gray-50">
+                                                <td class="p-3">(-) Frete (Exemplo com desconto)</td>
+                                                <td class="p-3 text-right text-red-500">- R$ 18,00</td>
+                                            </tr>
+                                            <tr class="border-b bg-white">
+                                                <td class="p-3">(-) Imposto (Simples 4%)</td>
+                                                <td class="p-3 text-right text-red-500">- R$ 4,00</td>
+                                            </tr>
+                                            <tr class="border-b bg-gray-50">
+                                                <td class="p-3">(-) Embalagem</td>
+                                                <td class="p-3 text-right text-red-500">- R$ 2,00</td>
+                                            </tr>
+                                            <tr class="bg-green-100">
+                                                <td class="p-3 font-bold">Lucro Líquido Final</td>
+                                                <td class="p-3 text-right font-bold text-green-700">R$ 19,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-3 bg-green-100 p-3 rounded-lg text-center">
+                                    <p class="font-bold text-green-800">Margem de Lucro: <strong>19%</strong></p>
                                 </div>
                             </div>
 
-                            <div class="bg-white border-2 border-gray-200 rounded-xl p-5">
-                                <h4 class="font-bold text-gray-800 text-lg mb-4">Exemplo Prático COMPLETO:</h4>
-                                <div class="space-y-2 text-sm font-mono bg-gray-50 p-4 rounded">
-                                    <p class="border-b pb-2">Custo produto (China): R$ 50,00</p>
-                                    <p class="border-b pb-2">Frete até Brasil: R$ 12,00</p>
-                                    <p class="border-b pb-2">Imposto importação (60%): R$ 37,20</p>
-                                    <p class="border-b pb-2">Taxa ML (12%): R$ 11,93</p>
-                                    <p class="border-b pb-2">Taxa MP (4%): R$ 3,98</p>
-                                    <hr class="my-3">
-                                    <p class="font-bold text-lg">CUSTO TOTAL: R$ 115,11</p>
-                                    <p class="text-green-600 font-bold text-xl">PREÇO MÍNIMO (2x): R$ 230,22</p>
-                                    <p class="text-green-600 font-bold">LUCRO: R$ 115,11 (50%)</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-red-50 p-4 rounded-lg border border-red-300">
-                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>ATENÇÃO:</strong> Nunca venda abaixo do custo total! Isso gera prejuízo mesmo parecem vendas.</p>
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h3 class="font-bold text-yellow-800 text-lg mb-3"><i class="fas fa-lightbulb mr-2"></i>Dicas para Proteger sua Margem:</h3>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li><strong>Cuidado com o "limbo" dos R$ 79:</strong> Às vezes vender por R$ 78 (taxa fixa R$ 6,50) é mais lucrativo que R$ 82 (frete grátis R$ 20,00).</li>
+                                    <li><strong>Revise as taxas:</strong> O ML altera tabelas periodicamente.</li>
+                                    <li><strong>Use Planilhas:</strong> Tenha uma planilha automatizada com o preço ideal para a margem desejada.</li>
+                                </ul>
                             </div>
                         </div>`
-                    }
-                ]
-            },
+                    },
             {
                 title: "4. SEO - Títulos e Descrições",
                 icon: "fa-rocket",
