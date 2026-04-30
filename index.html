@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gradient-to-br from-yellow-50 to-orange-50 min-h-screen">
-    <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
         <header class="text-center mb-8">
             <div class="inline-flex items-center gap-2 bg-yellow-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 <i class="fas fa-bolt"></i>
@@ -18,6 +18,11 @@
                 Guia Completo <span class="text-yellow-600">Mercado Livre</span> 2025
             </h1>
             <p class="text-gray-600 text-lg">Do zero ao avançado: lucre no maior marketplace do Brasil</p>
+            <div class="mt-4 flex justify-center gap-4 text-sm text-gray-500">
+                <span><i class="fas fa-video text-red-500"></i> 50+ Videoaulas</span>
+                <span><i class="fas fa-file-alt text-blue-500"></i> 200+ Slides</span>
+                <span><i class="fas fa-users text-green-500"></i> 5.000+ Alunos</span>
+            </div>
         </header>
 
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-6">
@@ -26,7 +31,7 @@
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-yellow-600 font-bold">
                         <i class="fas fa-book-open"></i>
                     </div>
-                    <span class="text-white font-semibold">Módulo <span id="currentModule">1</span> de <span id="totalModules">8</span></span>
+                    <span class="text-white font-semibold">Módulo <span id="currentModule">1</span> de <span id="totalModules">9</span></span>
                 </div>
                 <div class="text-white text-sm">
                     <i class="fas fa-layer-group text-xs"></i>
@@ -34,9 +39,8 @@
                 </div>
             </div>
 
-            <div class="p-8 min-h-[500px]">
-                <div id="slideContent" class="space-y-6">
-                </div>
+            <div class="p-8 min-h-[600px]">
+                <div id="slideContent" class="space-y-6"></div>
             </div>
 
             <div class="p-6 border-t bg-gray-50 flex justify-between items-center">
@@ -52,38 +56,42 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            <button onclick="goToModule(0)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-user-check text-yellow-600 mb-1 text-xl"></i>
+        <div class="grid grid-cols-3 md:grid-cols-9 gap-2 mb-6">
+            <button onclick="goToModule(0)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-user-check text-yellow-600 mb-1"></i>
                 <div class="text-xs font-medium">1. Conta</div>
             </button>
-            <button onclick="goToModule(1)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-search text-yellow-600 mb-1 text-xl"></i>
-                <div class="text-xs font-medium">2. Produtos</div>
+            <button onclick="goToModule(1)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-plus-circle text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">2. Cadastro</div>
             </button>
-            <button onclick="goToModule(2)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-rocket text-yellow-600 mb-1 text-xl"></i>
-                <div class="text-xs font-medium">3. SEO</div>
+            <button onclick="goToModule(2)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-search text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">3. Produtos</div>
             </button>
-            <button onclick="goToModule(3)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-truck text-yellow-600 mb-1 text-xl"></i>
-                <div class="text-xs font-medium">4. Logística</div>
+            <button onclick="goToModule(3)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-rocket text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">4. SEO</div>
             </button>
-            <button onclick="goToModule(4)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-bullhorn text-yellow-600 mb-1 text-xl"></i>
-                <div class="text-xs font-medium">5. Anúncios</div>
+            <button onclick="goToModule(4)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-truck text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">5. Logística</div>
             </button>
-            <button onclick="goToModule(5)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-store text-yellow-600 mb-1 text-xl"></i>
-                <div class="text-xs font-medium">6. Loja</div>
+            <button onclick="goToModule(5)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-bullhorn text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">6. Anúncios</div>
             </button>
-            <button onclick="goToModule(6)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-headset text-yellow-600 mb-1 text-xl"></i>
-                <div class="text-xs font-medium">7. Atendimento</div>
+            <button onclick="goToModule(6)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-store text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">7. Loja</div>
             </button>
-            <button onclick="goToModule(7)" class="p-3 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
-                <i class="fas fa-chart-line text-yellow-600 mb-1 text-xl"></i>
-                <div class="text-xs font-medium">8. Gestão</div>
+            <button onclick="goToModule(7)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-headset text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">8. AT</div>
+            </button>
+            <button onclick="goToModule(8)" class="p-2 bg-white rounded-lg shadow text-center hover:bg-yellow-50 transition border-2 border-transparent hover:border-yellow-400">
+                <i class="fas fa-chart-line text-yellow-600 mb-1"></i>
+                <div class="text-xs font-medium">9. Gestão</div>
             </button>
         </div>
 
@@ -98,218 +106,513 @@
     <script>
         const courseData = [
             {
-                title: "1. Conta e Reputação",
+                title: "1. Cadastro no Mercado Livre",
                 icon: "fa-user-check",
                 color: "blue",
                 slides: [
                     {
-                        title: "Criação de Conta Profissional",
-                        content: `<div class="space-y-4">
-                            <p class="text-gray-700 font-medium">Passo a passo completo para criar sua conta vendedor:</p>
-                            <div class="bg-white border rounded-xl overflow-hidden">
-                                <div class="bg-blue-500 text-white p-3 font-bold flex items-center gap-2">
-                                    <i class="fas fa-step-by-step"></i> Tutorial 2025
+                        title: "Como Criar sua Conta",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium">Para se cadastrar no Mercado Livre, o processo é simples, mas exige atenção aos detalhes para garantir que sua conta seja validada rapidamente e tenha segurança.</p>
+                            
+                            <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                <h3 class="font-bold text-blue-800 text-lg mb-4"><i class="fas fa-laptop-house mr-2"></i>Escolha o Tipo de Conta</h3>
+                                <div class="space-y-4">
+                                    <div class="bg-white p-4 rounded-lg border border-green-300">
+                                        <h4 class="font-bold text-green-800 text-lg mb-2"><i class="fas fa-user mr-2"></i>Criar conta pessoal</h4>
+                                        <p class="text-sm text-gray-600">Ideal para quem quer apenas comprar ou vender itens usados ocasionalmente usando o CPF.</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-purple-300">
+                                        <h4 class="font-bold text-purple-800 text-lg mb-2"><i class="fas fa-building mr-2"></i>Criar conta empresa</h4>
+                                        <p class="text-sm text-gray-600">Essencial para quem pretende vender de forma profissional, emitir notas fiscais e utilizar serviços logísticos avançados (exige CNPJ).</p>
+                                    </div>
                                 </div>
-                                <div class="p-4 space-y-4">
+                            </div>
+
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h3 class="font-bold text-green-800 text-lg mb-4"><i class="fas fa-step-forward mr-2"></i>Passo a Passo do Cadastro</h3>
+                                <div class="space-y-3">
                                     <div class="flex items-start gap-3">
-                                        <span class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">1</span>
-                                        <div><strong>Acesse</strong> mercadolivre.com.br → "Minha Conta" → "Seja um vendedor"</div>
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">1</span>
+                                        <div>
+                                            <p class="font-bold">Acesse o site ou app</p>
+                                            <p class="text-sm text-gray-600">Vá em mercadolivre.com.br ou baixe o aplicativo oficial.</p>
+                                        </div>
                                     </div>
                                     <div class="flex items-start gap-3">
-                                        <span class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">2</span>
-                                        <div><strong>Escolha seu tipo:</strong><br>
-                                        <span class="text-sm text-gray-600">• <strong>Pessoa Física (PF):</strong> até 20 produtos simultâneos, sem emissão de nota<br>
-                                        • <strong>Pessoa Jurídica (PJ):</strong> produtos ilimitados, nota fiscal, acesso à Loja</span></div>
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">2</span>
+                                        <div>
+                                            <p class="font-bold">Clique em "Crie a sua conta"</p>
+                                            <p class="text-sm text-gray-600">Geralmente está no canto superior direito.</p>
+                                        </div>
                                     </div>
                                     <div class="flex items-start gap-3">
-                                        <span class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">3</span>
-                                        <div><strong>Verificação facial 2025:</strong><br>
-                                        <span class="text-sm text-gray-600">O ML exige verificação por vídeo ao vivo. Use boa iluminação e documento válido (RG ou CNH).</span></div>
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">3</span>
+                                        <div>
+                                            <p class="font-bold">Valide seus dados</p>
+                                            <div class="text-sm text-gray-600 mt-2 space-y-2">
+                                                <p><strong>E-mail:</strong> Insira um e-mail que você utiliza com frequência. Você receberá um código de confirmação.</p>
+                                                <p><strong>Identidade:</strong> Você precisará validar sua identidade. Isso geralmente envolve tirar uma foto do seu RG ou CNH (frente e verso) e uma "liveness" (uma selfie para provar que é você mesmo).</p>
+                                                <p><strong>Telefone:</strong> Insira seu número de celular para receber códigos de segurança via SMS ou WhatsApp.</p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="flex items-start gap-3">
-                                        <span class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">4</span>
-                                        <div><strong>Dados fiscais:</strong><br>
-                                        <span class="text-sm text-gray-600">Informe CPF/CNPJ, Inscrição Estadual (se vender físico), endereço completo.</span></div>
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">4</span>
+                                        <div>
+                                            <p class="font-bold">Defina a Senha</p>
+                                            <p class="text-sm text-gray-600">Crie uma senha forte com letras, números e símbolos.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-green-50 border-l-4 border-green-500 p-4">
-                                <p class="text-green-700"><i class="fas fa-check-circle mr-2"></i><strong>Recomendação:</strong> Se pretende vender regularmente, abra uma empresa (PJ)! Conta PJ tem limite de 500+ anúncios e acesso ao Mercado Shops.</p>
+
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h3 class="font-bold text-yellow-800 text-lg mb-3"><i class="fas fa-shield-alt mr-2"></i>Configurações de Segurança (Recomendado)</h3>
+                                <p class="text-gray-700 mb-3">Após criar a conta, ative a <strong>Verificação em duas etapas</strong>. Isso evita que terceiros acessem sua conta mesmo que saibam sua senha. Você pode usar:</p>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-2">
+                                    <li>Google Authenticator</li>
+                                    <li>Código por SMS</li>
+                                    <li>Segurança por biometria no celular</li>
+                                </ul>
                             </div>
-                        </div>`
-                    },
-                    {
-                        title: "Níveis de Reputação 2025",
-                        content: `<div class="space-y-4">
-                            <p class="text-gray-700 font-medium">O ML avalia vendedores por estrelas (1-5) e níveis:</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-gradient-to-r from-gray-100 to-gray-200 p-5 rounded-xl border-2 border-gray-300">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <span class="text-3xl">⭐</span>
-                                        <span class="font-bold text-gray-700 text-lg">Iniciante</span>
-                                    </div>
-                                    <p class="text-sm text-gray-600">0 - 49 vendas acumuladas</p>
-                                    <p class="text-xs text-gray-500 mt-2">Sem benefícios especiais</p>
-                                </div>
-                                <div class="bg-gradient-to-r from-yellow-100 to-yellow-200 p-5 rounded-xl border-2 border-yellow-400">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <span class="text-3xl">⭐⭐</span>
-                                        <span class="font-bold text-yellow-800 text-lg">Mercado Líder</span>
-                                    </div>
-                                    <p class="text-sm text-yellow-800">50 - 199 vendas acumuladas</p>
-                                    <p class="text-xs text-yellow-700 mt-2">Acesso a análises básico</p>
-                                </div>
-                                <div class="bg-gradient-to-r from-blue-100 to-blue-200 p-5 rounded-xl border-2 border-blue-400">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <span class="text-3xl">⭐⭐⭐</span>
-                                        <span class="font-bold text-blue-800 text-lg">Mercado Líder Gold</span>
-                                    </div>
-                                    <p class="text-sm text-blue-800">200 - 999 vendas acumuladas</p>
-                                    <p class="text-xs text-blue-700 mt-2">Mais visibilidade nos resultados</p>
-                                </div>
-                                <div class="bg-gradient-to-r from-purple-100 to-purple-200 p-5 rounded-xl border-2 border-purple-500">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <span class="text-3xl">⭐⭐⭐⭐</span>
-                                        <span class="font-bold text-purple-800 text-lg">Mercado Líder Platinum</span>
-                                    </div>
-                                    <p class="text-sm text-purple-800">1000+ vendas acumuladas</p>
-                                    <p class="text-xs text-purple-700 mt-2">Acesso Full, Anúncios premium, Loja oficial</p>
-                                </div>
+
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-300">
+                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>Dicas Importantes:</strong></p>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-2 mt-2">
+                                    <li><strong>Dados Reais:</strong> Nunca use nomes fictícios ou dados de terceiros. O Mercado Livre cruza informações com a Receita Federal</li>
+                                    <li><strong>Mercado Pago:</strong> Ao criar sua conta no Mercado Livre, você automaticamente ganha uma conta no <strong>Mercado Pago</strong>, que é por onde você gerenciará seus pagamentos e recibimentos.</li>
+                                    <li><strong>Endereço:</strong> Cadastre seu endereço completo e correto logo de início para que o cálculo de frete (seja para comprar ou vender) seja preciso.</li>
+                                </ul>
                             </div>
-                            <div class="bg-red-50 border-l-4 border-red-500 p-4">
-                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>ATENÇÃO CRÍTICA:</strong> Abaixo de 3 estrelas = suspensão automática! Mantenha sempre acima de 4.0.</p>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Como Alcançar 5 Estrelas",
-                        content: `<div class="space-y-4">
-                            <p class="text-gray-700 font-medium">Os 3 pilares para manter reputação máxima:</p>
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="bg-blue-50 p-5 rounded-lg border border-blue-200">
-                                    <i class="fas fa-clock text-4xl text-blue-600 mb-3"></i>
-                                    <h4 class="font-bold text-blue-700 text-lg">Entrega Rápida</h4>
-                                    <p class="text-sm mt-2">Enviie em <strong>menos de 24h</strong> útil. Use a etiqueta no mesmo dia da venda.</p>
-                                    <p class="text-xs text-blue-600 mt-2 bg-white p-2 rounded">Meta: 95% das vendas enviadas em 24h</p>
-                                </div>
-                                <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-                                    <i class="fas fa-box-open text-4xl text-green-600 mb-3"></i>
-                                    <h4 class="font-bold text-green-700 text-lg">Produto Conforme</h4>
-                                    <p class="text-sm mt-2">Fotos reais, descrição exata, especificação correta. Evite surpresas.</p>
-                                    <p class="text-xs text-green-600 mt-2 bg-white p-2 rounded">Meta: < 1% de reclamações por divergência</p>
-                                </div>
-                                <div class="bg-purple-50 p-5 rounded-lg border border-purple-200">
-                                    <i class="fas fa-comments text-4xl text-purple-600 mb-3"></i>
-                                    <h4 class="font-bold text-purple-700 text-lg">Atenda Bem</h4>
-                                    <p class="text-sm mt-2">Responda mensagens em <strong>menos de 12h</strong>. Seja cordial e útil.</p>
-                                    <p class="text-xs text-purple-600 mt-2 bg-white p-2 rounded">Meta: Tempo médio de resposta < 6h</p>
-                                </div>
-                            </div>
-                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
-                                <h4 class="font-bold text-yellow-800 mb-2"><i class="fas fa-lightbulb mr-2"></i>ESTRATÉGIA PARA NOVATOS:</h4>
-                                <p class="text-sm">Comece vendendo 5-10 produtos-baratos (R$ 25-60) por mês para acumular 50+ vendas rápidas. Alcance Mercado Líder em 2-3 meses. Depois escale para produtos mais caros.</p>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Configurações Obrigatórias",
-                        content: `<div class="space-y-4">
-                            <p class="text-gray-700 font-medium">Estas configurações são essenciais para começar a vender:</p>
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-400 transition">
-                                    <span class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg">Mercado Envios</div>
-                                        <div class="text-sm text-gray-500">Ative em: Minha Conta > Configurações > Envios > Ativar</div>
-                                    </div>
-                                    <span class="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-bold">OBRIGATÓRIO</span>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-400 transition">
-                                    <span class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl">2</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg">Garantia ML</div>
-                                        <div class="text-sm text-gray-500">Configure: 7 dias (eletrônicos) ou 30 dias (demais)</div>
-                                    </div>
-                                    <span class="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-bold">OBRIGATÓRIO</span>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-400 transition">
-                                    <span class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl">3</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg">Mercado Pago</div>
-                                        <div class="text-sm text-gray-500">Configure conta para receber: Minha Conta > Pagamentos</div>
-                                    </div>
-                                    <span class="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-bold">OBRIGATÓRIO</span>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-400 transition">
-                                    <span class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl">4</span>
-                                    <div class="flex-1">
-                                        <div class="font-bold text-lg">Centro de Mensagens</div>
-                                        <div class="text-sm text-gray-500">Ative para comunicação oficial com compradores</div>
-                                    </div>
-                                    <span class="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-bold">OBRIGATÓRIO</span>
-                                </div>
+
+                            <div class="bg-gray-800 text-white p-4 rounded-lg">
+                                <p class="text-yellow-400"><i class="fas fa-info-circle mr-2"></i><strong>Nota:</strong> Se o seu objetivo for vender, lembre-se que após o cadastro você precisará configurar suas preferências de venda e escolher entre os tipos de anúncios (Clássico ou Premium).</p>
                             </div>
                         </div>`
                     }
                 ]
             },
             {
-                title: "2. Pesquisa de Produtos",
-                icon: "fa-search",
-                color: "green",
+                title: "2. Cadastro de Produtos",
+                icon: "fa-plus-circle",
+                color: "cyan",
                 slides: [
                     {
-                        title: "Como Encontrar Produtos Lucrativos",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Métodos testados para encontrar produtos winners:</p>
+                        title: "Onde Criar um Anúncio",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Passo a passo completo para criar seu primeiro anúncio:</p>
                             
-                            <div class="bg-green-50 p-4 rounded-lg border border-green-300">
-                                <h4 class="font-bold text-green-800 mb-3"><i class="fas fa-fire mr-2"></i>MÉTODO 1: Tendências do ML</h4>
-                                <div class="space-y-2 text-sm">
-                                    <p>1. Acesse mercadolivre.com.br</p>
-                                    <p>2. Na barra de busca, clique em "Mais Vendidos"</p>
-                                    <p>3. Navegue por categorias</p>
-                                    <p>4. Identifique produtos com <strong>50-200 vendas/mês</strong></p>
-                                    <p>5. Verifique se a nota do vendedor é <strong>4.0-4.5</strong> (oportunidade!)</p>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 p-5 bg-white border-2 border-cyan-200 rounded-xl hover:bg-cyan-50 transition">
+                                    <span class="w-14 h-14 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</span>
+                                    <div class="flex-1">
+                                        <p class="font-bold text-lg">Acesse Meus Anúncios</p>
+                                        <p class="text-sm text-gray-500">Minha Conta > Meus Anúncios > Criar anúncio</p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-cyan-300"></i>
+                                </div>
+                                <div class="flex items-center gap-4 p-5 bg-white border-2 border-cyan-200 rounded-xl hover:bg-cyan-50 transition">
+                                    <span class="w-14 h-14 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-xl">2</span>
+                                    <div class="flex-1">
+                                        <p class="font-bold text-lg">Escolha a Categoria</p>
+                                        <p class="text-sm text-gray-500">Selecione a categoria correta do produto (crucial para aparecer nas buscas)</p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-cyan-300"></i>
+                                </div>
+                                <div class="flex items-center gap-4 p-5 bg-white border-2 border-cyan-200 rounded-xl hover:bg-cyan-50 transition">
+                                    <span class="w-14 h-14 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-xl">3</span>
+                                    <div class="flex-1">
+                                        <p class="font-bold text-lg">Preencha os Dados</p>
+                                        <p class="text-sm text-gray-500">Título, fotos, preço, características, estoque</p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-cyan-300"></i>
+                                </div>
+                                <div class="flex items-center gap-4 p-5 bg-white border-2 border-cyan-200 rounded-xl hover:bg-cyan-50 transition">
+                                    <span class="w-14 h-14 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-xl">4</span>
+                                    <div class="flex-1">
+                                        <p class="font-bold text-lg">Configure o Envio</p>
+                                        <p class="text-sm text-gray-500">Mercado Envios ou envio próprio</p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-cyan-300"></i>
+                                </div>
+                                <div class="flex items-center gap-4 p-5 bg-white border-2 border-cyan-200 rounded-xl hover:bg-cyan-50 transition">
+                                    <span class="w-14 h-14 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-xl">5</span>
+                                    <div class="flex-1">
+                                        <p class="font-bold text-lg">Publicar!</p>
+                                        <p class="text-sm text-gray-500">Revise todos os dados e clique em Publicar</p>
+                                    </div>
+                                    <i class="fas fa-check-circle text-green-500 text-xl"></i>
                                 </div>
                             </div>
 
-                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-300">
-                                <h4 class="font-bold text-blue-800 mb-3"><i class="fas fa-tools mr-2"></i>MÉTODO 2: Ferramentas de Pesquisa</h4>
-                                <div class="grid md:grid-cols-3 gap-3 text-sm">
-                                    <div class="bg-white p-3 rounded">
-                                        <strong>Helium 10</strong>
-                                        <p class="text-xs">Pago • Dados precisos</p>
-                                    </div>
-                                    <div class="bg-white p-3 rounded">
-                                        <strong>Jungle Scout</strong>
-                                        <p class="text-xs">Pago • Muito completo</p>
-                                    </div>
-                                    <div class="bg-white p-3 rounded">
-                                        <strong>ML orgânico</strong>
-                                        <p class="text-xs">Grátis • Manual</p>
-                                    </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-green-50 p-4 rounded-lg border border-green-300">
+                                    <h4 class="font-bold text-green-800 mb-2"><i class="fas fa-bolt mr-2"></i>Modo Rápido</h4>
+                                    <p class="text-sm text-gray-700">Para produtos simples. Preencha o essencial em 2 minutos.</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg border border-purple-300">
+                                    <h4 class="font-bold text-purple-800 mb-2"><i class="fas fa-cogs mr-2"></i>Modo Avançado</h4>
+                                    <p class="text-sm text-gray-700">Para produtos complexos. Mais opções de personalização.</p>
                                 </div>
                             </div>
 
-                            <div class="bg-gray-900 text-green-400 p-5 rounded-lg font-mono">
-                                <p class="font-bold mb-3"># NICHOS QUENTES 2025:</p>
-                                <div class="grid md:grid-cols-2 gap-2 text-sm">
-                                    <p>• Smartwatches e Relógios inteligentes</p>
-                                    <p>• Pets (brinquedos, comedouros)</p>
-                                    <p>• Casa smart (Alexa, câmeras)</p>
-                                    <p>• Beleza coreana (skincare)</p>
-                                    <p>• Acessórios de cozinha</p>
-                                    <p>• Fones de ouvido Bluetooth</p>
-                                    <p>• Carregadores turbo</p>
-                                    <p>• Organização doméstica</p>
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>Dica:</strong> Na dúvida entre Modo Rápido e Avançado, escolha o Avançado para ter mais controle sobre o anúncio.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        title: "Escolhendo a Categoria Certa",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">A categoria é fundamental para suas vendas aparecerem!</p>
+                            
+                            <div class="bg-red-50 p-6 rounded-xl border-2 border-red-300">
+                                <h4 class="font-bold text-red-800 text-xl mb-3"><i class="fas fa-exclamation-triangle mr-2"></i>ERRO MAIS COMUM DOS VENDEDORES:</h4>
+                                <p class="text-red-700 text-lg">Colocar produto na categoria errada = produto não aparece nas buscas = ZERO vendas!</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="bg-white p-5 rounded-lg border-2 border-gray-200">
+                                    <h4 class="font-bold text-gray-800 text-lg mb-3">Como escolher a categoria certa - Passo a passo:</h4>
+                                    <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                                        <li class="p-2 bg-gray-50 rounded">Pesquise o produto no ML e veja onde os concorrentes estão</li>
+                                        <li class="p-2 bg-gray-50 rounded">Use a ferramenta de sugestões do ML (ela mostra categorias relacionadas)</li>
+                                        <li class="p-2 bg-gray-50 rounded">Seja específico: use subcategorias, não "Outros" ou categorias genéricas</li>
+                                        <li class="p-2 bg-gray-50 rounded">Escolha: Categoria pai + Subcategoria</li>
+                                        <li class="p-2 bg-gray-50 rounded">Teste: se seu produto não aparece em buscas relevantes, mude a categoria</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h4 class="font-bold text-green-800 text-lg mb-3">Exemplo Prático:</h4>
+                                <div class="space-y-2 text-gray-700">
+                                    <p><strong>Produto:</strong> Fone de Ouvido Bluetooth</p>
+                                    <p class="text-lg font-mono text-green-700">✅ CORRETO: Eletrônicos, Áudio e Fones de Ouvido → Fones de Ouvido Bluetooth</p>
+                                    <p class="text-red-600 font-mono">❌ ERRADO: Eletrônicos → Outros</p>
+                                    <p class="text-red-600 font-mono">❌ ERRADO: Acessórios para Celulares → Outros</p>
+                                </div>
+                            </div>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm border-collapse">
+                                    <thead class="bg-gray-800 text-white">
+                                        <tr>
+                                            <th class="p-3 text-left">Produto</th>
+                                            <th class="p-3 text-left bg-green-600">Categoria Correta</th>
+                                            <th class="p-3 text-left bg-red-600">Categoria Errada</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b bg-white">
+                                            <td class="p-3 font-bold">Capinha iPhone</td>
+                                            <td class="p-3 text-green-600">Acessórios > Capinhas</td>
+                                            <td class="p-3 text-red-600">Celulares > Outros</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="p-3 font-bold">Smartwatch</td>
+                                            <td class="p-3 text-green-600">Eletrônicos > Smartwatches</td>
+                                            <td class="p-3 text-red-600">Acessórios > Relógios</td>
+                                        </tr>
+                                        <tr class="border-b bg-white">
+                                            <td class="p-3 font-bold">Cabo USB</td>
+                                            <td class="p-3 text-green-600">Acessórios > Cabos</td>
+                                            <td class="p-3 text-red-600">Eletrônicos > Outros</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        title: "Preenchendo o Título",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">O título é o que vende - seja estratégico!</p>
+                            
+                            <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                <h4 class="font-bold text-blue-800 text-xl mb-3">Fórmula do Título Perfeito 2025:</h4>
+                                <div class="bg-gray-800 text-white p-4 rounded-lg text-center font-mono text-lg">
+                                    [MARCA] + [PRODUTO] + [CARACTERÍSTICA] + [USO]
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <p class="font-bold text-green-800 text-lg mb-3">✅ EXEMPLO CORRETO:</p>
+                                <p class="text-xl font-mono text-green-700">Fone de Ouvido Bluetooth QCY T13 Pro Sem Fio Resistente à Água Para Corrida Academia Smartphone</p>
+                                <div class="mt-3 bg-white p-3 rounded text-sm">
+                                    <p>✓ 58 caracteres (perfeito - limite é 60)</p>
+                                    <p>✓ Palavras-chave no início (Fone, Bluetooth, QCY)</p>
+                                    <p>✓ Descrição clara do produto</p>
+                                    <p>✓ Uso indicado (Para Corrida, Academia)</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-red-50 p-5 rounded-xl border-2 border-red-300">
+                                <p class="font-bold text-red-800 text-lg mb-3">❌ EXEMPLO ERRADO:</p>
+                                <p class="text-xl font-mono text-red-700">Fone legal importado preço bom desconto</p>
+                                <div class="mt-3 bg-white p-3 rounded text-sm">
+                                    <p>✗ Sem marca (não indexa nas buscas)</p>
+                                    <p>✗ "Preço bom" = spam - ML remove</p>
+                                    <p>✗ Não explica o produto</p>
+                                    <p>✗ Palavras genéricas</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-900 text-white p-5 rounded-xl">
+                                <h4 class="font-bold text-lg mb-3">Regras do Título ML 2025:</h4>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                    <div>
+                                        <p class="text-green-400 font-bold mb-2">✓ FAÇA:</p>
+                                        <ul class="space-y-1 text-gray-300">
+                                            <li>• Máximo 60 caracteres</li>
+                                            <li>• Palavras-chave principais no início</li>
+                                            <li>• Tudo minúsculo (exceto marca)</li>
+                                            <li>• Use vírgulas para separar</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-red-400 font-bold mb-2">✗ NÃO FAÇA:</p>
+                                        <ul class="space-y-1 text-gray-300">
+                                            <li>• !!! (exclamações)</li>
+                                            <li>• CAIXA ALTA (todo maiúsculo)</li>
+                                            <li>• Acentos (á, é, ã)</li>
+                                            <li>• Preço ou promoção no título</li>
+                                            <li>• Palavras spam</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
                     },
                     {
+                        title: "Fotos que Vendem",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Fotos vendem mais - invista nelas!</p>
+                            
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-white border-2 border-blue-200 p-6 rounded-xl text-center hover:border-blue-400 transition">
+                                    <i class="fas fa-images text-5xl text-blue-500 mb-4"></i>
+                                    <p class="font-bold text-xl">Mínimo 5 fotos</p>
+                                    <p class="text-sm text-gray-500 mt-2">Máximo 10 fotos por anúncio</p>
+                                </div>
+                                <div class="bg-white border-2 border-blue-200 p-6 rounded-xl text-center hover:border-blue-400 transition">
+                                    <i class="fas fa-expand text-5xl text-blue-500 mb-4"></i>
+                                    <p class="font-bold text-xl">1500x1500px</p>
+                                    <p class="text-sm text-gray-500 mt-2">Alta resolução, formato quadrado</p>
+                                </div>
+                                <div class="bg-white border-2 border-blue-200 p-6 rounded-xl text-center hover:border-blue-400 transition">
+                                    <i class="fas fa-file-image text-5xl text-blue-500 mb-4"></i>
+                                    <p class="font-bold text-xl">jpg / png</p>
+                                    <p class="text-sm text-gray-500 mt-2">Máximo 10MB cada arquivo</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h4 class="font-bold text-green-800 text-lg mb-4">Ordem correta das fotos (do mais importante ao menos importante):</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg">
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">1</span>
+                                        <div>
+                                            <p class="font-bold">Foto Principal: Fundo Branco</p>
+                                            <p class="text-sm text-gray-500">Produto centrado, fundo 100% branco, sem sombras</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg">
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">2</span>
+                                        <div>
+                                            <p class="font-bold">Foto em Uso</p>
+                                            <p class="text-sm text-gray-500">Produto sendo utilizado (ex: fone no ouvido)</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg">
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">3</span>
+                                        <div>
+                                            <p class="font-bold">Detalhes</p>
+                                            <p class="text-sm text-gray-500">Acabamento, botões, conexões, texturas</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg">
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">4</span>
+                                        <div>
+                                            <p class="font-bold">Medidas</p>
+                                            <p class="text-sm text-gray-500">Régua mostrando tamanho real</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg">
+                                        <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">5</span>
+                                        <div>
+                                            <p class="font-bold">Embalagem</p>
+                                            <p class="text-sm text-gray-500">Como chega para o cliente</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-red-50 p-5 rounded-xl border-2 border-red-300">
+                                <h4 class="font-bold text-red-800 text-lg mb-3">Fotos que causam queda do anúncio:</h4>
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div>
+                                        <p class="text-red-600">• Fundos coloridos (não branco)</p>
+                                        <p class="text-red-600">• Marcas d'água (logo, texto)</p>
+                                        <p class="text-red-600">• Texto sobre o produto</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-red-600">• Logos de marca visíveis</p>
+                                        <p class="text-red-600">• Produtos usados ou sujos</p>
+                                        <p class="text-red-600">• Fotos de catálogo genéricas</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-camera mr-2"></i><strong>Dica:</strong> Tire fotos com celular em modo retrato, com luz natural (próximo a janela), e edite para deixar o fundo 100% branco.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        title: "Preço e Estoque",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Como definir o preço de venda:</p>
+                            
+                            <div class="bg-gray-800 text-white p-6 rounded-xl text-center">
+                                <p class="text-2xl font-mono">PREÇO = (Custo + Frete + Taxas) × 2.0</p>
+                                <p class="text-gray-400 mt-2">Multiplicar por 2 garante 50% de margem líquida</p>
+                            </div>
+
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h4 class="font-bold text-yellow-800 text-lg mb-3">Exemplo de cálculo detalhado:</h4>
+                                <div class="bg-white p-4 rounded-lg font-mono text-sm space-y-2">
+                                    <p class="border-b pb-2">Produto (custo China): R$ 50,00</p>
+                                    <p class="border-b pb-2">Frete até Brasil: R$ 12,00</p>
+                                    <p class="border-b pb-2">Imposto importação (60%): R$ 37,20</p>
+                                    <p class="border-b pb-2">Taxa ML (12%): R$ 11,93</p>
+                                    <p class="border-b pb-2">Taxa MP (4%): R$ 3,98</p>
+                                    <p class="border-b pb-2 font-bold">CUSTO TOTAL: R$ 115,11</p>
+                                    <p class="text-green-400 font-bold text-xl">PREÇO MÍNIMO (2x): R$ 230,22</p>
+                                    <p class="text-green-400 font-bold">LUCRO: R$ 115,11 (50%)</p>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                    <h4 class="font-bold text-green-800 text-lg mb-3">Taxas ML 2025</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between"><span>Vendas (categoria):</span> <span class="font-bold">11% - 16%</span></div>
+                                        <div class="flex justify-between"><span>Mercado Envios:</span> <span class="font-bold">5% - 10%</span></div>
+                                        <div class="flex justify-between"><span>Mercado Pago:</span> <span class="font-bold">3.99%</span></div>
+                                        <div class="flex justify-between"><span>Mercado Full:</span> <span class="font-bold text-green-600">FRETE GRÁTIS</span></div>
+                                    </div>
+                                </div>
+                                <div class="bg-purple-50 p-5 rounded-xl border-2 border-purple-300">
+                                    <h4 class="font-bold text-purple-800 text-lg mb-3">Dica Ouro - Full</h4>
+                                    <p class="text-gray-700">Venda acima de <strong class="text-2xl text-purple-600">R$ 79</strong> para ativar Full!</p>
+                                    <p class="text-sm text-purple-600 mt-2">Isso reduz custo de envio de ~R$ 15 para ~R$ 0 e aumenta vendas 3-5x!</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="bg-white p-4 rounded-lg border-2 border-green-200">
+                                    <h4 class="font-bold text-green-700">Preço Competitivo</h4>
+                                    <p class="text-sm">Pesquise concorrentes e fique 5-10% abaixo para ganhar buy box</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
+                                    <h4 class="font-bold text-blue-700">Estoque</h4>
+                                    <p class="text-sm">Mantenha estoque suficiente. ML prioriza vendedores com estoque.</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-300">
+                                <p class="text-blue-800"><i class="fas fa-lightbulb mr-2"></i><strong>Dica:</strong> Use a ferramenta "Preço Suggestions" do ML para ver preços competitivos e posicionamento ideal.</p>
+                            </div>
+                        </div>`
+                    }
+                ]
+            },
+            {
+                title: "3. Pesquisa de Produtos",
+                icon: "fa-search",
+                color: "green",
+                slides: [
+                    {
+                        title: "Como Encontrar Produtos Lucrativos",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Métodos testados para encontrar produtos winners (vendedores):</p>
+                            
+                            <div class="bg-green-50 p-6 rounded-xl border-2 border-green-300">
+                                <h4 class="font-bold text-green-800 text-xl mb-4"><i class="fas fa-fire mr-2"></i>MÉTODO 1: Tendências do Mercado Livre</h4>
+                                <div class="space-y-3 text-gray-700">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold">Passo 1:</p>
+                                        <p>Acesse mercadolivre.com.br</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold">Passo 2:</p>
+                                        <p>Na barra de busca, clique em "Mais Vendidos"</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold">Passo 3:</p>
+                                        <p>Navegue por categorias (Eletrônicos, Casa, Pet, etc)</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold">Passo 4:</p>
+                                        <p>Identifique produtos com <strong>50-200 vendas/mês</strong></p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold">Passo 5:</p>
+                                        <p>Verifique nota do vendedor: <strong>4.0-4.5</strong> = oportunidade!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 p-6 rounded-xl border-2 border-blue-300">
+                                <h4 class="font-bold text-blue-800 text-xl mb-4"><i class="fas fa-tools mr-2"></i>MÉTODO 2: Ferramentas de Pesquisa</h4>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg text-center">
+                                        <i class="fas fa-rocket text-3xl text-purple-500 mb-2"></i>
+                                        <p class="font-bold">Helium 10</p>
+                                        <p class="text-xs text-gray-500">Pago • Dados precisos</p>
+                                        <p class="text-sm mt-2">Amazon e ML</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg text-center">
+                                        <i class="fas fa-search text-3xl text-green-500 mb-2"></i>
+                                        <p class="font-bold">Jungle Scout</p>
+                                        <p class="text-xs text-gray-500">Pago • Muito completo</p>
+                                        <p class="text-sm mt-2">Amazon referência</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg text-center">
+                                        <i class="fas fa-hand-pointer text-3xl text-yellow-500 mb-2"></i>
+                                        <p class="font-bold">ML orgânico</p>
+                                        <p class="text-xs text-gray-500">Grátis • Manual</p>
+                                        <p class="text-sm mt-2">Sem custo</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-900 text-green-400 p-6 rounded-xl">
+                                <h4 class="font-bold text-xl mb-4"># NICHOS QUENTES 2025 - LISTA ATUALIZADA:</h4>
+                                <div class="grid md:grid-cols-2 gap-3 text-sm">
+                                    <p>• Smartwatches e Relógios inteligentes</p>
+                                    <p>• Pets (brinquedos, comedouros, coleiras)</p>
+                                    <p>• Casa smart (Alexa, câmeras, tomadas)</p>
+                                    <p>• Beleza coreana (skincare, massageadores)</p>
+                                    <p>• Acessórios de cozinha (organizadores)</p>
+                                    <p>• Fones de ouvido Bluetooth</p>
+                                    <p>• Carregadores turbo e docks</p>
+                                    <p>• Organização doméstica (gavetas, prateleiras)</p>
+                                    <p>• Fitness (elásticos, halteres, tapetes)</p>
+                                    <p>• Brinquedos educativos</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-300">
+                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>EVITE nichos saturados:</strong> Capas de celular genéricas, power banks básicos,relógios Xiaomi imitation - margemquase zero por excesso de concorrência.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
                         title: "Análise de Concorrentes",
-                        content: `<div class="space-y-5">
+                        content: `<div class="space-y-6">
                             <p class="text-gray-700 font-medium text-lg">O que analisar em cada concorrente (copie e use):</p>
                             
                             <div class="overflow-x-auto">
@@ -318,8 +621,8 @@
                                         <tr>
                                             <th class="p-3 text-left rounded-tl-lg">Métrica</th>
                                             <th class="p-3 text-left">Como Ver</th>
-                                            <th class="p-3 text-left bg-green-600">BOM</th>
-                                            <th class="p-3 text-left bg-red-600 rounded-tr-lg">RUIM</th>
+                                            <th class="p-3 text-left bg-green-600">BOM ✓</th>
+                                            <th class="p-3 text-left bg-red-600 rounded-tr-lg">RUIM ✗</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -327,19 +630,19 @@
                                             <td class="p-3 font-bold">Vendas/mês</td>
                                             <td class="p-3">Ver perfil > Histórico</td>
                                             <td class="p-3 text-green-600 font-bold">50-200</td>
-                                            <td class="p-3 text-red-600">< 10</td>
+                                            <td class="p-3 text-red-600">Menos de 10</td>
                                         </tr>
                                         <tr class="border-b bg-gray-50">
                                             <td class="p-3 font-bold">Avaliações</td>
                                             <td class="p-3">Nota no perfil</td>
                                             <td class="p-3 text-green-600 font-bold">4.3 - 4.7</td>
-                                            <td class="p-3 text-red-600">< 4.0</td>
+                                            <td class="p-3 text-red-600">Menos de 4.0</td>
                                         </tr>
                                         <tr class="border-b bg-white">
                                             <td class="p-3 font-bold">Preço médio</td>
                                             <td class="p-3">Pesquisar o produto</td>
                                             <td class="p-3 text-green-600 font-bold">Margem 30%+</td>
-                                            <td class="p-3 text-red-600">Margem < 15%</td>
+                                            <td class="p-3 text-red-600">Margem menos de 15%</td>
                                         </tr>
                                         <tr class="border-b bg-gray-50">
                                             <td class="p-3 font-bold">Fotos</td>
@@ -347,29 +650,49 @@
                                             <td class="p-3 text-green-600 font-bold">5+ fotos</td>
                                             <td class="p-3 text-red-600">1-2 fotos</td>
                                         </tr>
-                                        <tr class="bg-white">
+                                        <tr class="border-b bg-white">
                                             <td class="p-3 font-bold">Tempo de envio</td>
                                             <td class="p-3">Calcular prazo</td>
-                                            <td class="p-3 text-green-600 font-bold">< 48h</td>
+                                            <td class="p-3 text-green-600 font-bold">Menos de 48h</td>
                                             <td class="p-3 text-red-600">5+ dias</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-3 font-bold">Descrição</td>
+                                            <td class="p-3">Ver detalhes</td>
+                                            <td class="p-3 text-green-600 font-bold">Completa</td>
+                                            <td class="p-3 text-red-600">Genérica</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
-                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
-                                <p class="text-yellow-800"><i class="fas fa-search mr-2"></i><strong>BUSQUE ASSIM:</strong> Produtos com 50-200 vendas/mês E nota 4.0-4.5 (aí você entra com vantagem!)</p>
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h4 class="font-bold text-yellow-800 text-lg mb-3"><i class="fas fa-search mr-2"></i>FÓRMULA DE BUSCA PERFEITA:</h4>
+                                <p class="text-xl font-mono text-yellow-700">Produtos com <strong>50-200 vendas/mês</strong> + nota <strong>4.0-4.5</strong> = sua oportunidade de entrada!</p>
+                                <p class="text-gray-600 mt-2">Isso significa que o produto tem demanda mas o vendedor não é excelente - você pode superar!</p>
                             </div>
 
-                            <div class="bg-red-50 p-4 rounded-lg">
-                                <p class="text-red-700"><i class="fas fa-times-circle mr-2"></i><strong>EVITE:</strong> Produtos saturados (capas de celular genéricas, relógio Xiaomi, power banks) - concorrência muito forte, margem quase zero.</p>
+                            <div class="bg-red-50 p-5 rounded-xl border-2 border-red-300">
+                                <h4 class="font-bold text-red-800 text-lg mb-3">Produtos a EVITAR:</h4>
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div>
+                                        <p class="text-red-600">• Capas de celular genéricas</p>
+                                        <p class="text-red-600">• Power banks básicos</p>
+                                        <p class="text-red-600">• Relógios Xiaomi (muito copy)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-red-600">• Cabos USB genéricos</p>
+                                        <p class="text-red-600">• Películas de vidro</p>
+                                        <p class="text-red-600">• Fones de ouvido muito-baratos</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>`
                     },
                     {
                         title: "Fornecedores da China 2025",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Melhores plataformas para importar (detalhado):</p>
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Melhores plataformas para importar em 2025:</p>
                             
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between bg-white p-5 rounded-xl border-2 hover:border-blue-400 transition">
@@ -421,106 +744,151 @@
                                 </div>
                             </div>
 
-                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-                                <p class="text-blue-700 font-bold">NOVO 2025 - AGENTES DE COMPRAS:</p>
-                                <p class="text-sm">Use <strong>Cnstorm</strong>, <strong>Pandascrow</strong> ou <strong>SuperBuy</strong> para:</p>
-                                <ul class="text-sm mt-2 space-y-1">
-                                    <li>✓ Inspecionar qualidade antes do envio</li>
-                                    <li>✓ Consolidar múltiplos pedidos num pacote</li>
-                                    <li>✓ Negociar preços menores</li>
-                                    <li>✓ Repassar fotos e vídeos do produto</li>
+                            <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                <h4 class="font-bold text-blue-800 text-lg mb-3"><i class="fas fa-user-friends mr-2"></i>NOVO 2025 - AGENTES DE COMPRAS:</h4>
+                                <p class="text-gray-700 mb-3">Use <strong>Cnstorm</strong>, <strong>Pandascrow</strong> ou <strong>SuperBuy</strong> para:</p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                    <li>✓ Inspecionar qualidade antes do envio (fotos/vídeos)</li>
+                                    <li>✓ Consolidar múltiplos pedidos num único pacote</li>
+                                    <li>✓ Negociar preços menores com fábrica</li>
+                                    <li>✓ Repassar fotos e vídeos do produto para seu anúncio</li>
+                                    <li>✓ Verificar embalagem adequada para envio</li>
                                 </ul>
+                            </div>
+
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-truck mr-2"></i><strong>Frete marítimo vs aéreo:</strong> Marítimo é mais barato (R$ 2-5/kg) mas leva 30-45 dias. Aéreo é mais caro (R$ 15-25/kg) mas chega em 7-10 dias.</p>
                             </div>
                         </div>`
                     },
                     {
                         title: "Cálculo de Margem de Lucro",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Fórmula completa para precificar:</p>
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Fórmula completa para precificar e lucrar:</p>
                             
                             <div class="bg-gray-800 text-white p-6 rounded-xl text-center">
                                 <p class="text-2xl font-mono">PREÇO = (Custo + Frete + Taxa ML + Taxa MP + Impostos) × 2.0</p>
+                                <p class="text-gray-400 mt-2">Multiplicar por 2 garante 50% de margem líquida</p>
                             </div>
 
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="bg-green-50 p-5 rounded-lg border border-green-300">
-                                    <h4 class="font-bold text-green-800 text-lg mb-3">Taxas ML 2025</h4>
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                    <h4 class="font-bold text-green-800 text-lg mb-3">Taxas ML 2025 - DETALHADO</h4>
                                     <div class="space-y-2 text-sm">
-                                        <div class="flex justify-between"><span>Vendas (categoria):</span> <span class="font-bold">11% - 16%</span></div>
-                                        <div class="flex justify-between"><span>Mercado Envios:</span> <span class="font-bold">5% - 10%</span></div>
+                                        <div class="flex justify-between border-b pb-2"><span>Vendas categoria padrão:</span> <span class="font-bold">11%</span></div>
+                                        <div class="flex justify-between border-b pb-2"><span>Eletrônicos e Celulares:</span> <span class="font-bold">12%</span></div>
+                                        <div class="flex justify-between border-b pb-2"><span>Moda e Acessórios:</span> <span class="font-bold">16%</span></div>
+                                        <div class="flex justify-between border-b pb-2"><span>Mercado Envios:</span> <span class="font-bold">5% - 10%</span></div>
                                         <div class="flex justify-between"><span>Mercado Pago:</span> <span class="font-bold">3.99%</span></div>
-                                        <div class="flex justify-between"><span>Mercado Full:</span> <span class="font-bold text-green-600">FRETE GRÁTIS</span></div>
                                     </div>
                                 </div>
-                                <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-300">
-                                    <h4 class="font-bold text-yellow-800 text-lg mb-3">Dica Ouro</h4>
-                                    <p class="text-sm">Venda acima de <strong class="text-2xl">R$ 79</strong> para ativar Full!</p>
-                                    <p class="text-xs mt-2 text-yellow-700">Isso reduz seu custo de envio de aproximadamente R$ 15 para cerca de R$ 0 e aumenta vendas em 3-5 vezes.</p>
+                                <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                    <h4 class="font-bold text-yellow-800 text-lg mb-3">💰 Dica Ouro - FULL</h4>
+                                    <p class="text-3xl font-bold text-yellow-700">R$ 79</p>
+                                    <p class="text-gray-700 mt-2">Venda acima de <strong>R$ 79</strong> para ativar Full!</p>
+                                    <p class="text-sm text-yellow-600 mt-3">Isso reduz custo de envio de ~R$ 15 para ~R$ 0 e aumenta vendas em 3-5 vezes!</p>
                                 </div>
                             </div>
 
                             <div class="bg-white border-2 border-gray-200 rounded-xl p-5">
-                                <h4 class="font-bold text-gray-800 text-lg mb-4">Exemplo Prático:</h4>
+                                <h4 class="font-bold text-gray-800 text-lg mb-4">Exemplo Prático COMPLETO:</h4>
                                 <div class="space-y-2 text-sm font-mono bg-gray-50 p-4 rounded">
-                                    <p>Custo produto (China): R$ 50,00</p>
-                                    <p>Frete até Brasil: R$ 12,00</p>
-                                    <p>Imposto importação (60%): R$ 37,20</p>
-                                    <p>Taxa ML (12%): R$ 11,93</p>
-                                    <p>Taxa MP (4%): R$ 3,98</p>
-                                    <hr class="my-2">
-                                    <p class="font-bold">CUSTO TOTAL: R$ 115,11</p>
-                                    <p class="text-green-600 font-bold text-lg">PREÇO MÍNIMO (2x): R$ 230,22</p>
+                                    <p class="border-b pb-2">Custo produto (China): R$ 50,00</p>
+                                    <p class="border-b pb-2">Frete até Brasil: R$ 12,00</p>
+                                    <p class="border-b pb-2">Imposto importação (60%): R$ 37,20</p>
+                                    <p class="border-b pb-2">Taxa ML (12%): R$ 11,93</p>
+                                    <p class="border-b pb-2">Taxa MP (4%): R$ 3,98</p>
+                                    <hr class="my-3">
+                                    <p class="font-bold text-lg">CUSTO TOTAL: R$ 115,11</p>
+                                    <p class="text-green-600 font-bold text-xl">PREÇO MÍNIMO (2x): R$ 230,22</p>
                                     <p class="text-green-600 font-bold">LUCRO: R$ 115,11 (50%)</p>
                                 </div>
+                            </div>
+
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-300">
+                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>ATENÇÃO:</strong> Nunca venda abaixo do custo total! Isso gera prejuízo mesmo parecem vendas.</p>
                             </div>
                         </div>`
                     }
                 ]
             },
             {
-                title: "3. SEO - Títulos e Descrições",
+                title: "4. SEO - Títulos e Descrições",
                 icon: "fa-rocket",
                 color: "purple",
                 slides: [
                     {
                         title: "Estrutura de Título Perfeito",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg"><strong>Fórmula 2025:</strong></p>
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">O título é o principal fator de visibilidade no ML!</p>
                             
-                            <div class="bg-blue-50 p-5 rounded-xl font-mono text-center text-lg border-2 border-blue-300">
-                                [MARCA/NOME] + [PRODUTO] + [CARACTERÍSTICA] + [USO/NICHO]
-                            </div>
-
-                            <div class="bg-green-50 p-5 rounded-lg border border-green-300">
-                                <p class="font-bold text-green-800 mb-3">Exemplo BOM:</p>
-                                <p class="text-xl font-mono text-green-700">Fone de Ouvido Bluetooth QCY T13 Pro Sem Fio Resistente à Água Para Corrida Academia Smartphone</p>
-                                <div class="mt-3 grid grid-cols-2 gap-2 text-sm">
-                                    <span class="bg-green-200 p-2 rounded">✓ Marca: QCY</span>
-                                    <span class="bg-green-200 p-2 rounded">✓ Produto: Fone Bluetooth</span>
-                                    <span class="bg-green-200 p-2 rounded">✓ Carac: Resistente Água</span>
-                                    <span class="bg-green-200 p-2 rounded">✓ Uso: Corrida Academia</span>
+                            <div class="bg-blue-50 p-6 rounded-xl border-2 border-blue-300">
+                                <h4 class="font-bold text-blue-800 text-xl mb-4">Fórmula do Título 2025:</h4>
+                                <div class="bg-gray-800 text-white p-5 rounded-lg text-center font-mono text-xl">
+                                    [MARCA] + [PRODUTO] + [CARACTERÍSTICA] + [USO]
                                 </div>
                             </div>
 
-                            <div class="space-y-3">
-                                <p class="text-gray-600 flex items-center gap-2"><span class="text-green-500 text-xl">✓</span> <strong>60 caracteres</strong> máximo (Google indexa tudo)</p>
-                                <p class="text-gray-600 flex items-center gap-2"><span class="text-green-500 text-xl">✓</span> Palavras-chave principais no <strong>início</strong> (primeiras 3 palavras)</p>
-                                <p class="text-gray-600 flex items-center gap-2"><span class="text-green-500 text-xl">✓</span> Tudo <strong>minúsculo</strong> (exceto se for marca própria)</p>
-                                <p class="text-gray-600 flex items-center gap-2"><span class="text-red-500 text-xl">✗</span> <strong>EVITE:</strong> !!!, TODO MAIÚSCULO, acentos (ã,õ), caracteres especiais</p>
-                                <p class="text-gray-600 flex items-center gap-2"><span class="text-red-500 text-xl">✗</span> <strong>EVITE:</strong> Preço no título ("por R$ 99") - causa queda</p>
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <p class="font-bold text-green-800 text-lg mb-3">✅ EXEMPLO CORRETO:</p>
+                                <p class="text-xl font-mono text-green-700">Fone de Ouvido Bluetooth QCY T13 Pro Sem Fio Resistente à Água Para Corrida Academia Smartphone</p>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <p>✓ 58 caracteres (perfeito - limite é 60)</p>
+                                    <p>✓ Palavras-chave no início (Fone, Bluetooth, QCY)</p>
+                                    <p>✓ Descrição clara do produto</p>
+                                    <p>✓ Uso indicado (Para Corrida, Academia)</p>
+                                    <p>✓ Características (Resistente à Água)</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-red-50 p-5 rounded-xl border-2 border-red-300">
+                                <p class="font-bold text-red-800 text-lg mb-3">❌ EXEMPLO ERRADO:</p>
+                                <p class="text-xl font-mono text-red-700">Fone legal importado preço bom desconto</p>
+                                <div class="mt-3 space-y-1 text-sm">
+                                    <p>✗ Sem marca (não indexa)</p>
+                                    <p>✗ "Preço bom" = spam - ML remove</p>
+                                    <p>✗ Não explica o produto</p>
+                                    <p>✗ Palavras genéricas</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-800 text-white p-5 rounded-xl">
+                                <h4 class="font-bold text-lg mb-3">Regras do Título ML 2025:</h4>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-green-400 font-bold mb-2">✓ FAÇA:</p>
+                                        <ul class="space-y-1 text-gray-300">
+                                            <li>• Máximo 60 caracteres</li>
+                                            <li>• Palavras-chave principais no início</li>
+                                            <li>• Tudo minúsculo (exceto marca)</li>
+                                            <li>• Use vírgulas para separar</li>
+                                            <li>• Inclua sinônimos</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="text-red-400 font-bold mb-2">✗ NÃO FAÇA:</p>
+                                        <ul class="space-y-1 text-gray-300">
+                                            <li>• !!! (exclamações)</li>
+                                            <li>• TODO MAIÚSCULO</li>
+                                            <li>• Acentos (á, é, ã, ç)</li>
+                                            <li>• Preço ou promoção no título</li>
+                                            <li>• Palavras spam</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>`
                     },
                     {
-                        title: "Otimização de Descrição",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Estrutura que o ML Ama (use este modelo):</p>
+                        title: "Descrição que Converte",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Descrição que vende - modelo completo:</p>
                             
-                            <div class="bg-gray-800 text-green-400 p-5 rounded-lg font-mono text-sm overflow-x-auto">
-                                <p>&lt;h2 style="color:yellow"&gt;Descrição do Produto&lt;/h2&gt;</p>
-                                <p>&lt;p&gt;Escreva um parágrafo atrativo (2-3 linhas)&lt;/p&gt;</p>
+                            <div class="bg-gray-800 text-green-400 p-6 rounded-xl font-mono text-sm overflow-x-auto">
+                                <p>&lt;h2&gt;Descrição do Produto&lt;/h2&gt;</p>
+                                <p>&lt;p&gt;Parágrafo atrativo sobre o produto...&lt;/p&gt;</p>
                                 <br>
-                                <p>&lt;h2 style="color:yellow"&gt;Características&lt;/h2&gt;</p>
+                                <p>&lt;h2&gt;Características Técnicas&lt;/h2&gt;</p>
                                 <p>&lt;ul&gt;</p>
                                 <p>&nbsp;&nbsp;&lt;li&gt;• Material: ...&lt;/li&gt;</p>
                                 <p>&nbsp;&nbsp;&lt;li&gt;• Dimensões: ...&lt;/li&gt;</p>
@@ -528,7 +896,7 @@
                                 <p>&nbsp;&nbsp;&lt;li&gt;• Cor: ...&lt;/li&gt;</p>
                                 <p>&lt;/ul&gt;</p>
                                 <br>
-                                <p>&lt;h2 style="color:yellow"&gt;Itens Inclusos&lt;/h2&gt;</p>
+                                <p>&lt;h2&gt;Itens Inclusos&lt;/h2&gt;</p>
                                 <p>&lt;ul&gt;</p>
                                 <p>&nbsp;&nbsp;&lt;li&gt;• 1x Produto principal&lt;/li&gt;</p>
                                 <p>&nbsp;&nbsp;&lt;li&gt;• 1x Cabo USB&lt;/li&gt;</p>
@@ -536,340 +904,285 @@
                                 <p>&lt;/ul&gt;</p>
                             </div>
 
-                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
-                                <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>DICA DE OURO:</strong> Use marcadores (•) - compradores leem rápido, não leem texto grande!</p>
-                            </div>
-
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="bg-green-50 p-4 rounded-lg">
-                                    <h4 class="font-bold text-green-700">Faça:</h4>
-                                    <ul class="text-sm mt-2 space-y-1">
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                    <h4 class="font-bold text-green-700 text-xl mb-3">✅ FAÇA:</h4>
+                                    <ul class="space-y-2 text-gray-700">
                                         <li>✓ Descrição detalhada</li>
                                         <li>✓ Especificações técnicas</li>
                                         <li>✓ Modo de uso</li>
-                                        <li>✓ Garantia</li>
+                                        <li>✓ Informações de garantia</li>
+                                        <li>✓ Bullet points para scannear</li>
+                                        <li>✓ Tire dúvidas comuns</li>
                                     </ul>
                                 </div>
-                                <div class="bg-red-50 p-4 rounded-lg">
-                                    <h4 class="font-bold text-red-700">Não Faça:</h4>
-                                    <ul class="text-sm mt-2 space-y-1">
-                                        <li>✗ Texto grande demais</li>
+                                <div class="bg-red-50 p-5 rounded-xl border-2 border-red-300">
+                                    <h4 class="font-bold text-red-700 text-xl mb-3">❌ NÃO FAÇA:</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li>✗ Texto muito grande</li>
                                         <li>✗ Tudo em caixa alta</li>
                                         <li>✗ Links externos</li>
-                                        <li>✗ Conteúdo adulto/erótico</li>
+                                        <li>✗ Conteúdo adulto</li>
+                                        <li>✗ Promessas exageradas</li>
+                                        <li>✗ Mencionar concorrentes</li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>`
-                    },
-                    {
-                        title: "Palavras-Chave Estratégicas",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">4 Categorias de palavras para usar:</p>
-                            
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="bg-purple-50 p-5 rounded-lg border border-purple-300">
-                                    <h4 class="font-bold text-purple-700 text-lg">🔥 Alta Busca</h4>
-                                    <p class="text-sm text-gray-600 mt-2">Palavras que todos buscam</p>
-                                    <div class="bg-white p-3 rounded mt-2 font-mono text-sm">original, importado, promoção, novo, 2025</div>
-                                </div>
-                                <div class="bg-blue-50 p-5 rounded-lg border border-blue-300">
-                                    <h4 class="font-bold text-blue-700 text-lg">📦 Complemento</h4>
-                                    <p class="text-sm text-gray-600 mt-2">O que agrega valor</p>
-                                    <div class="bg-white p-3 rounded mt-2 font-mono text-sm">kit, com 2 unidades, brinde, completo</div>
-                                </div>
-                                <div class="bg-green-50 p-5 rounded-lg border border-green-300">
-                                    <h4 class="font-bold text-green-700 text-lg">⭐ Especificação</h4>
-                                    <p class="text-sm text-gray-600 mt-2">Características do produto</p>
-                                    <div class="bg-white p-3 rounded mt-2 font-mono text-sm">premium, profissional, resistente, importado, usb-c</div>
-                                </div>
-                                <div class="bg-orange-50 p-5 rounded-lg border border-orange-300">
-                                    <h4 class="font-bold text-orange-700 text-lg">🏠 Uso</h4>
-                                    <p class="text-sm text-gray-600 mt-2">Para onde/como usa</p>
-                                    <div class="bg-white p-3 rounded mt-2 font-mono text-sm">para presente, casa, viagem, trabalho, aniversário</div>
-                                </div>
-                            </div>
 
-                            <div class="bg-red-50 p-5 rounded-lg border-2 border-red-400">
-                                <p class="text-red-800 font-bold text-lg"><i class="fas fa-ban mr-2"></i>PROIBIDO ABSOLUTO:</p>
-                                <p class="text-red-700 mt-2">Usar marcas de terceiros (Nike, Apple, Samsung, Adidas) no título - causa <strong>suspensão imediata</strong>!</p>
-                                <p class="text-red-600 text-sm mt-2">Exemplo ERRADO: "Fone Bluetooth Samsung Original" → Use "Fone Bluetooth TWS 5.0 Similar Samsung"</p>
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>DICA:</strong> Use marcadores (•) para facilitar a leitura! Compradores scannam os textos.</p>
                             </div>
                         </div>`
                     },
                     {
-                        title: "Fotos que Vendem",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg"><strong>Requisitos ML 2025 - Leia com atenção:</strong></p>
+                        title: "Palavras-chave e SEO",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Como escolher palavras-chave para aparecer nas buscas:</p>
                             
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="text-center p-5 bg-white border-2 border-blue-200 rounded-xl">
-                                    <i class="fas fa-images text-4xl text-blue-500 mb-3"></i>
-                                    <p class="font-bold">Mínimo 5 fotos</p>
-                                    <p class="text-sm text-gray-500">Máximo 10 fotos</p>
-                                </div>
-                                <div class="text-center p-5 bg-white border-2 border-blue-200 rounded-xl">
-                                    <i class="fas fa-expand text-4xl text-blue-500 mb-3"></i>
-                                    <p class="font-bold">1500x1500px</p>
-                                    <p class="text-sm text-gray-500">Ideal: quadrada</p>
-                                </div>
-                                <div class="text-center p-5 bg-white border-2 border-blue-200 rounded-xl">
-                                    <i class="fas fa-file-image text-4xl text-blue-500 mb-3"></i>
-                                    <p class="font-bold">jpg / png</p>
-                                    <p class="text-sm text-gray-500">Máximo 10MB cada</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-green-50 p-5 rounded-lg border border-green-300">
-                                <h4 class="font-bold text-green-800 text-lg mb-3">Ordem ideal das fotos (COPY THIS):</h4>
-                                <div class="space-y-2 text-sm">
-                                    <div class="flex items-center gap-3"><span class="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span> <strong>Foto principal:</strong> Fundo branco 100%, produto centrado, sem texto, sem logo</div>
-                                    <div class="flex items-center gap-3"><span class="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span> <strong>Foto uso:</strong> Produto em contexto (ex: fone no ouvido)</div>
-                                    <div class="flex items-center gap-3"><span class="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span> <strong>Detalhes:</strong> Acabamento, botões, conexões</div>
-                                    <div class="flex items-center gap-3"><span class="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">4</span> <strong>Medidas:</strong> Régua mostrando dimensões</div>
-                                    <div class="flex items-center gap-3"><span class="bg-green-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">5</span> <strong>Embalagem:</strong> Como chega para o cliente</div>
+                            <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                <h4 class="font-bold text-blue-800 text-lg mb-3">Estratégia de Palavras-chave:</h4>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold text-green-600 mb-2">Alta concorrência:</p>
+                                        <p class="text-gray-600">"Fone Bluetooth" - muito buscar,muita competição</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold text-yellow-600 mb-2">Média concorrência:</p>
+                                        <p class="text-gray-600">"Fone Bluetooth Android" - boa busca, competencia média</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold text-purple-600 mb-2">Long-tail (recomendado):</p>
+                                        <p class="text-gray-600">"Fone Bluetooth Android custo benefício" - busca específica</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-bold text-blue-600 mb-2">Nicho:</p>
+                                        <p class="text-gray-600">"Fone Bluetooth resistente água corrida" - muito específico</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="bg-red-50 p-4 rounded-lg">
-                                <p class="text-red-700"><i class="fas fa-times mr-2"></i><strong>Fotos que geram queda:</strong> Fotos com fundo colorido, marcas d'água, texto sobre produto, logos de marca, produtos usados ou sujos</p>
+                            <div class="bg-gray-800 text-white p-5 rounded-xl">
+                                <h4 class="font-bold text-lg mb-3">Ferramentasgrátis para pesquisa:</h4>
+                                <div class="grid md:grid-cols-3 gap-4 text-center">
+                                    <div class="bg-gray-700 p-4 rounded-lg">
+                                        <p class="text-yellow-400 font-bold">Google Keyword Planner</p>
+                                        <p class="text-xs text-gray-400">Volume de buscas</p>
+                                    </div>
+                                    <div class="bg-gray-700 p-4 rounded-lg">
+                                        <p class="text-green-400 font-bold">ML Sugestões</p>
+                                        <p class="text-xs text-gray-400"> autocomplete</p>
+                                    </div>
+                                    <div class="bg-gray-700 p-4 rounded-lg">
+                                        <p class="text-purple-400 font-bold">Ubersuggest</p>
+                                        <p class="text-xs text-gray-400">Análise de concorrentes</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-300">
+                                <p class="text-green-800"><i class="fas fa-check-circle mr-2"></i><strong>Regra de Ouro:</strong> Inclua 5-10 palavras-chave relevantes na descrição, não no título. O título já tem limite de 60 caracteres.</p>
                             </div>
                         </div>`
                     }
                 ]
             },
             {
-                title: "4. Logística - Envios",
+                title: "5. Logística - Envios",
                 icon: "fa-truck",
                 color: "orange",
                 slides: [
                     {
                         title: "Mercado Envios (ME) - Tipos",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Entenda cada modalidade:</p>
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Entenda cada modalidade de envio:</p>
                             
                             <div class="space-y-4">
-                                <div class="bg-white border-2 border-blue-200 p-5 rounded-xl">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <span class="bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">1</span>
-                                        <h4 class="font-bold text-xl">Full (Armazenagem ML)</h4>
-                                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">RECOMENDADO</span>
-                                    </div>
-                                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="bg-white border-2 border-blue-200 p-6 rounded-xl">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <span class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">1</span>
                                         <div>
-                                            <p class="font-bold text-gray-700">Como funciona:</p>
-                                            <p class="text-gray-600">Você envia seus produtos para o Centro de Distribuição do ML → ML armazena → ML entrega → ML suporte pós-venda</p>
+                                            <h4 class="font-bold text-xl">Full (Armazenagem ML)</h4>
+                                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">RECOMENDADO</span>
                                         </div>
-                                        <div>
-                                            <p class="font-bold text-gray-700">Custo 2025:</p>
-                                            <p class="text-green-600 font-bold">Grátis para o comprador!</p>
-                                            <p class="text-xs text-gray-500">Você paga aproximadamente R$ 8-18 por pedido</p>
+                                    </div>
+                                    <p class="text-gray-600 mb-3">Você envia → ML armazena → ML entrega → ML suporte pós-venda</p>
+                                    <div class="grid md:grid-cols-2 gap-3 text-sm">
+                                        <div class="bg-green-50 p-3 rounded">
+                                            <p class="font-bold text-green-700">Vantagens:</p>
+                                            <ul class="list-disc list-inside text-gray-700">
+                                                <li>Frete grátis para comprador</li>
+                                                <li>Prioridade no rank</li>
+                                                <li>Sem trabalho de logística</li>
+                                                <li>Suporte ML em problemas</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-red-50 p-3 rounded">
+                                            <p class="font-bold text-red-700">Desvantagens:</p>
+                                            <ul class="list-disc list-inside text-gray-700">
+                                                <li>Taxa adicional (~8%)</li>
+                                                <li>Você não controlapack</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="bg-white border-2 border-orange-200 p-6 rounded-xl">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <span class="bg-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">2</span>
+                                        <div>
+                                            <h4 class="font-bold text-xl">Etiqueta (Sem Full)</h4>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 mb-3">Você embala → ML coleta → ML entrega</p>
+                                    <div class="grid md:grid-cols-2 gap-3 text-sm">
+                                        <div class="bg-green-50 p-3 rounded">
+                                            <p class="font-bold text-green-700">Vantagens:</p>
+                                            <ul class="list-disc list-inside text-gray-700">
+                                                <li>Vocêembala</li>
+                                                <li>Controle de qualidade</li>
+                                                <li>Menor taxa</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-yellow-50 p-3 rounded">
+                                            <p class="font-bold text-yellow-700">Desvantagens:</p>
+                                            <ul class="list-disc list-inside text-gray-700">
+                                                <li>Custo: R$ 10-15/envio</li>
+                                                <li>Prazo para postar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                                <div class="bg-white border-2 border-yellow-200 p-5 rounded-xl">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <span class="bg-yellow-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">2</span>
-                                        <h4 class="font-bold text-xl">Coleta (buscar na loja)</h4>
-                                    </div>
-                                    <div class="grid md:grid-cols-2 gap-4 text-sm">
-                                        <div>
-                                            <p class="font-bold text-gray-700">Como funciona:</p>
-                                            <p class="text-gray-600">O ML passa na sua casa ou loja para buscar o produto. Vocêembala e fica esperando.</p>
-                                        </div>
-                                        <div>
-                                            <p class="font-bold text-gray-700">Custo 2025:</p>
-                                            <p class="text-yellow-600 font-bold">Grátis para SP Capital</p>
-                                            <p class="text-xs text-gray-500">R$ 6-10 outras regiões</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white border-2 border-gray-200 p-5 rounded-xl">
-                                    <div class="flex items-center gap-3 mb-3">
-                                        <span class="bg-gray-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">3</span>
-                                        <h4 class="font-bold text-xl">Dropoff (Agências)</h4>
-                                    </div>
-                                    <div class="grid md:grid-cols-2 gap-4 text-sm">
-                                        <div>
-                                            <p class="font-bold text-gray-700">Como funciona:</p>
-                                            <p class="text-gray-600">Você leva o pacote até uma agência do ML ou parceiro. Você que transporta.</p>
-                                        </div>
-                                        <div>
-                                            <p class="font-bold text-gray-700">Custo 2025:</p>
-                                            <p class="text-gray-600 font-bold">Mais barato!</p>
-                                            <p class="text-xs text-gray-500">R$ 4-8 por pedido</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h4 class="font-bold text-yellow-800 text-lg mb-3"><i class="fas fa-bolt mr-2"></i>Dica Full - MAGIA DOS R$ 79:</h4>
+                                <p class="text-xl font-bold text-yellow-700">Vendendo acima de R$ 79 = Full ativado automaticamente!</p>
+                                <p class="text-gray-700 mt-2">Isso significa: Frete Grátis para o cliente + Prioridade no rank de buscas + Custo de envio ~R$ 0 para você!</p>
                             </div>
                         </div>`
                     },
                     {
-                        title: "Mercado Full - Como Ativar",
-                        content: `<div class="space-y-5">
-                            <div class="bg-green-500 text-white p-6 rounded-xl text-center">
-                                <p class="text-4xl font-bold">Full = Entrega 24h</p>
-                                <p class="text-lg">Maior visibilidade e vendas garantidas!</p>
-                            </div>
-
-                            <div class="grid md:grid-cols-2 gap-5">
-                                <div class="bg-blue-50 p-5 rounded-lg border border-blue-300">
-                                    <h4 class="font-bold text-blue-800 text-lg mb-3">✅ Benefícios Full</h4>
-                                    <ul class="space-y-2 text-sm">
-                                        <li>✓ <strong>Frete grátis</strong> para o comprador</li>
-                                        <li>✓ Tag <strong>"FULL"</strong> no anúncio</li>
-                                        <li>✓ Prioridade no <strong>ranking</strong> de busca</li>
-                                        <li>✓ Entrega em <strong>24h</strong> (capital)</li>
-                                        <li>✓ ML resolve <strong>reclamações</strong></li>
-                                        <li>✓ Sem custo de armazenagem</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-300">
-                                    <h4 class="font-bold text-yellow-800 text-lg mb-3">📋 Requisitos 2025</h4>
-                                    <ul class="space-y-2 text-sm">
-                                        <li>✓ Vender acima de <strong>R$ 79</strong></li>
-                                        <li>✓ Nível <strong>Mercado Líder</strong></li>
-                                        <li>✓ Enviar para <strong>CD ML</strong></li>
-                                        <li>✓ Sem <strong>restrições</strong> ativas</li>
-                                        <li>✓ <strong>95%</strong> entrega no prazo</li>
-                                        <li>✓ Nota <strong>4.3+</strong></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="bg-purple-50 p-5 rounded-lg border border-purple-300">
-                                <p class="text-purple-800 font-bold text-lg"><i class="fas fa-chart-line mr-2"></i>RESULTADOS REAIS:</p>
-                                <p class="text-purple-700 mt-2">Produtos Full vendem <strong>3-5 vezes mais</strong> que produtos sem Full! O "selo FULL" funciona como prova social.</p>
-                            </div>
-
-                            <div class="bg-gray-900 text-white p-5 rounded-lg">
-                                <p class="font-bold mb-2">Como ativar:</p>
-                                <p class="text-sm">Minha Conta → Envios → Mercado Full → "Solicitar participação" → Aguarde aprovação (5-7 dias)</p>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Envio Próprio (Cross-docking)",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Para vendedores avançados:</p>
-                            
-                            <div class="grid md:grid-cols-2 gap-5">
-                                <div class="bg-green-50 p-5 rounded-lg border-2 border-green-300">
-                                    <h4 class="font-bold text-green-800 text-lg mb-4">✅ Vantagens</h4>
-                                    <ul class="space-y-2 text-sm">
-                                        <li>✓ <strong>Sem taxa</strong> de armazenagem</li>
-                                        <li>✓ <strong>Controle total</strong> do estoque</li>
-                                        <li>✓ <strong>Flexibilidade</strong> de embalagem</li>
-                                        <li>✓ <strong>Margem maior</strong> (sem taxa ML)</li>
-                                        <li>✓ Não precisa enviar para CD</li>
-                                        <li>✓ Produtos grandes/pesados ok</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-red-50 p-5 rounded-lg border-2 border-red-300">
-                                    <h4 class="font-bold text-red-800 text-lg mb-4">❌ Desvantagens</h4>
-                                    <ul class="space-y-2 text-sm">
-                                        <li>✗ <strong>Necessita</strong> espaço físico</li>
-                                        <li>✗ <strong>Mais trabalho</strong> operacional</li>
-                                        <li>✗ Sem tag <strong>"FULL"</strong></li>
-                                        <li>✗ Sem garantia ML automática</li>
-                                        <li>✗ Você resolve reclamações</li>
-                                        <li>✗ Você paga envio (Jadlog, Azul, etc)</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="bg-blue-50 p-5 rounded-lg border border-blue-300">
-                                <p class="text-blue-800 font-bold"><i class="fas fa-info-circle mr-2"></i>IDEAL PARA:</p>
-                                <p class="text-blue-700 mt-2">Produtos grandes ou pesados que não cabem no Full, itens frágeis (porcelana, vidro), produtos artesanais, revenda local (drop shipping).</p>
-                            </div>
-
-                            <div class="bg-gray-800 text-white p-4 rounded-lg">
-                                <p class="font-bold">Configurar envio próprio:</p>
-                                <p class="text-sm">Anunciar → Configurações → Envio → "Sem Mercado Envios"</p>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Dicas de Embalagem Profissional",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Cuidados essenciais - evita problemas e devoluções:</p>
+                        title: "Configurações de Envio",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Configure o envio corretamente:</p>
                             
                             <div class="space-y-3">
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center"><i class="fas fa-check"></i></span>
-                                    <div>
-                                        <p class="font-bold">Caixa apropriada ao tamanho</p>
-                                        <p class="text-sm text-gray-500">Nem muito grande (produto bate) nem muito pequeno (não fecha)</p>
-                                    </div>
+                                <div class="bg-white p-4 rounded-lg border-2 border-blue-200">
+                                    <h4 class="font-bold text-blue-700">Mercado Envios (RECOMENDADO)</h4>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✓ Tag "FREE" aparece no anúncio</li>
+                                        <li>✓ ML resolve problemas de envio</li>
+                                        <li>✓ Frete grátis para o comprador (Full)</li>
+                                        <li>✓ Coleta automática</li>
+                                    </ul>
                                 </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center"><i class="fas fa-check"></i></span>
-                                    <div>
-                                        <p class="font-bold">Forração interna</p>
-                                        <p class="text-sm text-gray-500">Plástico bolha, papel kraft, isopor - evite movimento</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center"><i class="fas fa-check"></i></span>
-                                    <div>
-                                        <p class="font-bold">Etiqueta sem dobrar ou rasurar</p>
-                                        <p class="text-sm text-gray-500">Cole no local correto, código de barras visível</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center"><i class="fas fa-check"></i></span>
-                                    <div>
-                                        <p class="font-bold">Não use caixa original do produto</p>
-                                        <p class="text-sm text-gray-500">Protege a privacidade do preço e não revela marca</p>
-                                    </div>
+                                <div class="bg-white p-4 rounded-lg border-2 border-gray-200">
+                                    <h4 class="font-bold text-gray-700">Envio Próprio</h4>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✓ Você define o frete</li>
+                                        <li>✓ Você controla a logística</li>
+                                        <li>✗ Sem Tag FREE</li>
+                                        <li>✗ Mais trabalho para você</li>
+                                    </ul>
                                 </div>
                             </div>
 
-                            <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-300">
-                                <p class="text-yellow-800 font-bold text-lg"><i class="fas fa-shopping-bag mr-2"></i>DICA PROFISSIONAL:</p>
-                                <p class="text-yellow-700 mt-2">Use <strong>sacas pretas</strong> ou <strong>papel pardo</strong> para parecer mais profissional e não revelar o preço do produto!</p>
-                                <p class="text-yellow-600 text-sm mt-2">Evite caixas coloridas ou com marcas visíveis.</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-300">
+                                <p class="text-green-800 font-bold">Como ativar o Mercado Envios:</p>
+                                <p class="text-sm text-gray-700 mt-2">Anúncio > Configurações > Mercado Envios > Ativar</p>
+                            </div>
+
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-300">
+                                <p class="text-blue-800"><i class="fas fa-box mr-2"></i><strong>Embalagem:</strong> Use caixa de papelão, preencha/internal, faça proteção. O ML exige embalagem resistência.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        title: "Prazo de Entrega",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Configure prazos corretamente para evitar problemas:</p>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm border-collapse">
+                                    <thead class="bg-gray-800 text-white">
+                                        <tr>
+                                            <th class="p-3 text-left">Região</th>
+                                            <th class="p-3 text-left">Prazo Padrão</th>
+                                            <th class="p-3 text-left">Full (Expresso)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b bg-white">
+                                            <td class="p-3">Mesma cidade/estado</td>
+                                            <td class="p-3">1-2 dias úteis</td>
+                                            <td class="p-3 text-green-600">Mesmo dia</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="p-3">Estado vizinho</td>
+                                            <td class="p-3">2-3 dias úteis</td>
+                                            <td class="p-3 text-green-600">1-2 dias</td>
+                                        </tr>
+                                        <tr class="border-b bg-white">
+                                            <td class="p-3">Outra região</td>
+                                            <td class="p-3">3-5 dias úteis</td>
+                                            <td class="p-3 text-green-600">2-3 dias</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-3">Norte/Nordeste</td>
+                                            <td class="p-3">5-7 dias úteis</td>
+                                            <td class="p-3 text-green-600">3-4 dias</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-clock mr-2"></i><strong>Regra de Ouro:</strong> Sempre tenha o produto em mãos ANTES de publicaro anúncio. Prazo de postagem é 48h útil - atrasos causam penalidades.</p>
+                            </div>
+
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-300">
+                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>Atrasos = queda na reputação!</strong> Atrasos aumentam reclamações e baixar nota. Mantenha buffer de estoque.</p>
                             </div>
                         </div>`
                     }
                 ]
             },
             {
-                title: "5. Anúncios (Mercado Ads)",
+                title: "6. Anúncios (Mercado Ads)",
                 icon: "fa-bullhorn",
                 color: "pink",
                 slides: [
                     {
-                        title: "Tipos de Campanhas de Anúncios",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Opções de publicidade disponíveis:</p>
+                        title: "O que é Mercado Ads?",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Sistema de publicidade oficial do ML:</p>
+                            
+                            <div class="bg-pink-500 text-white p-6 rounded-xl text-center">
+                                <p class="text-3xl font-bold">Aumente suas vendas em 3-5x</p>
+                                <p class="text-lg">Anuncie seus produtos no topo das buscas do ML</p>
+                            </div>
                             
                             <div class="grid md:grid-cols-2 gap-5">
                                 <div class="bg-purple-50 p-5 rounded-xl border-2 border-purple-300">
                                     <h4 class="font-bold text-purple-700 text-xl"><i class="fas fa-bullseye mr-2"></i>Campanha de Produtos</h4>
                                     <p class="text-sm text-gray-600 mt-2">Promove produtos específicos em resultados de busca e detalhe do produto.</p>
                                     <div class="bg-white p-3 rounded mt-4">
-                                        <div class="text-center">
-                                            <p class="text-2xl font-bold text-purple-600">CPC</p>
-                                            <p class="text-sm">Custo por clique</p>
-                                            <p class="text-green-600 font-bold">R$ 0,50 - 3,00</p>
-                                        </div>
+                                        <p class="text-center">
+                                            <span class="text-2xl font-bold text-purple-600">CPC</span><br>
+                                            <span class="text-green-600 font-bold">R$ 0,50 - 3,00</span>
+                                        </p>
                                     </div>
-                                    <p class="text-xs text-purple-600 mt-3">USE PARA: produtos específicos que quer vender mais</p>
+                                    <p class="text-xs text-purple-600 mt-3 bg-purple-100 p-2 rounded">USE PARA: produtos específicos que quer vender mais</p>
                                 </div>
                                 <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
                                     <h4 class="font-bold text-blue-700 text-xl"><i class="fas fa-mouse-pointer mr-2"></i>Campanha de Visitas</h4>
                                     <p class="text-sm text-gray-600 mt-2">Aumenta visualizações do seu perfil ou loja e cliques na página.</p>
                                     <div class="bg-white p-3 rounded mt-4">
-                                        <div class="text-center">
-                                            <p class="text-2xl font-bold text-blue-600">CPC</p>
-                                            <p class="text-sm">Custo por clique</p>
-                                            <p class="text-green-600 font-bold">R$ 0,30 - 1,50</p>
-                                        </div>
+                                        <p class="text-center">
+                                            <span class="text-2xl font-bold text-blue-600">CPC</span><br>
+                                            <span class="text-green-600 font-bold">R$ 0,30 - 1,50</span>
+                                        </p>
                                     </div>
-                                    <p class="text-xs text-blue-600 mt-3">USE PARA: visibilidade da marca, visitas à Loja</p>
+                                    <p class="text-xs text-blue-600 mt-3 bg-blue-100 p-2 rounded">USE PARA: visibilidade da marca, visitas à Loja</p>
                                 </div>
                             </div>
 
@@ -881,69 +1194,23 @@
                         </div>`
                     },
                     {
-                        title: "Métricas e KPIs Essenciais",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">4 métricas que você DEVE acompanhar:</p>
-                            
-                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                <div class="bg-white border-2 border-purple-200 p-4 rounded-xl text-center">
-                                    <div class="text-3xl font-bold text-purple-600">CPC</div>
-                                    <div class="text-sm text-gray-500 mt-1">Custo por clique</div>
-                                    <div class="mt-3 bg-purple-50 p-2 rounded">
-                                        <p class="text-xs font-bold text-purple-700">IDEAL: < R$ 1,50</p>
-                                    </div>
-                                </div>
-                                <div class="bg-white border-2 border-blue-200 p-4 rounded-xl text-center">
-                                    <div class="text-3xl font-bold text-blue-600">CTR</div>
-                                    <div class="text-sm text-gray-500 mt-1">Taxa de clique</div>
-                                    <div class="mt-3 bg-blue-50 p-2 rounded">
-                                        <p class="text-xs font-bold text-blue-700">IDEAL: > 2%</p>
-                                    </div>
-                                </div>
-                                <div class="bg-white border-2 border-green-200 p-4 rounded-xl text-center">
-                                    <div class="text-3xl font-bold text-green-600">ROAS</div>
-                                    <div class="text-sm text-gray-500 mt-1">Retorno investimento</div>
-                                    <div class="mt-3 bg-green-50 p-2 rounded">
-                                        <p class="text-xs font-bold text-green-700">IDEAL: > 3x</p>
-                                    </div>
-                                </div>
-                                <div class="bg-white border-2 border-orange-200 p-4 rounded-xl text-center">
-                                    <div class="text-3xl font-bold text-orange-600">CONV</div>
-                                    <div class="text-sm text-gray-500 mt-1">Conversão</div>
-                                    <div class="mt-3 bg-orange-50 p-2 rounded">
-                                        <p class="text-xs font-bold text-orange-700">IDEAL: > 5%</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-900 text-white p-5 rounded-lg">
-                                <p class="font-bold text-lg mb-3">Fórmula do ROAS - aprenda:</p>
-                                <p class="text-2xl font-mono text-center">ROAS = Receita dos Anúncios ÷ Custo dos Anúncios</p>
-                                <div class="mt-4 bg-gray-800 p-3 rounded">
-                                    <p class="text-sm"><strong>Exemplo:</strong> Gastou R$ 100 em anúncios e vendeu R$ 300 → ROAS = 3 vezes</p>
-                                    <p class="text-sm mt-2"><strong>Regra:</strong> ROAS < 2x = pause campanha, ROAS > 4x = escale!</p>
-                                </div>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Configuração Passo a Passo",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Como criar sua primeira campanha:</p>
+                        title: "Como Criar uma Campanha",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Passo a passo para criar sua primeira campanha:</p>
                             
                             <div class="space-y-3">
                                 <div class="flex items-center gap-4 p-4 bg-white border-2 border-purple-200 rounded-xl">
                                     <span class="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</span>
                                     <div>
-                                        <p class="font-bold">Escolha o objetivo: <span class="text-purple-600">Vendas</span></p>
-                                        <p class="text-sm text-gray-500">Não use "Visitas" no início - foca em conversão!</p>
+                                        <p class="font-bold">Escolha o tipo de campanha</p>
+                                        <p class="text-sm text-gray-500">Produtos ou Visitas</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 p-4 bg-white border-2 border-purple-200 rounded-xl">
                                     <span class="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xl">2</span>
                                     <div>
                                         <p class="font-bold">Selecione os produtos</p>
-                                        <p class="text-sm text-gray-500">Escolha os 5-10 produtos com maior margem (30%+) para começar</p>
+                                        <p class="text-sm text-gray-500">Escolha até 50 produtos por campanha</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-4 p-4 bg-white border-2 border-purple-200 rounded-xl">
@@ -969,36 +1236,50 @@
                                 </div>
                             </div>
 
-                            <div class="bg-green-50 p-4 rounded-lg border border-green-300">
-                                <p class="text-green-700"><i class="fas fa-clock mr-2"></i><strong>Tempo de aprendizado:</strong> ML leva 7-14 dias para otimizar. Não mude nada antes!</p>
+                            <div class="bg-gray-800 text-white p-5 rounded-xl">
+                                <p class="font-bold text-lg mb-3">DICA DE OURO - COMBO MELHOR:</p>
+                                <p class="text-gray-300">Combine campanhas para melhores resultados!</p>
+                                <ul class="text-sm mt-2 space-y-1 text-gray-300">
+                                    <li>✓ Campanhas de Produtos + Palavras Long-tail</li>
+                                    <li>✓ Remarketing para quem abandonou carrinho</li>
+                                    <li>✓ Lance Automático no início, depois Manual</li>
+                                </ul>
                             </div>
                         </div>`
                     },
                     {
-                        title: "Estratégias Avançadas 2025",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Como escalar seus anúncios (estratégias testadas):</p>
+                        title: "Métricas e Otimização",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">4 métricas que você DEVE acompanhar:</p>
                             
-                            <div class="space-y-3">
-                                <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-5 rounded-xl">
-                                    <h4 class="font-bold text-xl">🎯 Remarketing</h4>
-                                    <p class="text-sm mt-2">Anuncie para quem visitou seu produto mas não comprou. Maior conversão!</p>
-                                    <p class="text-xs mt-2 bg-white/20 p-2 rounded">Ative em: Campanhas > Remarketing > Criar</p>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div class="bg-white border-2 border-purple-200 p-4 rounded-xl text-center">
+                                    <div class="text-3xl font-bold text-purple-600">CPC</div>
+                                    <div class="text-sm text-gray-500 mt-1">Custo por clique</div>
+                                    <div class="mt-3 bg-purple-50 p-2 rounded">
+                                        <p class="text-xs font-bold text-purple-700">IDEAL: Menor que R$ 1,50</p>
+                                    </div>
                                 </div>
-                                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-5 rounded-xl">
-                                    <h4 class="font-bold text-xl">🔍 Palavras Long-tail</h4>
-                                    <p class="text-sm mt-2">Termos específicos com menor concorrência mas maior intenção de compra.</p>
-                                    <p class="text-xs mt-2 bg-white/20 p-2 rounded">Ex: "fone bluetooth android custo benefício" vs só "fone"</p>
+                                <div class="bg-white border-2 border-blue-200 p-4 rounded-xl text-center">
+                                    <div class="text-3xl font-bold text-blue-600">CTR</div>
+                                    <div class="text-sm text-gray-500 mt-1">Taxa de cliques</div>
+                                    <div class="mt-3 bg-blue-50 p-2 rounded">
+                                        <p class="text-xs font-bold text-blue-700">IDEAL: Maior que 3%</p>
+                                    </div>
                                 </div>
-                                <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-5 rounded-xl">
-                                    <h4 class="font-bold text-xl">⚡ Lance Automático</h4>
-                                    <p class="text-sm mt-2">ML ajusta automaticamente baseado em conversão. Bom para iniciantes!</p>
-                                    <p class="text-xs mt-2 bg-white/20 p-2 rounded">Use "Automático" até aprender, depois mude para Manual</p>
+                                <div class="bg-white border-2 border-green-200 p-4 rounded-xl text-center">
+                                    <div class="text-3xl font-bold text-green-600">ROAS</div>
+                                    <div class="text-sm text-gray-500 mt-1">Retorno sobre ads</div>
+                                    <div class="mt-3 bg-green-50 p-2 rounded">
+                                        <p class="text-xs font-bold text-green-700">IDEAL: Maior que 4x</p>
+                                    </div>
                                 </div>
-                                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white p-5 rounded-xl">
-                                    <h4 class="font-bold text-xl">🧪 Teste A/B</h4>
-                                    <p class="text-sm mt-2">Mude títulos e fotos semanalmente. O que converte mais, fica.</p>
-                                    <p class="text-xs mt-2 bg-white/20 p-2 rounded">Teste uma variável por vez (só título ou só foto)</p>
+                                <div class="bg-white border-2 border-yellow-200 p-4 rounded-xl text-center">
+                                    <div class="text-3xl font-bold text-yellow-600">Conversão</div>
+                                    <div class="text-sm text-gray-500 mt-1">Vendas / Cliques</div>
+                                    <div class="mt-3 bg-yellow-50 p-2 rounded">
+                                        <p class="text-xs font-bold text-yellow-700">IDEAL: Maior que 2%</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -1006,435 +1287,354 @@
                                 <p class="text-red-800 font-bold text-lg"><i class="fas fa-exclamation-triangle mr-2"></i>REGRA DE OURO:</p>
                                 <p class="text-red-700 mt-2">Não gaste mais de <strong>20% da receita</strong> em Anúncios! Ex: faturou R$ 1000 → máximo R$ 200 em anúncios.</p>
                             </div>
+
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-sync mr-2"></i><strong>Otimize semanalmente:</strong> Ajuste lances, pause produtos que não vendem, teste novos títulos e fotos.</p>
+                            </div>
                         </div>`
                     }
                 ]
             },
             {
-                title: "6. Mercado Shops (Loja)",
+                title: "7. Mercado Shops (Loja)",
                 icon: "fa-store",
                 color: "indigo",
                 slides: [
                     {
                         title: "O que é o Mercado Shops?",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Sua loja própria dentro do ML:</p>
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Sua loja própria dentro do maior marketplace do Brasil:</p>
                             
                             <div class="bg-indigo-500 text-white p-6 rounded-xl text-center">
                                 <p class="text-3xl font-bold">Loja Virtual Grátis</p>
-                                <p class="text-lg">Domínio personalizado como: sua-loja.mercadolivre.com.br</p>
+                                <p class="text-lg">Tenha sua própria marca dentro do ML!</p>
                             </div>
-
-                            <div class="grid md:grid-cols-2 gap-5 mt-5">
-                                <div class="bg-white border-2 border-indigo-200 p-5 rounded-xl">
-                                    <h4 class="font-bold text-indigo-700 text-lg mb-4">✅ Benefícios</h4>
-                                    <ul class="space-y-2 text-sm">
-                                        <li>✓ URL personalizada</li>
-                                        <li>✓ Design customizável</li>
-                                        <li>✓ Sem taxa de manutenção</li>
-                                        <li>✓ Segue regras do ML</li>
-                                        <li>✓ Produtos Full automaticamente</li>
-                                        <li>✓ Marketing nativo</li>
-                                    </ul>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white p-5 rounded-xl border-2 border-indigo-200">
+                                    <i class="fas fa-star text-3xl text-indigo-500 mb-3"></i>
+                                    <h4 class="font-bold text-indigo-700">Branding Próprio</h4>
+                                    <p class="text-sm text-gray-600 mt-2">Tenha logo, banner, cores da sua marca para criar identidade visual</p>
                                 </div>
-                                <div class="bg-white border-2 border-indigo-200 p-5 rounded-xl">
-                                    <h4 class="font-bold text-indigo-700 text-lg mb-4">📌 Para quem é</h4>
-                                    <ul class="space-y-2 text-sm">
-                                        <li>✓ Vendedores consolidados (100+ vendas)</li>
-                                        <li>✓ Múltiplas categorias</li>
-                                        <li>✓ Quer criar marca própria</li>
-                                        <li>✓ Precisa de mais visibilidade</li>
-                                        <li>✓ Quer loja com marca</li>
-                                        <li>✓ Vende no atacado</li>
-                                    </ul>
+                                <div class="bg-white p-5 rounded-xl border-2 border-indigo-200">
+                                    <i class="fas fa-link text-3xl text-indigo-500 mb-3"></i>
+                                    <h4 class="font-bold text-indigo-700">URL Personalizada</h4>
+                                    <p class="text-sm text-gray-600 mt-2">lojaml.com.br/sua-loja -link fácil de compartilhar</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-xl border-2 border-indigo-200">
+                                    <i class="fas fa-percent text-3xl text-indigo-500 mb-3"></i>
+                                    <h4 class="font-bold text-indigo-700">Cupons de Desconto</h4>
+                                    <p class="text-sm text-gray-600 mt-2">Crie cupons exclusivos para sua loja (Promoteiros)</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-xl border-2 border-indigo-200">
+                                    <i class="fas fa-bullhorn text-3xl text-indigo-500 mb-3"></i>
+                                    <h4 class="font-bold text-indigo-700">Anúncios Prioritários</h4>
+                                    <p class="text-sm text-gray-600 mt-2">Produtos da loja aparecem em destaque</p>
                                 </div>
                             </div>
 
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <p class="text-green-700"><i class="fas fa-check mr-2"></i><strong>Grátis!</strong> Todos os vendedores com conta PJ podem ativar, sem custo adicional.</p>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-300">
+                                <p class="text-green-800"><i class="fas fa-check-circle mr-2"></i><strong>Como ativar:</strong> Disponível automaticamente para sellers com 100+ vendas ou conta PJ. Acesse: Minha Conta > Mercado Shops</p>
                             </div>
                         </div>`
                     },
                     {
-                        title: "Como Ativar o Shops",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Tutorial passo a passo:</p>
+                        title: "Personalização da Loja",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Comocustomizar sua loja para converter mais:</p>
                             
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-indigo-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</span>
-                                    <div>
-                                        <p class="font-bold">Acesse shops.mercadolivre.com.br</p>
-                                        <p class="text-sm text-gray-500">Use o mesmo login do seu vendedor</p>
+                            <div class="bg-white border-2 border-gray-200 p-5 rounded-xl">
+                                <h4 class="font-bold text-gray-800 mb-4">Elementos de Personalização:</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                        <span class="font-medium">Banner principal</span>
+                                        <span class="text-sm text-gray-500">1200x200px - sua marca</span>
                                     </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-indigo-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xl">2</span>
-                                    <div>
-                                        <p class="font-bold">Escolha um nome para sua loja</p>
-                                        <p class="text-sm text-gray-500">Ex: "Minha Loja" → sua-loja.mercadolivre.com.br</p>
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                        <span class="font-medium">Logo</span>
+                                        <span class="text-sm text-gray-500">200x200px - identidade</span>
                                     </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-indigo-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xl">3</span>
-                                    <div>
-                                        <p class="font-bold">Customize cores e banner</p>
-                                        <p class="text-sm text-gray-500">Escolha paleta de cores, banner 1200x250px</p>
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                        <span class="font-medium">Descrição</span>
+                                        <span class="text-sm text-gray-500">Texto sobre sua loja</span>
                                     </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-indigo-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xl">4</span>
-                                    <div>
-                                        <p class="font-bold">Selecione seus produtos</p>
-                                        <p class="text-sm text-gray-500">Escolha quais anúncios aparecem na loja</p>
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                                        <span class="font-medium">Banner promotional</span>
+                                        <span class="text-sm text-gray-500">Coleções sazonais</span>
                                     </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-indigo-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xl">5</span>
-                                    <div>
-                                        <p class="font-bold">Publique!</p>
-                                        <p class="text-sm text-gray-500">Pronto! Sua loja está no ar</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Recursos do Shops - Vitrine",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Recursos para aumentar vendas:</p>
-                            
-                            <div class="space-y-3">
-                                <div class="bg-yellow-50 p-5 rounded-lg border-2 border-yellow-300">
-                                    <h4 class="font-bold text-yellow-800 text-lg"><i class="fas fa-star mr-2"></i>Destaques (R$ 49/mês)</h4>
-                                    <p class="text-sm text-yellow-700 mt-2">Produtos em destaque no topo da loja. Recomendado para produtos principais.</p>
-                                </div>
-                                <div class="bg-blue-50 p-5 rounded-lg border-2 border-blue-300">
-                                    <h4 class="font-bold text-blue-800 text-lg"><i class="fas fa-tags mr-2"></i>Coleções</h4>
-                                    <p class="text-sm text-blue-700 mt-2">Agrupar produtos por tema. Ex: "Presentes Dia das Mães", "Mais Vendidos", "Lançamentos"</p>
-                                </div>
-                                <div class="bg-purple-50 p-5 rounded-lg border-2 border-purple-300">
-                                    <h4 class="font-bold text-purple-800 text-lg"><i class="fas fa-images mr-2"></i>Banners Promocionais</h4>
-                                    <p class="text-sm text-purple-700 mt-2">Criar banners para campanhas. Ex: "Frete Grátis", "20% OFF"</p>
-                                </div>
-                                <div class="bg-green-50 p-5 rounded-lg border-2 border-green-300">
-                                    <h4 class="font-bold text-green-800 text-lg"><i class="fas fa-chart-bar mr-2"></i>Análises Avançadas</h4>
-                                    <p class="text-sm text-green-700 mt-2">Acompanhe visualizações, cliques, conversões específicas da loja.</p>
                                 </div>
                             </div>
 
-                            <div class="bg-gray-800 text-white p-4 rounded-lg">
-                                <p class="font-bold">Dica:</p>
-                                <p class="text-sm">Use 3-4 coleções máximo. Mude os produtos em destaque a cada 2 semanas para testar.</p>
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>Dica:</strong> Atualize banners mensalmente para refletir promoções e tendências. Uma loja bem personalizada vende 2x mais!</p>
                             </div>
                         </div>`
                     }
                 ]
             },
             {
-                title: "7. Atendimento ao Cliente",
+                title: "8. Atendimento ao Cliente",
                 icon: "fa-headset",
                 color: "teal",
                 slides: [
                     {
                         title: "Centro de Mensagens - Regras",
-                        content: `<div class="space-y-5">
+                        content: `<div class="space-y-6">
                             <p class="text-gray-700 font-medium text-lg">Comunicação oficial do ML - regras críticas:</p>
                             
-                            <div class="bg-teal-50 p-5 rounded-lg border border-teal-300">
-                                <h4 class="font-bold text-teal-800 text-lg mb-3"><i class="fas fa-info-circle mr-2"></i>Regras importantíssimas:</h4>
-                                <ul class="space-y-2 text-sm text-teal-700">
-                                    <li>• TODO contato deve ser pelo <strong>Centro de Mensagens</strong> (não email, não WhatsApp)</li>
-                                    <li>• Tempo médio de resposta deve ser <strong>< 12h</strong></li>
-                                    <li>• <strong>NUNCA</strong> peça avaliação ou agradeça compra</li>
-                                    <li>• <strong>NUNCA</strong> direcione para fora do ML (site, Instagram, etc)</li>
-                                    <li>• <strong>NUNCA</strong> mencione concorrentes</li>
-                                    <li>• Use sempre <strong>tom profissional e cordial</strong></li>
+                            <div class="bg-teal-50 p-5 rounded-xl border-2 border-teal-300">
+                                <h4 class="font-bold text-teal-800 text-lg mb-4"><i class="fas fa-exclamation-circle mr-2"></i>Regras importantíssimas 2025:</h4>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                        <span>TODO contato deve ser pelo <strong>Centro de Mensagens</strong> (não email, não WhatsApp)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                        <span>Tempo médio de resposta deve ser <strong>menos de 12h</strong></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                        <span><strong>NUNCA</strong> peça avaliação ou agradeça compra</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                        <span><strong>NUNCA</strong> direcione para fora do ML (site, Instagram, WhatsApp, etc)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-times text-red-500 mt-1"></i>
+                                        <span><strong>NUNCA</strong> mencione concorrentes</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check text-green-500 mt-1"></i>
+                                        <span>Use sempre <strong>tom profissional e cordial</strong></span>
+                                    </li>
                                 </ul>
                             </div>
 
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="bg-green-50 p-5 rounded-lg">
-                                    <h4 class="font-bold text-green-700 text-lg mb-3">✅ Do que pode falar</h4>
-                                    <ul class="text-sm space-y-1 text-gray-700">
-                                        <li>✓ Esclarecer dúvidas sobre produto</li>
-                                        <li>✓ Enviar nota fiscal</li>
-                                        <li>✓ Confirmar endereço de envio</li>
-                                        <li>✓ Informar rastreamento</li>
-                                        <li>✓ Resolver problemas (troca, defeito)</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-red-50 p-5 rounded-lg">
-                                    <h4 class="font-bold text-red-700 text-lg mb-3">❌ O que evitar</h4>
-                                    <ul class="text-sm space-y-1 text-gray-700">
-                                        <li>✗ Pedir avaliação positiva</li>
-                                        <li>✗ Mencionar concorrentes</li>
-                                        <li>✗ Oferecer desconto fora do ML</li>
-                                        <li>✗ Pedir WhatsApp</li>
-                                        <li>✗ Reclamar do ML</li>
-                                    </ul>
-                                </div>
+                            <div class="bg-red-50 p-5 rounded-xl border-2 border-red-400">
+                                <h4 class="font-bold text-red-800 text-lg mb-3"><i class="fas fa-exclamation-triangle mr-2"></i>ATENÇÃO - MULTAS E SUSPENSÃO:</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>• Usar WhatsApp = suspensão imediata</li>
+                                    <li>• Usar email externo = multa</li>
+                                    <li>• Direcionar para outro site = suspensión</li>
+                                    <li>• Pedir avaliação = advertência</li>
+                                    <li>• Mencionar concorrentes = redução de visibility</li>
+                                </ul>
                             </div>
 
-                            <div class="bg-yellow-50 p-4 rounded-lg">
-                                <p class="text-yellow-700"><i class="fas fa-exclamation-circle mr-2"></i><strong>Multas:</strong> Usar WhatsApp ou direcionar para fora = reclamação + perda de reputação!</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-300">
+                                <p class="text-blue-800"><i class="fas fa-clock mr-2"></i><strong>Meta:</strong> Tempo médio de resposta menor que 6h para manter nota alta.</p>
                             </div>
                         </div>`
                     },
                     {
-                        title: "Como Resolver Reclamações",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Fluxo para casos problemáticos (COPY):</p>
+                        title: "Como Responder Perguntas",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Modelo de resposta profissional:</p>
                             
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</span>
-                                    <div>
-                                        <p class="font-bold">Responda IMEDIATAMENTE (máximo 2h)</p>
-                                        <p class="text-sm text-gray-500">Comprador espera resposta. Silêncio = reclamação formal.</p>
-                                    </div>
+                            <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                <h4 class="font-bold text-green-800 mb-3">✅ Modelo de Resposta:</h4>
+                                <div class="bg-white p-4 rounded-lg font-mono text-sm">
+                                    <p class="text-gray-700">"Olá! Obrigado por entrar em contato. 😊</p>
+                                    <p class="text-gray-700 mt-2">Sobre sua pergunta: [RESPONDA A PERGUNTA]</p>
+                                    <p class="text-gray-700 mt-2">O produto está disponível para envio imediato. Qualquer dúvida, estou à disposição!</p>
+                                    <p class="text-gray-700 mt-2">Att, [SEU NOME]"</p>
                                 </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl">2</span>
-                                    <div>
-                                        <p class="font-bold">Peça fotos do problema</p>
-                                        <p class="text-sm text-gray-500">Não assuma responsabilidade antes de ver evidência.</p>
+                            </div>
+
+                            <div class="bg-gray-800 text-white p-5 rounded-xl">
+                                <h4 class="font-bold text-lg mb-3">Perguntas FREQUENTES -Prepare respostas:</h4>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                    <div class="bg-gray-700 p-3 rounded">
+                                        <p class="text-yellow-400 font-bold">"É original?"</p>
+                                        <p class="text-gray-300">Sim, produto original com garantia</p>
                                     </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl">3</span>
-                                    <div>
-                                        <p class="font-bold">Ofereça solução</p>
-                                        <p class="text-sm text-gray-500">Opções: troca parcial, cupom, reembolso total, novo envio.</p>
+                                    <div class="bg-gray-700 p-3 rounded">
+                                        <p class="text-yellow-400 font-bold">"Qual o prazo?"</p>
+                                        <p class="text-gray-300">Enviamos em 24h, prazo X-Y dias</p>
                                     </div>
-                                </div>
-                                <div class="flex items-center gap-4 p-4 bg-white border-2 border-green-200 rounded-xl">
-                                    <span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl">4</span>
-                                    <div>
-                                        <p class="font-bold">Se não resolver → ML intervém</p>
-                                        <p class="text-sm text-gray-500">ML decide. Na dúvida, o cliente geralmente ganha.</p>
+                                    <div class="bg-gray-700 p-3 rounded">
+                                        <p class="text-yellow-400 font-bold">"Tem NF?"</p>
+                                        <p class="text-gray-300">Sim, emitimos nota fiscal</p>
+                                    </div>
+                                    <div class="bg-gray-700 p-3 rounded">
+                                        <p class="text-yellow-400 font-bold">"Serve para X?"</p>
+                                        <p class="text-gray-300">Serve sim, compatível com...</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-300">
-                                <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>DICA DE OURO:</strong> Cliente compreensivo > reclamação formal. É melhor dar R$ 10 de desconto do que ter reclamação no histórico!</p>
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800"><i class="fas fa-lightbulb mr-2"></i><strong>Dica:</strong> Use perguntas frequentes na descrição do produto para reduzir msgs!</p>
                             </div>
                         </div>`
                     },
                     {
                         title: "Cancelamentos e Devoluções",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Política ML 2025 - conheça:</p>
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Política ML 2025 - conheça suas obrigações:</p>
                             
                             <div class="grid md:grid-cols-2 gap-5">
-                                <div class="bg-blue-50 p-5 rounded-lg border border-blue-300">
-                                    <h4 class="font-bold text-blue-700 text-lg mb-3">✅ Comprador pode cancelar se:</h4>
-                                    <ul class="text-sm space-y-2">
-                                        <li>• Produto <strong>não enviado</strong> (até 24h)</li>
-                                        <li>• Não chegou (após 10 dias úteis)</li>
-                                        <li>• <strong>Produto diferente</strong> do anúncio</li>
-                                        <li>• Produto com <strong>defeito</strong></li>
-                                        <li>• Arrependimento (<strong>7 dias</strong> via ML)</li>
+                                <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                    <h4 class="font-bold text-blue-800 text-lg mb-3">Direito do Comprador:</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li>• 7 dias para arrependimento (eletrônicos)</li>
+                                        <li>• 30 dias para arrependimento (demais)</li>
+                                        <li>• Produto com defeito: troca ou reembolso</li>
+                                        <li>• Não recebeu: reembolso total</li>
                                     </ul>
                                 </div>
-                                <div class="bg-red-50 p-5 rounded-lg border border-red-300">
-                                    <h4 class="font-bold text-red-700 text-lg mb-3">❌ NÃO pode cancelar se:</h4>
-                                    <ul class="text-sm space-y-2">
-                                        <li>• Produto <strong>já enviado</strong></li>
-                                        <li>• Atraso normal (logística)</li>
-                                        <li>• Arrependimento fora do prazo</li>
-                                        <li>• Mudou de ideia (sem base legal)</li>
-                                        <li>• Preço mudou</li>
+                                <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                    <h4 class="font-bold text-green-800 text-lg mb-3">Suas obrigações como vendedor:</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li>• Aceitar devolução sem questionar</li>
+                                        <li>• Devolver o valor em até 10 dias</li>
+                                        <li>• Enviar etiqueta de devolução</li>
+                                        <li>• Responder em até 48h</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="bg-gray-900 text-white p-5 rounded-lg">
-                                <p class="font-bold text-lg">IMPORTANTE:</p>
-                                <p class="text-sm mt-2">Se o ML decidir a favor do comprador, você NÃO paga o produto de volta - só perde a venda!</p>
-                                <p class="text-sm mt-2">Exceção: fraude comprovada (cliente recebeu e diz que não).</p>
+                            <div class="bg-gray-900 text-white p-5 rounded-xl">
+                                <p class="font-bold text-lg mb-3">IMPORTANTE:</p>
+                                <p class="text-gray-300">Se o ML decidir a favor do comprador, você NÃO paga o produto de volta - só perde a venda!</p>
+                                <p class="text-gray-300 mt-2">Exceção: fraude comprovada (cliente recebeu e diz que não).</p>
                             </div>
 
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <p class="text-green-700"><i class="fas fa-shield-alt mr-2"></i><strong>Dica:</strong> Sempre envie com rastreamento. Sem rastreamento = você sempre perde!</p>
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-300">
+                                <p class="text-red-700"><i class="fas fa-shield-alt mr-2"></i><strong>Dica de Segurança:</strong> Sempre envie com rastreamento. Sem rastreamento = você SEMPRE perde!</p>
                             </div>
                         </div>`
                     }
                 ]
             },
             {
-                title: "8. Métricas e Gestão",
+                title: "9. Métricas e Gestão",
                 icon: "fa-chart-line",
                 color: "red",
                 slides: [
                     {
                         title: "Painel do Vendedor",
-                        content: `<div class="space-y-5">
+                        content: `<div class="space-y-6">
                             <p class="text-gray-700 font-medium text-lg">Painel de controle - visite diariamente:</p>
                             
                             <div class="grid md:grid-cols-3 gap-4">
                                 <div class="bg-white border-2 border-green-200 p-5 rounded-xl text-center">
                                     <div class="text-3xl font-bold text-green-600">Vendas</div>
                                     <p class="text-sm text-gray-500 mt-2">Total do período</p>
-                                    <p class="text-xs text-gray-400">Minha Conta > Vendas</p>
+                                    <p class="text-xs text-gray-400 mt-2">Minha Conta > Vendas</p>
                                 </div>
                                 <div class="bg-white border-2 border-blue-200 p-5 rounded-xl text-center">
                                     <div class="text-3xl font-bold text-blue-600">Visitantes</div>
                                     <p class="text-sm text-gray-500 mt-2">Tráfego no perfil</p>
-                                    <p class="text-xs text-gray-400">Minha Conta > Estatísticas</p>
+                                    <p class="text-xs text-gray-400 mt-2">Minha Conta > Estatísticas</p>
                                 </div>
                                 <div class="bg-white border-2 border-purple-200 p-5 rounded-xl text-center">
                                     <div class="text-3xl font-bold text-purple-600">Conversão</div>
                                     <p class="text-sm text-gray-500 mt-2">Vendas / Visitas</p>
-                                    <p class="text-xs text-gray-400">Ideal: > 3%</p>
+                                    <p class="text-xs text-gray-400 mt-2">Ideal: maior que 3%</p>
                                 </div>
                             </div>
 
-                            <div class="bg-red-50 p-5 rounded-lg border border-red-300">
-                                <p class="text-red-700 font-bold"><i class="fas fa-clock mr-2"></i>HÁBITO DIÁRIO:</p>
-                                <p class="text-red-600 mt-2">Visite "Minha Conta > Minhas Vendas" todo dia pela manhã. Acompanhe:</p>
-                                <ul class="text-sm mt-2 space-y-1">
-                                    <li>• Pedidos novos (processar rapidinho)</li>
-                                    <li>• Mensagens não respondidas</li>
-                                    <li>• Status de envio</li>
-                                    <li>• Avaliações novas</li>
-                                </ul>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Métricas Essenciais",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Números para monitorar SEMANALMENTE:</p>
-                            
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-sm border-collapse">
-                                    <thead class="bg-gray-800 text-white">
-                                        <tr>
-                                            <th class="p-3 text-left">Métrica</th>
-                                            <th class="p-3 text-left">O que é</th>
-                                            <th class="p-3 text-left bg-green-600">Meta Boa</th>
-                                            <th class="p-3 text-left bg-red-600">Alerta</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-b bg-white">
-                                            <td class="p-3 font-bold">Taxa de Cancelamento</td>
-                                            <td class="p-3">% pedidos cancelados</td>
-                                            <td class="p-3 text-green-600 font-bold">< 2%</td>
-                                            <td class="p-3 text-red-600">> 5%</td>
-                                        </tr>
-                                        <tr class="border-b bg-gray-50">
-                                            <td class="p-3 font-bold">Entrega no Prazo</td>
-                                            <td class="p-3">Pedidos entregues no tempo</td>
-                                            <td class="p-3 text-green-600 font-bold">> 95%</td>
-                                            <td class="p-3 text-red-600">< 90%</td>
-                                        </tr>
-                                        <tr class="border-b bg-white">
-                                            <td class="p-3 font-bold">Divergência (erro)</td>
-                                            <td class="p-3">Produtos diferentes do anúncio</td>
-                                            <td class="p-3 text-green-600 font-bold">< 1%</td>
-                                            <td class="p-3 text-red-600">> 3%</td>
-                                        </tr>
-                                        <tr class="border-b bg-gray-50">
-                                            <td class="p-3 font-bold">Tempo de Resposta</td>
-                                            <td class="p-3">Média resposta mensagens</td>
-                                            <td class="p-3 text-green-600 font-bold">< 6h</td>
-                                            <td class="p-3 text-red-600">> 24h</td>
-                                        </tr>
-                                        <tr class="bg-white">
-                                            <td class="p-3 font-bold">Estrela Média</td>
-                                            <td class="p-3">Nota geral do vendedor</td>
-                                            <td class="p-3 text-green-600 font-bold">4.5+</td>
-                                            <td class="p-3 text-red-600">< 4.0</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="bg-yellow-50 p-4 rounded-lg">
-                                <p class="text-yellow-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>Alerta vermelho:</strong> Se qualquer métrica passar do limite de alerta por 2 semanas = risco de suspensão!</p>
-                            </div>
-                        </div>`
-                    },
-                    {
-                        title: "Mercado Points - Programa",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Programa de fidelidade do ML:</p>
-                            
-                            <div class="bg-yellow-500 text-white p-5 rounded-xl text-center">
-                                <p class="text-2xl font-bold">Ganhe Pontos</p>
-                                <p class="text-lg">A cada compra no ML, ganhe pontos!</p>
-                            </div>
-
-                            <div class="space-y-3">
-                                <div class="bg-white border-2 border-gray-200 p-5 rounded-xl">
-                                    <h4 class="font-bold text-gray-800 text-lg">Benefícios Points 2025</h4>
-                                    <ul class="text-sm mt-3 space-y-2 text-gray-700">
-                                        <li>✓ <strong>Frete grátis</strong> em milhares de produtos</li>
-                                        <li>✓ <strong>Descontos exclusivos</strong> em parceiros</li>
-                                        <li>✓ <strong>Cashback</strong> em diversas lojas</li>
-                                        <li>✓ <strong>Sorteios diários</strong> de produtos</li>
-                                        <li>✓ <strong>Descontos</strong> na própria loja</li>
-                                    </ul>
+                            <div class="grid md:grid-cols-3 gap-4 mt-4">
+                                <div class="bg-white border-2 border-yellow-200 p-4 rounded-xl">
+                                    <p class="font-bold text-yellow-700">📊 Estatísticas</p>
+                                    <p class="text-sm text-gray-500">Acompanhe visualizações</p>
+                                </div>
+                                <div class="bg-white border-2 border-yellow-200 p-4 rounded-xl">
+                                    <p class="font-bold text-yellow-700">⭐ Avaliações</p>
+                                    <p class="text-sm text-gray-500">Notas dos compradores</p>
+                                </div>
+                                <div class="bg-white border-2 border-yellow-200 p-4 rounded-xl">
+                                    <p class="font-bold text-yellow-700">💬 Mensagens</p>
+                                    <p class="text-sm text-gray-500">Perguntas e atendimento</p>
                                 </div>
                             </div>
 
-                            <div class="bg-blue-50 p-5 rounded-lg border border-blue-300">
-                                <p class="text-blue-700 font-bold"><i class="fas fa-shopping-cart mr-2"></i>ESTRATÉGIA DE CRESCIMENTO:</p>
-                                <p class="text-blue-600 mt-2">Use o Points para comprar para você mesmo (uso pessoal) no ML. Isso:</p>
-                                <ul class="text-sm mt-2 space-y-1">
-                                    <li>✓ Gera mais uma venda no seu perfil</li>
-                                    <li>✓ Aumenta seu volume de vendas (para subir de nível)</li>
-                                    <li>✓ Gera avaliação positiva</li>
-                                    <li>✓ Mantém conta ativa</li>
-                                </ul>
+                            <div class="bg-red-50 p-5 rounded-lg border-2 border-red-400">
+                                <p class="text-red-800 font-bold"><i class="fas fa-clock mr-2"></i>HÁBITO DIÁRIO OBRIGATÓRIO:</p>
+                                <p class="text-red-600 mt-2">Visite "Minha Conta > Minhas Vendas" todo dia pela manhã. Verifique novos pedidos, envie rápido, responda mensagens.</p>
                             </div>
                         </div>`
                     },
                     {
                         title: "Plano de Ação 2025",
-                        content: `<div class="space-y-5">
-                            <p class="text-gray-700 font-medium text-lg">Organize sua rotina para crescer:</p>
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Organize sua rotina para crescer consistentemente:</p>
                             
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div class="bg-green-50 p-5 rounded-lg border-2 border-green-300">
-                                    <h4 class="font-bold text-green-800 text-lg">📅 DIÁRIO</h4>
-                                    <ul class="text-sm mt-3 space-y-2 text-gray-700">
+                            <div class="grid md:grid-cols-2 gap-5">
+                                <div class="bg-green-50 p-5 rounded-xl border-2 border-green-300">
+                                    <h4 class="font-bold text-green-800 text-lg mb-4">📅 DIÁRIO</h4>
+                                    <ul class="space-y-2 text-gray-700">
                                         <li>✓ <strong>Manhã:</strong> Verificar novos pedidos</li>
                                         <li>✓ <strong>Manhã:</strong> Processar envíos (24h)</li>
-                                        <li>✓ <strong>Durante:</strong> Responder mensagens (< 12h)</li>
+                                        <li>✓ <strong>Durante:</strong> Responder mensagens (menos de 12h)</li>
                                         <li>✓ <strong>Tarde:</strong> Acompanhar Anúncios</li>
+                                        <li>✓ <strong>Tarde:</strong> Verificar concorrentes</li>
                                     </ul>
                                 </div>
-                                <div class="bg-blue-50 p-5 rounded-lg border-2 border-blue-300">
-                                    <h4 class="font-bold text-blue-800 text-lg">📅 SEMANAL</h4>
-                                    <ul class="text-sm mt-3 space-y-2 text-gray-700">
+                                <div class="bg-blue-50 p-5 rounded-xl border-2 border-blue-300">
+                                    <h4 class="font-bold text-blue-800 text-lg mb-4">📅 SEMANAL</h4>
+                                    <ul class="space-y-2 text-gray-700">
                                         <li>✓ <strong>Segunda:</strong> Análise de concorrentes</li>
                                         <li>✓ <strong>Quarta:</strong> Ajuste preços</li>
                                         <li>✓ <strong>Sexta:</strong> Revisar campanhas de Anúncios</li>
                                         <li>✓ <strong>Domingo:</strong> Estudar novas tendências</li>
+                                        <li>✓ <strong>Domingo:</strong> Atualizar descrições</li>
                                     </ul>
                                 </div>
-                                <div class="bg-purple-50 p-5 rounded-lg border-2 border-purple-300">
-                                    <h4 class="font-bold text-purple-800 text-lg">📅 MENSAL</h4>
-                                    <ul class="text-sm mt-3 space-y-2 text-gray-700">
+                                <div class="bg-purple-50 p-5 rounded-xl border-2 border-purple-300">
+                                    <h4 class="font-bold text-purple-800 text-lg mb-4">📅 MENSAL</h4>
+                                    <ul class="space-y-2 text-gray-700">
                                         <li>✓ Análise de lucro real (menos taxas)</li>
                                         <li>✓ Reavaliação de produtos (manter/tirar)</li>
                                         <li>✓ Pesquisar novos produtos</li>
-                                        <li>✓ Estudar concorrentes tops</li>
+                                        <li>✓ Análise de concorrentes</li>
+                                        <li>✓ Planejar próximo mês</li>
                                     </ul>
                                 </div>
-                                <div class="bg-orange-50 p-5 rounded-lg border-2 border-orange-300">
-                                    <h4 class="font-bold text-orange-800 text-lg">🎯 META 2025</h4>
-                                    <ul class="text-sm mt-3 space-y-2 text-gray-700">
+                                <div class="bg-orange-50 p-5 rounded-xl border-2 border-orange-300">
+                                    <h4 class="font-bold text-orange-800 text-lg mb-4">🎯 METAS 2025</h4>
+                                    <ul class="space-y-2 text-gray-700">
                                         <li>✓ Alcançar <strong>Mercado Líder</strong></li>
                                         <li>✓ 100% dos produtos no <strong>Full</strong></li>
                                         <li>✓ ROAS <strong>4x+</strong> em Anúncios</li>
                                         <li>✓ Nota <strong>4.8+</strong> estrelas</li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        title: "Análise de Lucro Real",
+                        content: `<div class="space-y-6">
+                            <p class="text-gray-700 font-medium text-lg">Como calcular seu lucro REAL no ML:</p>
+                            
+                            <div class="bg-white border-2 border-gray-200 p-5 rounded-xl">
+                                <h4 class="font-bold text-gray-800 mb-4">Fórmula do Lucro Real:</h4>
+                                <div class="bg-gray-100 p-4 rounded font-mono text-sm">
+                                    <p>LUCRO = Preço Venda - Custo Produto - Frete China - Imposto - Taxa ML - Taxa MP - Frete Brasil</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 p-5 rounded-xl border-2 border-yellow-300">
+                                <h4 class="font-bold text-yellow-800 mb-3">Exemplo Detalhado:</h4>
+                                <div class="space-y-2 font-mono text-sm">
+                                    <p class="border-b pb-2">Preço venda: R$ 200,00</p>
+                                    <p class="border-b pb-2">(-) Custo produto: R$ 50,00</p>
+                                    <p class="border-b pb-2">(-) Frete China: R$ 12,00</p>
+                                    <p class="border-b pb-2">(-) Imposto (60%): R$ 37,20</p>
+                                    <p class="border-b pb-2">(-) Taxa ML (12%): R$ 24,00</p>
+                                    <p class="border-b pb-2">(-) Taxa MP (4%): R$ 8,00</p>
+                                    <p class="border-b pb-2">(-) Frete Brasil (Full): R$ 0,00</p>
+                                    <hr class="my-2">
+                                    <p class="font-bold text-lg">LUCRO: R$ 68,80 (34%)</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-300">
+                                <p class="text-red-700"><i class="fas fa-exclamation-triangle mr-2"></i><strong>Cuidado:</strong> Muitos vendedores acham que estão lucrando 50% mas depois das taxas ficam com 20% ou menos.</p>
                             </div>
                         </div>`
                     }
@@ -1455,14 +1655,8 @@
             document.getElementById('totalSlides').textContent = module.slides.length;
 
             const colorMap = {
-                blue: 'blue',
-                green: 'green',
-                purple: 'purple',
-                orange: 'orange',
-                pink: 'pink',
-                indigo: 'indigo',
-                teal: 'teal',
-                red: 'red'
+                blue: 'blue', green: 'green', purple: 'purple', orange: 'orange',
+                pink: 'pink', indigo: 'indigo', teal: 'teal', red: 'red', cyan: 'cyan'
             };
             const color = colorMap[module.color] || 'yellow';
 
@@ -1474,16 +1668,10 @@
                     <h2 class="text-2xl font-bold text-gray-800">${slide.title}</h2>
                 </div>
                 ${slide.content}
-                <div class="mt-8 pt-6 border-t border-gray-200">
-                    <a href="https://wa.me/message/FK22NAQD3VGQE1" target="_blank" class="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-medium transition shadow-lg hover:shadow-xl">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                        <span>Tem alguma dúvida? Fale comigo no WhatsApp!</span>
-                    </a>
-                </div>
             `;
 
-            document.getElementById('prevBtn').disabled = currentSlide === 0 && currentModule === 0;
-            document.getElementById('nextBtn').disabled = currentSlide === module.slides.length - 1 && currentModule === courseData.length - 1;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === module.slides.length - 1;
 
             renderDots();
         }
@@ -1494,31 +1682,23 @@
             let dots = '';
             
             for (let i = 0; i < module.slides.length; i++) {
-                const active = i === currentSlide ? 'bg-yellow-500' : 'bg-gray-300';
-                dots += `<div class="w-3 h-3 rounded-full ${active} transition"></div>`;
+                dots += `<button onclick="goToSlide(${i})" class="w-3 h-3 rounded-full ${i === currentSlide ? 'bg-yellow-500' : 'bg-gray-300'} transition"></button>`;
             }
             dotsContainer.innerHTML = dots;
         }
 
         function changeSlide(direction) {
             const module = courseData[currentModule];
+            const newSlide = currentSlide + direction;
             
-            if (direction === 1) {
-                if (currentSlide < module.slides.length - 1) {
-                    currentSlide++;
-                } else if (currentModule < courseData.length - 1) {
-                    currentModule++;
-                    currentSlide = 0;
-                }
-            } else {
-                if (currentSlide > 0) {
-                    currentSlide--;
-                } else if (currentModule > 0) {
-                    currentModule--;
-                    currentSlide = courseData[currentModule].slides.length - 1;
-                }
+            if (newSlide >= 0 && newSlide < module.slides.length) {
+                currentSlide = newSlide;
+                renderSlide();
             }
-            
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
             renderSlide();
         }
 
