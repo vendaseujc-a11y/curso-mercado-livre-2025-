@@ -23,13 +23,15 @@ app.get('/', (req, res) => {
 const supabaseUrl = process.env.SUPABASE_URL || 'https://ajlwzusvmihajggxcom.supabase.co';
 const supabaseKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbHd6enVzdm1paGFqZ2d4Y29tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjgxNjQsImV4cCI6MjA5MzIwNDE2NH0.V-wEmCiReVcUF2O66oXoi8IdHXDmMLIgaI2VahavzXM';
 
-let supabase;
-if (supabaseUrl && supabaseKey) {
-    supabase = createClient(supabaseUrl, supabaseKey, {
-        auth: { persistSession: false },
-        global: { fetch: fetch }
-    });
-}
+const { createClient } = require('@supabase/supabase-js');
+const fetch = require('node-fetch');
+
+const supabaseUrl = process.env.SUPABASE_URL || 'https://ajlwzusvmihajggxcom.supabase.co';
+const supabaseKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbHd6enVzdm1paGFqZ2d4Y29tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjgxNjQsImV4cCI6MjA5MzIwNDE2NH0.V-wEmCiReVcUF2O66oXoi8IdHXDmMLIgaI2VahavzXM';
+
+const supabase = createClient(supabaseUrl, supabaseKey, {
+    global: { fetch: (url, options) => fetch(url, options) }
+});
 
 if (supabase) {
     console.log('Supabase inicializado com URL:', supabaseUrl);
