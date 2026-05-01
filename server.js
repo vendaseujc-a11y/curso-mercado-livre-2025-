@@ -23,9 +23,14 @@ app.get('/', (req, res) => {
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
 
+console.log('SUPABASE_URL:', supabaseUrl);
+console.log('SUPABASE_KEY prefix:', supabaseKey ? supabaseKey.substring(0, 20) : 'undefined');
+
 let supabase;
 if (supabaseUrl && supabaseKey) {
-    supabase = createClient(supabaseUrl, supabaseKey);
+    supabase = createClient(supabaseUrl, supabaseKey, {
+        auth: { persistSession: false }
+    });
 }
 
 if (supabase) {
