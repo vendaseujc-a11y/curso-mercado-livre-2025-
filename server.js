@@ -20,18 +20,33 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/api/test', async (req, res) => {
+    try {
+        const response = await fetch(
+            'https://ajlwzusvmihajggxcom.supabase.co/rest/v1/users?select=count',
+            {
+                headers: {
+                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbHd6enVzdm1paGFqZ2d4Y29tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjgxNjQsImV4cCI6MjA5MzIwNDE2NH0.V-wEmCiReVcUF2O66oXoi8IdHXDmMLIgaI2VahavzXM',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbHd6enVzdm1paGFqZ2d4Y29tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjgxNjQsImV4cCI6MjA5MzIwNDE2NH0.V-wEmCiReVcUF2O66oXoi8IdHXDmMLIgaI2VahavzXM'
+                }
+            }
+        );
+        const data = await response.json();
+        res.json({ success: true, data: data });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 const supabaseUrl = process.env.SUPABASE_URL || 'https://ajlwzusvmihajggxcom.supabase.co';
 const supabaseKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbHd6enVzdm1paGFqZ2d4Y29tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjgxNjQsImV4cCI6MjA5MzIwNDE2NH0.V-wEmCiReVcUF2O66oXoi8IdHXDmMLIgaI2VahavzXM';
 
 const { createClient } = require('@supabase/supabase-js');
-const fetch = require('node-fetch');
 
 const supabaseUrl = process.env.SUPABASE_URL || 'https://ajlwzusvmihajggxcom.supabase.co';
 const supabaseKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFqbHd6enVzdm1paGFqZ2d4Y29tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjgxNjQsImV4cCI6MjA5MzIwNDE2NH0.V-wEmCiReVcUF2O66oXoi8IdHXDmMLIgaI2VahavzXM';
 
-const supabase = createClient(supabaseUrl, supabaseKey, {
-    global: { fetch: (url, options) => fetch(url, options) }
-});
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 if (supabase) {
     console.log('Supabase inicializado com URL:', supabaseUrl);
