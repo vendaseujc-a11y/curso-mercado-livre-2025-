@@ -26,21 +26,13 @@ const supabaseKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cC
 let supabase;
 if (supabaseUrl && supabaseKey) {
     supabase = createClient(supabaseUrl, supabaseKey, {
-        auth: { persistSession: false }
+        auth: { persistSession: false },
+        global: { fetch: fetch }
     });
 }
 
 if (supabase) {
-    console.log('Conectando ao Supabase...');
-    console.log('URL:', supabaseUrl);
-    
-    supabase.from('users').select('id').limit(1).then(({ error }) => {
-        if (error) {
-            console.log('Erro ao conectar no Supabase:', error.message);
-        } else {
-            console.log('Conexão com Supabase OK!');
-        }
-    });
+    console.log('Supabase inicializado com URL:', supabaseUrl);
 }
 
 app.post('/api/register', async (req, res) => {
@@ -82,7 +74,8 @@ app.post('/api/register', async (req, res) => {
         res.json({ sucesso: true, message: 'Cadastro realizado!' });
     } catch (err) {
         console.log('Erro catch:', err);
-        res.status(500).json({ erro: 'Erro no servidor: ' + err.message });
+        const msg = err.message || String(err);
+        res.status(500).json({ erro: 'Erro no servidor: ' + msg });
     }
 });
 
