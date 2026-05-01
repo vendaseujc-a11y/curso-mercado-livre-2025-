@@ -1,9 +1,4 @@
 @echo off
-echo Instalando dependências...
-npm install
-
-echo.
-echo Iniciando servidor...
-node server.js
-
+start "Servidor Curso ML" cmd /c "cd /d %~dp0 && node server.js"
+echo Servidor iniciado! Abra http://localhost:3000 no navegador
 pause
