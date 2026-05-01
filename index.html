@@ -1266,47 +1266,41 @@
             document.getElementById('loginError').textContent = '';
         }
         
-        function getUsers() {
-            var users = localStorage.getItem('users');
-            if(users) {
-                return JSON.parse(users);
-            } else {
-                return [{login: 'admin', senha: 'curso2026', nome: 'Administrador'}];
-            }
+        async function apiRequest(url, data) {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            return await response.json();
         }
         
-        function saveUsers(users) {
-            localStorage.setItem('users', JSON.stringify(users));
-        }
-        
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             var login = document.getElementById('login').value;
             var senha = document.getElementById('senha').value;
             var nome = document.getElementById('nome').value;
-            var users = getUsers();
+            var errorEl = document.getElementById('loginError');
+            
+            errorEl.textContent = '';
             
             if(isCadastro) {
-                var userExists = users.some(function(u) { return u.login === login; });
-                if(userExists) {
-                    document.getElementById('loginError').textContent = 'Login já existe!';
-                } else if(login.length < 3 || senha.length < 3) {
-                    document.getElementById('loginError').textContent = 'Login e senha precisam de 3+ caracteres';
+                var ret = await apiRequest('/api/register', { nome, login, senha });
+                if(ret.erro) {
+                    errorEl.textContent = ret.erro;
                 } else {
-                    users.push({login: login, senha: senha, nome: nome || login});
-                    saveUsers(users);
                     document.getElementById('loginOverlay').classList.add('hidden');
                     localStorage.setItem('logged', 'true');
                     localStorage.setItem('userName', nome || login);
                 }
             } else {
-                var user = users.find(function(u) { return u.login === login && u.senha === senha; });
-                if(user) {
+                var ret = await apiRequest('/api/login', { login, senha });
+                if(ret.erro) {
+                    errorEl.textContent = ret.erro;
+                } else {
                     document.getElementById('loginOverlay').classList.add('hidden');
                     localStorage.setItem('logged', 'true');
-                    localStorage.setItem('userName', user.nome);
-                } else {
-                    document.getElementById('loginError').textContent = 'Login ou senha incorretos';
+                    localStorage.setItem('userName', ret.nome);
                 }
             }
         });
