@@ -1335,7 +1335,11 @@
         async function apiRequest(url, data) {
             try {
                 console.log('Enviando para:', url, 'dados:', data);
-                const response = await fetch(url, {
+                const baseUrl = window.location.origin;
+                const fullUrl = url.startsWith('http') ? url : baseUrl + url;
+                console.log('URL completa:', fullUrl);
+                
+                const response = await fetch(fullUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
