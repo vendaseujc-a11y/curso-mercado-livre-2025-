@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1777648047465,
+      "nome": "jonatas candido",
+      "login": "jonatas1",
+      "senha": "12345",
+      "createdAt": "2026-05-01T15:07:27.465Z"
+    },
+    {
+      "id": 1777650939405,
+      "nome": "Teste",
+      "login": "teste123",
+      "senha": "123456",
+      "createdAt": "2026-05-01T15:55:39.405Z"
+    }
+  ]
+}

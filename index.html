@@ -498,6 +498,52 @@
             text-decoration: underline;
         }
         
+        .github-btn {
+            width: 100%;
+            padding: 16px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .github-btn:hover {
+            background: #555;
+        }
+        
+        .divider {
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+        }
+        
+        .divider span {
+            background: var(--bg-card);
+            padding: 0 16px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.85em;
+        }
+        
         @media (max-width: 768px) {
             .header h1 { font-size: 2em; }
             .slide-body { padding: 24px; }
@@ -516,6 +562,12 @@
             <div class="login-logo"><i class="fas fa-bolt"></i></div>
             <h2>Curso Mercado Livre</h2>
             <p id="loginSubtitle">Faça login para continuar</p>
+            
+            <button type="button" class="github-btn" onclick="loginGitHub()">
+                <i class="fab fa-github"></i> Entrar com GitHub
+            </button>
+            
+            <div class="divider"><span>ou</span></div>
             
             <form id="loginForm">
                 <div id="camposCadastro" style="display: none;">
@@ -1266,47 +1318,55 @@
             document.getElementById('loginError').textContent = '';
         }
         
-        function getUsers() {
-            var users = localStorage.getItem('users');
-            if(users) {
-                return JSON.parse(users);
-            } else {
-                return [{login: 'admin', senha: 'curso2026', nome: 'Administrador'}];
+        async function loginGitHub() {
+            try {
+                const response = await fetch('/api/auth/github', { method: 'POST' });
+                const data = await response.json();
+                if(data.url) {
+                    window.location.href = data.url;
+                } else {
+                    document.getElementById('loginError').textContent = 'Erro ao conectar com GitHub';
+                }
+            } catch(e) {
+                document.getElementById('loginError').textContent = 'Erro ao conectar com GitHub';
             }
         }
         
-        function saveUsers(users) {
-            localStorage.setItem('users', JSON.stringify(users));
+        async function apiRequest(url, data) {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            return await response.json();
         }
         
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             var login = document.getElementById('login').value;
             var senha = document.getElementById('senha').value;
             var nome = document.getElementById('nome').value;
-            var users = getUsers();
+            var errorEl = document.getElementById('loginError');
+            
+            errorEl.textContent = '';
             
             if(isCadastro) {
-                var userExists = users.some(function(u) { return u.login === login; });
-                if(userExists) {
-                    document.getElementById('loginError').textContent = 'Login já existe!';
-                } else if(login.length < 3 || senha.length < 3) {
-                    document.getElementById('loginError').textContent = 'Login e senha precisam de 3+ caracteres';
+                var ret = await apiRequest('/api/register', { nome, login, senha });
+                if(ret.erro) {
+                    errorEl.textContent = ret.erro;
                 } else {
-                    users.push({login: login, senha: senha, nome: nome || login});
-                    saveUsers(users);
                     document.getElementById('loginOverlay').classList.add('hidden');
                     localStorage.setItem('logged', 'true');
                     localStorage.setItem('userName', nome || login);
                 }
             } else {
-                var user = users.find(function(u) { return u.login === login && u.senha === senha; });
-                if(user) {
+                var ret = await apiRequest('/api/login', { login, senha });
+                if(ret.erro) {
+                    errorEl.textContent = ret.erro;
+                } else {
                     document.getElementById('loginOverlay').classList.add('hidden');
                     localStorage.setItem('logged', 'true');
-                    localStorage.setItem('userName', user.nome);
-                } else {
-                    document.getElementById('loginError').textContent = 'Login ou senha incorretos';
+                    localStorage.setItem('userName', ret.nome);
                 }
             }
         });
