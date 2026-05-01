@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const https = require('https');
 
 if (!process.env.VERCEL) {
     require('dotenv').config();
@@ -29,6 +30,30 @@ const headers = {
     'Prefer': 'return=minimal'
 };
 
+function httpRequest(url, options = {}) {
+    return new Promise((resolve, reject) => {
+        const req = https.request(url, {
+            method: options.method || 'GET',
+            headers: { ...headers, ...options.headers }
+        }, (res) => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+                try {
+                    resolve(JSON.parse(data));
+                } catch(e) {
+                    resolve(data);
+                }
+            });
+        });
+        req.on('error', reject);
+        if (options.body) {
+            req.write(JSON.stringify(options.body));
+        }
+        req.end();
+    });
+}
+
 app.post('/api/register', async (req, res) => {
     console.log('POST /api/register', req.body);
     const { nome, login, senha } = req.body;
@@ -43,35 +68,23 @@ app.post('/api/register', async (req, res) => {
     
     try {
         // Verificar se login já existe
-        console.log('Verificando usuário...');
-        const checkRes = await fetch(
-            `${supabaseUrl}/rest/v1/users?login=eq.${encodeURIComponent(login)}`,
-            { headers }
+        const existing = await httpRequest(
+            `${supabaseUrl}/rest/v1/users?login=eq.${encodeURIComponent(login)}`
         );
-        const existing = await checkRes.json();
-        console.log('Usuário existente:', existing);
         
         if (existing && existing.length > 0) {
             return res.status(400).json({ erro: 'Login já existe!' });
         }
         
         // Inserir novo usuário
-        const insertRes = await fetch(
-            `${supabaseUrl}/rest/v1/users`,
-            {
-                method: 'POST',
-                headers,
-                body: JSON.stringify({ nome, login, senha })
-            }
-        );
-        
-        if (!insertRes.ok) {
-            const err = await insertRes.text();
-            return res.status(400).json({ erro: err });
-        }
+        const result = await httpRequest(`${supabaseUrl}/rest/v1/users`, {
+            method: 'POST',
+            body: { nome, login, senha }
+        });
         
         res.json({ sucesso: true, message: 'Cadastro realizado!' });
     } catch (err) {
+        console.log('Erro:', err.message);
         res.status(500).json({ erro: 'Erro no servidor: ' + err.message });
     }
 });
@@ -81,14 +94,9 @@ app.post('/api/login', async (req, res) => {
     const { login, senha } = req.body;
     
     try {
-        console.log('Buscando usuário...');
-        const response = await fetch(
-            `${supabaseUrl}/rest/v1/users?login=eq.${encodeURIComponent(login)}&senha=eq.${encodeURIComponent(senha)}`,
-            { headers }
+        const data = await httpRequest(
+            `${supabaseUrl}/rest/v1/users?login=eq.${encodeURIComponent(login)}&senha=eq.${encodeURIComponent(senha)}`
         );
-        
-        const data = await response.json();
-        console.log('Resultado:', data);
         
         if (!data || data.length === 0) {
             return res.status(401).json({ erro: 'Login ou senha incorretos' });
@@ -104,11 +112,7 @@ app.post('/api/login', async (req, res) => {
 
 app.get('/api/usuarios', async (req, res) => {
     try {
-        const response = await fetch(
-            `${supabaseUrl}/rest/v1/users?select=id,nome,login,created_at`,
-            { headers }
-        );
-        const data = await response.json();
+        const data = await httpRequest(`${supabaseUrl}/rest/v1/users?select=id,nome,login,created_at`);
         res.json(data || []);
     } catch (err) {
         res.status(500).json({ erro: 'Erro no servidor' });
