@@ -1333,12 +1333,20 @@
         }
         
         async function apiRequest(url, data) {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            return await response.json();
+            try {
+                console.log('Enviando para:', url, 'dados:', data);
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                console.log('Resposta:', result);
+                return result;
+            } catch(e) {
+                console.error('Erro na requisição:', e);
+                return { erro: 'Erro de conexão: ' + e.message };
+            }
         }
         
         document.getElementById('loginForm').addEventListener('submit', async function(e) {
@@ -1347,28 +1355,45 @@
             var senha = document.getElementById('senha').value;
             var nome = document.getElementById('nome').value;
             var errorEl = document.getElementById('loginError');
+            var btnSubmit = document.getElementById('btnSubmit');
             
             errorEl.textContent = '';
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = 'Aguarde...';
             
-            if(isCadastro) {
-                var ret = await apiRequest('/api/register', { nome, login, senha });
-                if(ret.erro) {
-                    errorEl.textContent = ret.erro;
+            try {
+                if(isCadastro) {
+                    if(!nome) {
+                        errorEl.textContent = 'Preencha o nome';
+                        btnSubmit.disabled = false;
+                        btnSubmit.textContent = 'Cadastrar';
+                        return;
+                    }
+                    var ret = await apiRequest('/api/register', { nome, login, senha });
+                    if(ret.erro) {
+                        errorEl.textContent = ret.erro;
+                    } else {
+                        alert('Cadastro realizado com sucesso!');
+                        document.getElementById('loginOverlay').classList.add('hidden');
+                        localStorage.setItem('logged', 'true');
+                        localStorage.setItem('userName', nome || login);
+                    }
                 } else {
-                    document.getElementById('loginOverlay').classList.add('hidden');
-                    localStorage.setItem('logged', 'true');
-                    localStorage.setItem('userName', nome || login);
+                    var ret = await apiRequest('/api/login', { login, senha });
+                    if(ret.erro) {
+                        errorEl.textContent = ret.erro;
+                    } else {
+                        document.getElementById('loginOverlay').classList.add('hidden');
+                        localStorage.setItem('logged', 'true');
+                        localStorage.setItem('userName', ret.nome);
+                    }
                 }
-            } else {
-                var ret = await apiRequest('/api/login', { login, senha });
-                if(ret.erro) {
-                    errorEl.textContent = ret.erro;
-                } else {
-                    document.getElementById('loginOverlay').classList.add('hidden');
-                    localStorage.setItem('logged', 'true');
-                    localStorage.setItem('userName', ret.nome);
-                }
+            } catch(e) {
+                errorEl.textContent = 'Erro: ' + e.message;
             }
+            
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = isCadastro ? 'Cadastrar' : 'Entrar';
         });
         
         if(localStorage.getItem('logged') === 'true') {

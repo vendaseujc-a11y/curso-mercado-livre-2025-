@@ -30,6 +30,7 @@ const headers = {
 };
 
 app.post('/api/register', async (req, res) => {
+    console.log('POST /api/register', req.body);
     const { nome, login, senha } = req.body;
     
     if (!nome || !login || !senha) {
@@ -42,11 +43,13 @@ app.post('/api/register', async (req, res) => {
     
     try {
         // Verificar se login já existe
+        console.log('Verificando usuário...');
         const checkRes = await fetch(
             `${supabaseUrl}/rest/v1/users?login=eq.${encodeURIComponent(login)}`,
             { headers }
         );
         const existing = await checkRes.json();
+        console.log('Usuário existente:', existing);
         
         if (existing && existing.length > 0) {
             return res.status(400).json({ erro: 'Login já existe!' });
@@ -74,15 +77,18 @@ app.post('/api/register', async (req, res) => {
 });
 
 app.post('/api/login', async (req, res) => {
+    console.log('POST /api/login', req.body);
     const { login, senha } = req.body;
     
     try {
+        console.log('Buscando usuário...');
         const response = await fetch(
             `${supabaseUrl}/rest/v1/users?login=eq.${encodeURIComponent(login)}&senha=eq.${encodeURIComponent(senha)}`,
             { headers }
         );
         
         const data = await response.json();
+        console.log('Resultado:', data);
         
         if (!data || data.length === 0) {
             return res.status(401).json({ erro: 'Login ou senha incorretos' });
@@ -91,6 +97,7 @@ app.post('/api/login', async (req, res) => {
         const user = data[0];
         res.json({ sucesso: true, nome: user.nome, login: user.login });
     } catch (err) {
+        console.log('Erro login:', err);
         res.status(500).json({ erro: 'Erro no servidor' });
     }
 });
