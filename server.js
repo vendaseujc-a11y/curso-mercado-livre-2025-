@@ -20,11 +20,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_ANON_KEY;
-
-console.log('SUPABASE_URL:', supabaseUrl);
-console.log('SUPABASE_KEY prefix:', supabaseKey ? supabaseKey.substring(0, 20) : 'undefined');
+const supabaseUrl = process.env.SUPABASE_URL || 'https://vqmxfejgfzyidnldjikq.supabase.co';
+const supabaseKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxbXhmZWpnZnp5aWRubGRqaXFxIiwicm9sZSI6ImFub24iLCJpbnQiOjE2NDYzNzUsImV4cCI6MjA2MjM1MTg1Nn0.AjwQjNUUmN7GnIgdpqnyE5sZx6eXa7qX3JZqV0t3s8c';
 
 let supabase;
 if (supabaseUrl && supabaseKey) {
