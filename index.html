@@ -248,6 +248,23 @@
         
         .box-dica h4 { color: var(--cyan); }
         
+        .box-contato {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: rgba(37, 211, 102, 0.4);
+        }
+        
+        .box-contato h4 { color: #25d366; }
+        
+        .box-contato a {
+            color: #25d366;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .box-contato a:hover {
+            text-decoration: underline;
+        }
+        
         .box-atencao {
             background: rgba(247,37,133,0.08);
             border-color: rgba(247,37,133,0.3);
@@ -376,6 +393,111 @@
             margin-right: 6px;
         }
         
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .login-overlay.hidden { display: none; }
+        
+        .login-box {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+        }
+        
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: var(--bg-dark);
+            margin: 0 auto 24px;
+        }
+        
+        .login-box h2 {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+        }
+        
+        .login-box p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        
+        .login-box input {
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-dark);
+            color: var(--text);
+            font-size: 1em;
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .login-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent-gradient);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            margin-top: 8px;
+        }
+        
+        .login-btn:hover {
+            box-shadow: 0 8px 25px rgba(0,245,212,0.4);
+        }
+        
+        .login-error {
+            color: var(--pink);
+            margin-top: 16px;
+            font-size: 0.9em;
+        }
+        
+        .toggle-link {
+            margin-top: 16px;
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+        
+        .toggle-link a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 768px) {
             .header h1 { font-size: 2em; }
             .slide-body { padding: 24px; }
@@ -389,6 +511,29 @@
     </style>
 </head>
 <body>
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <div class="login-logo"><i class="fas fa-bolt"></i></div>
+            <h2>Curso Mercado Livre</h2>
+            <p id="loginSubtitle">Faça login para continuar</p>
+            
+            <form id="loginForm">
+                <div id="camposCadastro" style="display: none;">
+                    <input type="text" id="nome" placeholder="Seu nome" required>
+                </div>
+                <input type="text" id="login" placeholder="Login" required>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit" class="login-btn" id="btnSubmit">Entrar</button>
+            </form>
+            
+            <p class="toggle-link">
+                <span id="toggleText">Não tem conta?</span> 
+                <a href="#" onclick="toggleCadastro(event)"> <span id="toggleAction">Cadastre-se</span></a>
+            </p>
+            <p class="login-error" id="loginError"></p>
+        </div>
+    </div>
+    
     <div class="header">
         <div class="badge"><i class="fas fa-bolt"></i> Curso 2025-2026</div>
         <h1>Guía Mercado Livre</h1>
@@ -546,7 +691,7 @@
                         conteudo: `
                             <div class="content">
                                 <h3>1. Ferramenta "Tendências" do ML</h3>
-                                <p>Acesse: <strong>tendencias.mercadolivre.com.br</strong></p>
+                                <p>Acesse: <strong>tendencias.mercadolibre.com.br</strong></p>
                                 <p>Busque termos específicos de nicho.</p>
                                 
                                 <h3>2. Regra do Ticket Médio</h3>
@@ -603,7 +748,7 @@
                                 <h3>4. Dropshipping</h3>
                                 <ul>
                                     <li><strong>AliExpress Choice:</strong> Armazéns BR</li>
-                                    <li><strong>Wiio ou Droppi:</strong> Fornecedores locais</li>
+                                    <li><strong>Wiio ou Droppi:</strong> Fornecedores locales</li>
                                 </ul>
                                 
                                 <div class="box box-atencao">
@@ -628,7 +773,7 @@
                                 
                                 <h3>Custos a Descontar</h3>
                                 <ul>
-                                    <li>Custo do produto + impuestos de entrada</li>
+                                    <li>Custo do produto + impostos de entrada</li>
                                     <li>Comissão ML (10% - 19%)</li>
                                     <li>Taxa fixa (se &lt; R$ 79)</li>
                                     <li>Frete (até 50% desconto c/ reputação)</li>
@@ -661,31 +806,45 @@
                 icone: "fa-rocket",
                 slides: [
                     {
-                        titulo: "Título Perfeito",
+                        titulo: "A Estrutura Ideal",
                         conteudo: `
                             <div class="content">
-                                <h3>Fórmula do Título</h3>
-                                <p style="font-size: 1.2em; color: var(--cyan);"><strong>[MARCA] + [PRODUTO] + [CARACTERÍSTICA] + [USO]</strong></p>
+                                <h3>A Estrutura Ideal</h3>
+                                <p style="font-size: 1.2em; color: var(--cyan);"><strong>[Produto] + [Marca] + [Tipo/Linha] + [Peso/Quantidade] + [Sabor] + [Diferencial]</strong></p>
                                 
-                                <h3>Exemplo</h3>
-                                <p style="color: var(--cyan);">Fone de Ouvido Bluetooth QCY T13 Pro Resistente à Água Para Corrida Academia</p>
+                                <h3>Exemplos Práticos</h3>
+                                <p style="color: var(--pink); font-weight: 600;">❌ Título Ruim (Baixo Alcance):</p>
+                                <p style="color: var(--text-muted);">Whey Protein Barato Promoção Melhor Sabor Chocolate</p>
+                                <p style="font-size: 0.9em; color: var(--text-muted);">(Motivo: "Barato" e "Promoção" são termos filtrados pelo algoritmo e não descrevem o que o produto é.)</p>
                                 
+                                <p style="color: var(--cyan); font-weight: 600;">✅ Título Otimizado para SEO:</p>
+                                <p style="color: var(--cyan);">Whey Protein Isolado Integralmédica Iso Triple Zero 900g Baunilha</p>
+                                <p style="font-size: 0.9em; color: var(--text-muted);">(Motivo: Contém o tipo do Whey, a marca reconhecida, a linha específica e o peso exato.)</p>
+                                
+                                <p style="color: var(--cyan); font-weight: 600;">✅ Título com Foco em Kit (Combo):</p>
+                                <p style="color: var(--cyan);">Kit 2 Whey Protein Concentrado Max Titanium 900g Chocolate + Coqueteleira</p>
+                                <p style="font-size: 0.9em; color: var(--text-muted);">(Motivo: Atende quem busca economia por volume e destaca o brinde logo de cara.)</p>
+                                
+                                <h3>Dicas Estratégicas para Suplementos</h3>
                                 <ul>
-                                    <li>58 caracteres (limite: 60)</li>
-                                    <li>Palavras-chave no início</li>
-                                    <li>Uso indicado</li>
+                                    <li><strong>Tipo de Proteína:</strong> Sempre especifique se é Isolado, Concentrado ou Hidrolisado. Essa é a primeira coisa que o cliente filtra.</li>
+                                    <li><strong>Sabor no Título:</strong> No Mercado Livre, muitos usuários buscam diretamente pelo sabor (ex: "Whey Morango"). Se você tem variações, coloque o sabor no título ou use anúncios diferentes para os sabores mais vendidos.</li>
+                                    <li><strong>Gramagem Exata:</strong> Use "900g", "1kg" ou "2kg". Evite termos vagos como "Pote Grande".</li>
+                                    <li><strong>Destaque Nutricional (se sobrar espaço):</strong> Se o produto tiver um diferencial forte como "Sem Glúten", "Zero Lactose" ou "30g Proteína por Dose", coloque ao final do título.</li>
                                 </ul>
                                 
-                                <h3>Regras</h3>
+                                <h3>Como as pessoas buscam (Dicionário de SEO)</h3>
+                                <p>Se estiver em dúvida sobre qual palavra usar, estas são as de maior volume para essa categoria:</p>
                                 <ul>
-                                    <li>Máximo 60 caracteres</li>
-                                    <li>Tudo minúsculo (exceto marca)</li>
-                                    <li>Use vírgulas</li>
+                                    <li>Suplemento Alimentar</li>
+                                    <li>Proteína em Pó</li>
+                                    <li>Massa Muscular</li>
+                                    <li>Pós-Treino</li>
                                 </ul>
                                 
                                 <div class="box box-atencao">
-                                    <h4><i class="fas fa-times-circle"></i> Evite</h4>
-                                    <p>!!!, CAIXA ALTA, acentos, preço no título</p>
+                                    <h4><i class="fas fa-exclamation-triangle"></i> Lembre-se</h4>
+                                    <p>O Mercado Livre não permite alterar o título após realizar as primeiras vendas, então escolha bem as palavras-chave desde o primeiro dia!</p>
                                 </div>
                             </div>
                         `
@@ -738,27 +897,41 @@
                         titulo: "Mercado Envios",
                         conteudo: `
                             <div class="content">
-                                <h3>Tipos de Envio</h3>
+                                <p>Aqui estão as principais modalidades do Mercado Envios:</p>
+                                
+                                <h3>1. Mercado Envios Full (O "Objetivo Final")</h3>
+                                <p>É o nível mais alto de logística. Você envia seus produtos para o Centro de Distribuição (CD) do Mercado Livre e eles cuidam de tudo: armazenagem, embalagem e envio.</p>
                                 <ul>
-                                    <li><strong>Mercado Envios:</strong> Etiqueta automática</li>
-                                    <li><strong>Próprio:</strong> Você imprime</li>
+                                    <li><strong>Benefícios:</strong> Anúncios com selo FULL ganham prioridade máxima nas buscas e entregas em até 24h.</li>
+                                    <li><strong>Custo:</strong> Você paga uma pequena taxa diária por armazenamento (centavos por unidade), mas economiza até 50% no frete grátis.</li>
+                                    <li><strong>Ideal para:</strong> Produtos com alto giro (que vendem todo dia).</li>
                                 </ul>
                                 
-                                <h3>Frete Grátis</h3>
+                                <h3>2. Mercado Envios Flex</h3>
+                                <p>Permite que você entregue no mesmo dia ou no dia seguinte usando sua própria logística (motoboy, carro próprio ou transportadora parceira).</p>
                                 <ul>
-                                    <li><strong>Obrigatório:</strong> Acima de R$ 79</li>
-                                    <li><strong>Subsídio ML:</strong> A partir de R$ 19</li>
+                                    <li><strong>Funcionamento:</strong> Você usa o app Envios Flex para escanear os pacotes. O comprador vê a promessa "Chega hoje".</li>
+                                    <li><strong>Relevância:</strong> É o maior diferencial competitivo em grandes metrópoles. Em 2026, quem oferece Flex converte até 3x mais.</li>
                                 </ul>
                                 
-                                <h3>Descontos</h3>
-                                <p>Com reputação (Mercado Líder): até <strong>50-70%</strong> de desconto!</p>
+                                <h3>3. Mercado Envios Coleta</h3>
+                                <p>Nesta modalidade, um veículo oficial do Mercado Livre passa no seu endereço (ou na sua empresa) para retirar os pacotes.</p>
+                                <ul>
+                                    <li><strong>Benefícios:</strong> Você não precisa mais ir aos Correios ou agências. O rastreio é ativado assim que o motorista bipa o produto.</li>
+                                    <li><strong>Requisito:</strong> Geralmente liberado após você atingir um volume constante de vendas diárias e ter CNPJ.</li>
+                                </ul>
                                 
-                                <div class="box box-info">
-                                    <h4><i class="fas fa-info-circle"></i> Dicas</h4>
-                                    <p>• 95% entregas no prazo</p>
-                                    <p>• Etiqueta no mesmo dia</p>
-                                    <p>• Embalagem adequada</p>
-                                </div>
+                                <h3>4. Agências Mercado Livre (Pontos de Postagem)</h3>
+                                <p>Se você ainda não tem coleta, você leva seus produtos até uma "Agência Mercado Livre" (lojas parceiras como papelarias ou pet shops com o logo do ML).</p>
+                                <ul>
+                                    <li><strong>Vantagem:</strong> É muito mais rápido que os Correios e os pacotes entram no fluxo logístico próprio do Mercado Livre imediatamente.</li>
+                                </ul>
+                                
+                                <h3>5. Envios Extra (Para quem quer entregar)</h3>
+                                <p>Se você tem um veículo e quer ganhar dinheiro entregando, existe o app Envios Extra.</p>
+                                <ul>
+                                    <li><strong>Requisitos:</strong> Veículo com até 15 anos de uso, CNPJ (MEI) com atividade de entrega e CNH com EAR (Exerce Atividade Remunerada).</li>
+                                </ul>
                             </div>
                         `
                     }
@@ -769,40 +942,49 @@
                 icone: "fa-star",
                 slides: [
                     {
-                        titulo: "3 Pilares",
+                        titulo: "Ter uma boa reputação",
                         conteudo: `
                             <div class="content">
-                                <h3>Pilar 1: Entrega Rápida</h3>
+                                <h3>Ter uma boa reputação</h3>
+                                <p>Aqui estão os principais benefícios:</p>
+                                
+                                <h3>1. Maior Exposição nos Resultados de Busca (SEO)</h3>
+                                <p>O algoritmo do Mercado Livre prioriza quem entrega uma boa experiência. Vendedores com reputação verde aparecem nas primeiras páginas. Se a sua reputação cai para amarelo ou vermelho, o site "esconde" seus anúncios.</p>
+                                
+                                <h3>2. Descontos no Frete (Mercado Envios)</h3>
+                                <p>Este é um dos benefícios mais práticos para o seu lucro:</p>
                                 <ul>
-                                    <li>Meta: 95% em 24h úteis</li>
-                                    <li>Etiqueta no mesmo dia</li>
+                                    <li>Vendedores Verde/MercadoLíder: Ganham descontos significativos (que podem chegar a 50%) nas etiquetas de frete grátis em produtos acima de um determinado valor.</li>
+                                    <li>Se você perder a reputação, o custo do frete grátis fica muito mais caro para você, reduzindo sua margem de lucro.</li>
                                 </ul>
                                 
-                                <h3>Pilar 2: Produto Conforme</h3>
+                                <h3>3. Confiança e Taxa de Conversão</h3>
+                                <p>O comprador moderno raramente clica em anúncios de vendedores com reputação duvidosa.</p>
                                 <ul>
-                                    <li>Meta: &lt; 1% divergência</li>
-                                    <li>Fotos reais, descrição exata</li>
+                                    <li>O selo verde transmite segurança.</li>
+                                    <li>Aumenta a conversão: o cliente sente que não terá problemas com o envio ou com a qualidade do produto.</li>
                                 </ul>
                                 
-                                <h3>Pilar 3: Atenda Bem</h3>
-                                <ul>
-                                    <li>Resposta em &lt; 12h</li>
-                                    <li>Se cordial e profissional</li>
-                                </ul>
+                                <h3>4. Acesso ao Mercado Crédito</h3>
+                                <p>O Mercado Livre oferece linhas de crédito e empréstimos para vendedores expandirem seus negócios. No entanto, o acesso a essas taxas e capitais é exclusivo para quem mantém uma trajetória de vendas sólida e uma reputação impecável.</p>
                                 
-                                <div class="box box-atencao">
-                                    <h4><i class="fas fa-exclamation-triangle"></i> Perdem Estrelas</h4>
-                                    <p>• Envio após 48h | • Produto diferente | • Não responder</p>
-                                    <p><strong>&lt; 3★ = suspensão automática!</strong></p>
+                                <h3>5. Participação em Campanhas</h3>
+                                <p>Para participar de grandes eventos como Black Friday, Dia do Consumidor ou "Ofertas Relâmpago", o Mercado Livre exige que o vendedor seja, no mínimo, reputação verde. Sem isso, você fica de fora das maiores datas de faturamento do ano.</p>
+                                
+                                <div class="box box-dica">
+                                    <h4><i class="fas fa-lightbulb"></i> Como a reputação é calculada em 2026?</h4>
+                                    <p>O Mercado Livre olha para três pilares principais:</p>
+                                    <ul>
+                                        <li><strong>Vendas com Reclamações:</strong> Devem ser menos de 1% do total de vendas.</li>
+                                        <li><strong>Tempo de Postagem:</strong> Você deve postar o produto dentro do prazo (geralmente 24h úteis) para evitar o índice de atraso.</li>
+                                        <li><strong>Vendas Canceladas:</strong> O índice de cancelamentos feitos por você deve ser baixíssimo (menos de 0,5%).</li>
+                                    </ul>
                                 </div>
                                 
-<h3>Níveis</h3>
-                                <ul>
-                                    <li>⭐ Iniciante: 0-49 vendas</li>
-                                    <li>⭐⭐ Mercado Líder: 50-199</li>
-                                    <li>⭐⭐⭐ Gold: 200-999</li>
-                                    <li>⭐⭐⭐⭐ Platinum: 1000+</li>
-                                </ul>
+                                <div class="box box-atencao">
+                                    <h4><i class="fas fa-star"></i> Dica de Ouro</h4>
+                                    <p>Se você está começando agora, foque em fazer as primeiras 10 vendas o mais rápido possível (mesmo que com margem baixa) para ativar o seu termômetro e começar a subir no ranking.</p>
+                                </div>
                             </div>
                         `
                     }
@@ -817,15 +999,15 @@
                         conteudo: `
                             <div class="content">
                                 <h3>Arquitetura de Segurança 2026</h3>
-                                <p>O Mercado Livretem múltiplas camadas de proteção contra ataques e fraudes:</p>
+                                <p>O Mercado Livre tem múltiplas camadas de proteção contra ataques e fraudes:</p>
                                 
                                 <h3>🛡️ Camada 1: Autenticação</h3>
                                 <ul>
                                     <li><strong>Verificação em 2 Fatores (2FA):</strong> Obrigatória para vendedores</li>
                                     <li><strong>Biometria:</strong> Facial e digital no app</li>
                                     <li><strong>Google Authenticator:</strong> Códigos temporários</li>
-                                    <li><strong>SMS:</strong> Códigos por mensaje</li>
-                                    <li><strong>Tokens físicos:</strong> Para contas empresariales</li>
+                                    <li><strong>SMS:</strong> Códigos por mensagem</li>
+                                    <li><strong>Tokens físicos:</strong> Para contas empresariais</li>
                                 </ul>
                                 
                                 <div class="box box-dica">
@@ -837,7 +1019,7 @@
                                 <ul>
                                     <li><strong>Login Social:</strong> Google, Apple (verificação extra)</li>
                                     <li><strong>Senha forte:</strong> Mínimo 8 caracteres, letras + números + símbolos</li>
-                                    <li><strong>E-mail verificado:</strong> Confirmación em 2 etapas</li>
+                                    <li><strong>E-mail verificado:</strong> Confirmação em 2 etapas</li>
                                     <li><strong>Telefone cadastrado:</strong> Para recuperação</li>
                                     <li><strong>Perguntas de segurança:</strong> Para casos extremos</li>
                                 </ul>
@@ -846,9 +1028,9 @@
                                 <ul>
                                     <li><strong>IA de detecção:</strong> Machine learning analisa padrões</li>
                                     <li><strong>Geolocalização:</strong> Detecta logins suspeitos</li>
-                                    <li><strong>Dispositivo reconhecido:</strong> Rastreia aparelhos conocidos</li>
-                                    <li><strong>Histórico de aksesos:</strong> Lista de dispositivos</li>
-                                    <li><strong>Alertas em tempo real:</strong> Notificaciones de atividades</li>
+                                    <li><strong>Dispositivo reconhecido:</strong> Rastreia aparelhos conhecidos</li>
+                                    <li><strong>Histórico de acessos:</strong> Lista de dispositivos</li>
+                                    <li><strong>Alertas em tempo real:</strong> Notificações de atividades</li>
                                 </ul>
                                 
                                 <div class="box box-info">
@@ -912,12 +1094,12 @@
                                     <li><strong>FakeGenerator:</strong> Pagamentos falsos</li>
                                     <li><strong>Chargeback:</strong> Estorno indevido</li>
                                     <li><strong>Contas fake:</strong> Perfis falsos</li>
-                                    <li><strong>Extors��o:</strong> Ameaças de投诉</li>
+                                    <li><strong>Extorsão:</strong> Ameaças de reclamação</li>
                                 </ul>
                                 
                                 <h3>Para Compradores</h3>
                                 <ul>
-                                    <li><strong>Produto não enviado:</strong> Golpe classique</li>
+                                    <li><strong>Produto não enviado:</strong> Golpe clássico</li>
                                     <li><strong>Produto diferente:</strong> Fotos enganosas</li>
                                     <li><strong>Conta clonada:</strong> Vendedor fake</li>
                                     <li><strong>Links fraudulentos:</strong> Sites falsos ML</li>
@@ -927,7 +1109,7 @@
                                     <h4><i class="fas fa-shield-alt"></i> Proteção ML</h4>
                                     <p>• <strong>Mercado Pago:</strong> Protege compradores e vendedores</p>
                                     <p>• <strong>Compra Garantida:</strong> Reembolso automático</p>
-                                    <p>• <strong>Seguro:</strong> Cobertura contra daños</p>
+                                    <p>• <strong>Seguro:</strong> Cobertura contra danos</p>
                                     <p>• <strong>Central de Atendimento:</strong> Suporte 24/7</p>
                                 </div>
                                 
@@ -935,7 +1117,7 @@
                                 <ul>
                                     <li>Verifique perfil do comprador/vendedor</li>
                                     <li>Leia avaliações e comentários</li>
-                                    <li>Use только Mercado Pago</li>
+                                    <li>Use apenas Mercado Pago</li>
                                     <li>Guarde comprovantes</li>
                                     <li>Comunique-se só pelo ML</li>
                                     <li>Denuncie perfis suspeitos</li>
@@ -948,7 +1130,7 @@
                         conteudo: `
                             <div class="content">
                                 <h3>🔑 Conta Hackeada?</h3>
-                                <p><strong>Siga estos passos imediatamente:</strong></p>
+                                <p><strong>Siga estes passos imediatamente:</strong></p>
                                 
                                 <ol>
                                     <li><strong>Altere a senha:</strong> Em outro dispositivo</li>
@@ -969,7 +1151,7 @@
                                 <ul>
                                     <li>CPF ou CNPJ cadastrado</li>
                                     <li>E-mail original da conta</li>
-                                    <li>Telekphone de cadastro</li>
+                                    <li>Telefone de cadastro</li>
                                     <li>Últimas transações realizadas</li>
                                     <li>Descrição do problema</li>
                                 </ul>
@@ -978,7 +1160,7 @@
                                 <ul>
                                     <li>Use gerenciador de senhas</li>
                                     <li>Ative 2FA HOJE</li>
-                                    <li>Revise permissions de apps</li>
+                                    <li>Revise permissões de apps</li>
                                     <li>Verifique sessões ativas</li>
                                     <li>Atualize recuperação de e-mail</li>
                                 </ul>
@@ -1005,7 +1187,11 @@
             document.getElementById('slideTitle').innerText = s.titulo;
             document.getElementById('slideNum').innerText = slideAtual + 1;
             document.getElementById('slideTotal').innerText = m.slides.length;
-            document.getElementById('slideContent').innerHTML = s.conteudo;
+            document.getElementById('slideContent').innerHTML = s.conteudo + 
+                '<div class="box box-contato">' +
+                '<h4><i class="fab fa-whatsapp"></i> Dúvidas?</h4>' +
+                '<p>Entre em contato pelo WhatsApp: <a href="https://wa.me/message/FK22NAQD3VGQE1" target="_blank">Clique aqui</a></p>' +
+                '</div>';
             
             var total = 0, atual = 0;
             for(var i=0; i<modulos.length; i++) {
@@ -1051,6 +1237,83 @@
 
         criarBotoes();
         mostrarSlide();
+        
+        var isCadastro = false;
+        
+        function toggleCadastro(e) {
+            e.preventDefault();
+            isCadastro = !isCadastro;
+            
+            var camposCadastro = document.getElementById('camposCadastro');
+            var loginSubtitle = document.getElementById('loginSubtitle');
+            var btnSubmit = document.getElementById('btnSubmit');
+            var toggleText = document.getElementById('toggleText');
+            var toggleAction = document.getElementById('toggleAction');
+            
+            if(isCadastro) {
+                camposCadastro.style.display = 'block';
+                loginSubtitle.textContent = 'Crie sua conta';
+                btnSubmit.textContent = 'Cadastrar';
+                toggleText.textContent = 'Já tem conta?';
+                toggleAction.textContent = 'Faça login';
+            } else {
+                camposCadastro.style.display = 'none';
+                loginSubtitle.textContent = 'Faça login para continuar';
+                btnSubmit.textContent = 'Entrar';
+                toggleText.textContent = 'Não tem conta?';
+                toggleAction.textContent = 'Cadastre-se';
+            }
+            document.getElementById('loginError').textContent = '';
+        }
+        
+        function getUsers() {
+            var users = localStorage.getItem('users');
+            if(users) {
+                return JSON.parse(users);
+            } else {
+                return [{login: 'admin', senha: 'curso2026', nome: 'Administrador'}];
+            }
+        }
+        
+        function saveUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
+            var nome = document.getElementById('nome').value;
+            var users = getUsers();
+            
+            if(isCadastro) {
+                var userExists = users.some(function(u) { return u.login === login; });
+                if(userExists) {
+                    document.getElementById('loginError').textContent = 'Login já existe!';
+                } else if(login.length < 3 || senha.length < 3) {
+                    document.getElementById('loginError').textContent = 'Login e senha precisam de 3+ caracteres';
+                } else {
+                    users.push({login: login, senha: senha, nome: nome || login});
+                    saveUsers(users);
+                    document.getElementById('loginOverlay').classList.add('hidden');
+                    localStorage.setItem('logged', 'true');
+                    localStorage.setItem('userName', nome || login);
+                }
+            } else {
+                var user = users.find(function(u) { return u.login === login && u.senha === senha; });
+                if(user) {
+                    document.getElementById('loginOverlay').classList.add('hidden');
+                    localStorage.setItem('logged', 'true');
+                    localStorage.setItem('userName', user.nome);
+                } else {
+                    document.getElementById('loginError').textContent = 'Login ou senha incorretos';
+                }
+            }
+        });
+        
+        if(localStorage.getItem('logged') === 'true') {
+            document.getElementById('loginOverlay').classList.add('hidden');
+        }
     </script>
 </body>
 </html>
