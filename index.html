@@ -563,18 +563,10 @@
             <h2>Curso Mercado Livre</h2>
             <p id="loginSubtitle">Faça login para continuar</p>
             
-            <button type="button" class="github-btn" onclick="loginGitHub()">
-                <i class="fab fa-github"></i> Entrar com GitHub
-            </button>
-            
-            <div class="divider"><span>ou</span></div>
-            
             <form id="loginForm">
-                <div id="camposCadastro" style="display: none;">
-                    <input type="text" id="nome" placeholder="Seu nome" required>
-                </div>
-                <input type="text" id="login" placeholder="Login" required>
-                <input type="password" id="senha" placeholder="Senha" required>
+                <input type="text" id="nome" placeholder="Seu nome" style="display:none;">
+                <input type="text" id="login" placeholder="Login (mínimo 3 caracteres)" required>
+                <input type="password" id="senha" placeholder="Senha (mínimo 3 caracteres)" required>
                 <button type="submit" class="login-btn" id="btnSubmit">Entrar</button>
             </form>
             
@@ -1293,23 +1285,23 @@
         var isCadastro = false;
         
         function toggleCadastro(e) {
-            e.preventDefault();
+            if(e) e.preventDefault();
             isCadastro = !isCadastro;
             
-            var camposCadastro = document.getElementById('camposCadastro');
+            var nomeInput = document.getElementById('nome');
             var loginSubtitle = document.getElementById('loginSubtitle');
             var btnSubmit = document.getElementById('btnSubmit');
             var toggleText = document.getElementById('toggleText');
             var toggleAction = document.getElementById('toggleAction');
             
             if(isCadastro) {
-                camposCadastro.style.display = 'block';
+                nomeInput.style.display = 'block';
                 loginSubtitle.textContent = 'Crie sua conta';
                 btnSubmit.textContent = 'Cadastrar';
                 toggleText.textContent = 'Já tem conta?';
                 toggleAction.textContent = 'Faça login';
             } else {
-                camposCadastro.style.display = 'none';
+                nomeInput.style.display = 'none';
                 loginSubtitle.textContent = 'Faça login para continuar';
                 btnSubmit.textContent = 'Entrar';
                 toggleText.textContent = 'Não tem conta?';
@@ -1334,32 +1326,34 @@
         
         async function apiRequest(url, data) {
             try {
-                console.log('Enviando para:', url, 'dados:', data);
-                const baseUrl = window.location.origin;
-                const fullUrl = url.startsWith('http') ? url : baseUrl + url;
-                console.log('URL completa:', fullUrl);
-                
-                const response = await fetch(fullUrl, {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-                const result = await response.json();
-                console.log('Resposta:', result);
-                return result;
+                return await response.json();
             } catch(e) {
-                console.error('Erro na requisição:', e);
                 return { erro: 'Erro de conexão: ' + e.message };
             }
         }
         
         document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            var login = document.getElementById('login').value;
-            var senha = document.getElementById('senha').value;
-            var nome = document.getElementById('nome').value;
-            var errorEl = document.getElementById('loginError');
-            var btnSubmit = document.getElementById('btnSubmit');
+            const login = document.getElementById('login').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+            const nome = document.getElementById('nome').value.trim();
+            const errorEl = document.getElementById('loginError');
+            const btnSubmit = document.getElementById('btnSubmit');
+            
+            if(login.length < 3 || senha.length < 3) {
+                errorEl.textContent = 'Login e senha precisam de 3+ caracteres';
+                return;
+            }
+            
+            if(isCadastro && nome.length < 2) {
+                errorEl.textContent = 'Preencha o nome completo';
+                return;
+            }
             
             errorEl.textContent = '';
             btnSubmit.disabled = true;
@@ -1367,29 +1361,21 @@
             
             try {
                 if(isCadastro) {
-                    if(!nome) {
-                        errorEl.textContent = 'Preencha o nome';
-                        btnSubmit.disabled = false;
-                        btnSubmit.textContent = 'Cadastrar';
-                        return;
-                    }
-                    var ret = await apiRequest('/api/register', { nome, login, senha });
+                    const ret = await apiRequest('/api/register', { nome, login, senha });
                     if(ret.erro) {
                         errorEl.textContent = ret.erro;
                     } else {
-                        alert('Cadastro realizado com sucesso!');
-                        document.getElementById('loginOverlay').classList.add('hidden');
-                        localStorage.setItem('logged', 'true');
-                        localStorage.setItem('userName', nome || login);
+                        alert('Cadastro realizado com sucesso! Agora faça login.');
+                        toggleCadastro(new Event('click'));
                     }
                 } else {
-                    var ret = await apiRequest('/api/login', { login, senha });
+                    const ret = await apiRequest('/api/login', { login, senha });
                     if(ret.erro) {
                         errorEl.textContent = ret.erro;
                     } else {
                         document.getElementById('loginOverlay').classList.add('hidden');
                         localStorage.setItem('logged', 'true');
-                        localStorage.setItem('userName', ret.nome);
+                        localStorage.setItem('userName', ret.nome || login);
                     }
                 }
             } catch(e) {
